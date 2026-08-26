@@ -346,6 +346,69 @@ story.append(blist([
     "<b>Lead with the conflicting stage names</b> if the room doubts the project is needed &mdash; it&rsquo;s "
     "evidence from their own documents and takes fifteen seconds.",
 ]))
+story.append(PageBreak())
+
+# 9 CALCULATIONS REFERENCE (exactly as in the workbook)
+fxcell = ParagraphStyle("fx", fontName="Courier", fontSize=7.7, leading=10.2, textColor=HexColor("#0E7C86"))
+
+
+def fx(s):
+    return Paragraph(s, fxcell)
+
+
+story.append(sec("9&nbsp;&nbsp;Calculations reference — exactly as in the workbook"))
+story.append(P("Every Task-1 figure is a <b>live Excel formula</b> against the Data sheet (rows 2:3058) &mdash; "
+               "nothing is typed. These are the actual formulas used, reproduced so you can defend any number. "
+               "Column letters are the Data-sheet columns each metric reads.", body))
+story.append(P("9.1&nbsp;&nbsp;Data columns used", h2))
+dcol = [["Field", "Col", "Field", "Col"],
+        ["NES 2021&ndash;2025", "B, C, D, E, F", "Total opportunities", "AC"],
+        ["NES 2026 (Q1 only)", "G", "Emails sent / opened", "AD / AE"],
+        ["CAGR (supplied)", "M", "POT-C (vs communicated date)", "AG"],
+        ["Lost / In-prog / Won opps", "X / Y / Z", "POT-AR (vs requested date)", "AI"],
+        ["Stopped / Open opps", "AA / AB", "Opportunity conversion", "AN"],
+        ["Sales/Mktg/Firm missing flag", "AO / AP / AQ", "SBU / Segment (cluster_name)", "AJ / BA"]]
+story.append(tbl(dcol, [USABLE * 0.29, USABLE * 0.19, USABLE * 0.33, USABLE * 0.19]))
+story.append(P("Helper column Analysis_EDA!N = per-customer 5-year NES = SUM(Data!B:F) for each row; concentration "
+               "and per-customer totals build on it.", small))
+
+story.append(P("9.2&nbsp;&nbsp;EDA calculations (tables T1&ndash;T5 on Analysis_EDA)", h2))
+eda = [["Metric", "Formula (as in the workbook)"],
+       ["NES per year (EUR m)", fx('=SUM(Data!&lt;col&gt;2:3058)/1000000')],
+       ["Customers billing (that year)", fx('=COUNTIFS(Data!&lt;col&gt;2:3058,"&lt;&gt;0")')],
+       ["Avg per billing customer (EUR k)", fx('=NES_m*1000/customers_billing')],
+       ["Year-on-year growth", fx('=this_year/prior_year - 1')],
+       ["Per-customer 5-yr NES (helper N)", fx('=SUM(Data!B:F)   [one row per customer]')],
+       ["Top-N concentration (EUR m)", fx('=SUMPRODUCT(LARGE(N4:N3060,ROW(INDIRECT("1:N"))))/1e6')],
+       ["Top-N % of total NES", fx('=top_N_NES / SUM(N4:N3060)')],
+       ["Segment: customer count", fx('=COUNTIF(Data!BA, segment)')],
+       ["Segment: 5-yr NES (EUR m)", fx('=(SUMIF(BA,seg,B)+ ... +SUMIF(BA,seg,F))/1e6')],
+       ["Segment: avg CAGR", fx('=AVERAGEIF(Data!BA, seg, Data!M)')],
+       ["Segment: avg win rate", fx('=AVERAGEIFS(AN, BA,seg, AC,"&gt;0")')],
+       ["Segment: customers ever emailed", fx('=COUNTIFS(BA,seg, AD,"&gt;0")')],
+       ["Field completeness", fx('have=COUNTIF(flag,0); miss=COUNTIF(flag,1); %=have/(have+miss)')],
+       ["Delivery coverage (POT-AR)", fx('=COUNTIF(Data!AI,"&gt;0") / 3057')],
+       ["Pipeline counts", fx('=SUM(Data!Z) , SUM(Data!X) , SUM(Data!Y) , SUM(AA) , SUM(AB)')],
+       ["Win rate on decided deals", fx('=Won/(Won+Lost)')]]
+story.append(tbl(eda, [USABLE * 0.34, USABLE * 0.66]))
+
+story.append(P("9.3&nbsp;&nbsp;Top-10 per-customer calculations (Analysis_Top10; INDEX/MATCH on customer ID)", h2))
+t10 = [["Metric", "Formula (as in the workbook)"],
+       ["NES 2021&ndash;25 (EUR m)", fx('=(INDEX(B)+INDEX(C)+INDEX(D)+INDEX(E)+INDEX(F))/1e6  via MATCH(id)')],
+       ["% of total NES", fx('=NES*1e6 / SUM(Analysis_EDA!N4:N3060)')],
+       ["2025 vs 2024", fx('=2025_NES/2024_NES - 1   (INDEX F / INDEX E - 1)')],
+       ["Q1-26 annualised vs 2025", fx('=2026_NES*4/2025_NES - 1   (INDEX G *4 / INDEX F - 1)')],
+       ["CAGR 21&ndash;25 %", fx('=INDEX(Data!M)   [CAGR as supplied in Data]')],
+       ["Total opps / Won / Lost", fx('=INDEX(Data!AC) / INDEX(Data!Z) / INDEX(Data!X)')],
+       ["Win rate", fx('=Won/(Won+Lost)')],
+       ["POT-AR / POT-C", fx('=IF(INDEX(AI or AG)=0,"no data", value)')],
+       ["Emails sent / opened", fx('=INDEX(Data!AD) / INDEX(Data!AE)')]]
+story.append(tbl(t10, [USABLE * 0.3, USABLE * 0.7]))
+story.append(P("Note on the &lsquo;no data&rsquo; guard: a 0.00 in POT-AR / POT-C is treated as missing, not as 0% "
+               "on-time (Assumption A4) &mdash; hence the IF() wrapper. CAGR is taken as supplied (Data col M); "
+               "the data-quality log flags that its window is 2021&ndash;25, not the 3 years the Definitions "
+               "claim.", small))
+
 story.append(Spacer(1, 6))
 story.append(P("Prep note: this pack synthesises the case brief, the dataset, the Analysis_Approach / EDA / "
                "Top-10 working, and the Case_Study_QA &amp; Slide talk-track from the workbook. Every Task-1 "
