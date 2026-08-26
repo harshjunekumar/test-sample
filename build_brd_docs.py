@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Two companion PDFs for the Spotify India engagement BRD:
-  1) Simplified BRD  - plain, human language you can walk stakeholders through.
-  2) Explainer       - talking points / how to present it to stakeholders.
+  1) Simplified BRD - plain, human language, using the official checklist
+     headers from the problem statement (all 16 sections).
+  2) Explainer      - talking points / how to present it to stakeholders.
 Problem framing only; no solutions.
 """
 from reportlab.lib.pagesizes import A4
@@ -25,18 +26,18 @@ USABLE = PAGE_W - 2 * M
 
 title_style = ParagraphStyle("t", fontName="Helvetica-Bold", fontSize=23, leading=27, textColor=NAVY, spaceAfter=3)
 subtitle_style = ParagraphStyle("st", fontName="Helvetica", fontSize=12.5, leading=16, textColor=GREY, spaceAfter=9)
-h1 = ParagraphStyle("h1", fontName="Helvetica-Bold", fontSize=14, leading=17, textColor=NAVY, spaceBefore=13, spaceAfter=2)
-body = ParagraphStyle("b", fontName="Helvetica", fontSize=10.4, leading=14.6, textColor=black, alignment=TA_JUSTIFY, spaceAfter=6)
+h1 = ParagraphStyle("h1", fontName="Helvetica-Bold", fontSize=13, leading=16, textColor=NAVY, spaceBefore=11, spaceAfter=2)
+body = ParagraphStyle("b", fontName="Helvetica", fontSize=10.2, leading=14.2, textColor=black, alignment=TA_JUSTIFY, spaceAfter=5.5)
 body_l = ParagraphStyle("bl", parent=body, alignment=TA_LEFT)
-bullet = ParagraphStyle("bu", fontName="Helvetica", fontSize=10.3, leading=14, textColor=black, leftIndent=13, bulletIndent=3, spaceAfter=3.5)
-cell = ParagraphStyle("c", fontName="Helvetica", fontSize=9.4, leading=12.4, textColor=black)
-cellw = ParagraphStyle("cw", fontName="Helvetica-Bold", fontSize=9.4, leading=12.4, textColor=white)
+bullet = ParagraphStyle("bu", fontName="Helvetica", fontSize=10.1, leading=13.6, textColor=black, leftIndent=13, bulletIndent=3, spaceAfter=3)
+cell = ParagraphStyle("c", fontName="Helvetica", fontSize=9.3, leading=12.2, textColor=black)
+cellw = ParagraphStyle("cw", fontName="Helvetica-Bold", fontSize=9.3, leading=12.2, textColor=white)
 small = ParagraphStyle("sm", fontName="Helvetica-Oblique", fontSize=8.6, leading=11.5, textColor=GREY, spaceAfter=4)
-callout = ParagraphStyle("co", fontName="Helvetica", fontSize=10.6, leading=14.6, textColor=NAVY, leftIndent=9, rightIndent=9, spaceBefore=2, spaceAfter=2)
-calloutb = ParagraphStyle("cob", fontName="Helvetica-Bold", fontSize=11, leading=15, textColor=NAVY, leftIndent=9, rightIndent=9, spaceBefore=2, spaceAfter=2)
+callout = ParagraphStyle("co", fontName="Helvetica", fontSize=10.4, leading=14.2, textColor=NAVY, leftIndent=9, rightIndent=9, spaceBefore=2, spaceAfter=2)
+calloutb = ParagraphStyle("cob", fontName="Helvetica-Bold", fontSize=10.8, leading=14.6, textColor=NAVY, leftIndent=9, rightIndent=9, spaceBefore=2, spaceAfter=2)
 
 
-def rule(c=GREEN, th=1.4, sb=1, sa=7):
+def rule(c=GREEN, th=1.4, sb=1, sa=6):
     return HRFlowable(width="100%", thickness=th, color=c, spaceBefore=sb, spaceAfter=sa)
 
 
@@ -108,121 +109,184 @@ def build(path, title, header, story):
 
 
 # ==========================================================================
-# 1) SIMPLIFIED BRD
+# 1) SIMPLIFIED BRD  (official checklist headers, plain content, all sections)
 # ==========================================================================
 s = []
 s.append(rule(GREEN, 3, 0, 9))
-s.append(P("Spotify India — Getting People to Listen More", title_style))
-s.append(P("Business Requirements Document (Simplified) · The engagement &amp; listening-time problem", subtitle_style))
+s.append(P("Spotify India — User Engagement &amp; Listening Time", title_style))
+s.append(P("Business Requirements Document (Simplified) · Problem framing only — no solutions", subtitle_style))
 s.append(rule(NAVY, 1, 0, 8))
 s.append(P("<b>Version</b> 1.0 (Draft) &nbsp;&bull;&nbsp; <b>Date</b> August 2026 &nbsp;&bull;&nbsp; "
            "<b>By</b> Juhi Bhalla &nbsp;&bull;&nbsp; <b>For</b> Design, Engineering &amp; Strategy", body_l))
-s.append(box([P("This is the plain-language version of our BRD. It defines the problem we&rsquo;re solving and "
-                "why &mdash; <b>not</b> the solution. We&rsquo;ll get to ideas and features later; first we all "
-                "need to agree on the problem.", callout)]))
+s.append(box([P("This is the plain-language version of the BRD. It follows the same sections as the full "
+                "document and defines the problem we&rsquo;re solving and why &mdash; <b>not</b> the solution. "
+                "Ideas and features come later; first we agree on the problem. Figures marked <b>[M1]</b> come "
+                "from Milestone&nbsp;1 research.", callout)]))
 
-s.append(sec("The short version"))
-s.append(P("India is one of Spotify&rsquo;s <b>biggest audiences but smallest earners</b>. The single most "
-           "powerful lever we have is <b>engagement</b> &mdash; how much time people actually spend listening. "
-           "It&rsquo;s a simple chain: <b>more listening &rarr; people stick around &rarr; sticking around is "
-           "what earns money</b> (ads for free users, subscriptions for premium)."))
-s.append(P("Today, a lot of Indian listeners aren&rsquo;t building the daily habit. Often the music "
-           "doesn&rsquo;t feel relevant enough (wrong language, mood, or moment), the app can feel heavy on "
-           "data, or free options like YouTube already feel &lsquo;good enough.&rsquo; So people listen a "
-           "little, drift away, and don&rsquo;t come back as often as they could."))
-s.append(P("This document lays that problem out clearly so design, engineering, and strategy start from the "
-           "same page. (The specific numbers come from our Milestone&nbsp;1 research &mdash; marked "
-           "<b>[M1]</b> where they go.)"))
+s.append(sec("1&nbsp;&nbsp;Executive Summary Snapshot"))
+s.append(P("India is one of Spotify&rsquo;s <b>biggest audiences but smallest earners</b>. Our strongest lever "
+           "is <b>engagement</b> &mdash; how much time people spend listening. It&rsquo;s a simple chain: "
+           "<b>more listening &rarr; people stay &rarr; staying is what earns money</b> (ads for free users, "
+           "subscriptions for premium)."))
+s.append(P("Today, many Indian listeners aren&rsquo;t building the daily habit &mdash; the music can feel off "
+           "(wrong language, mood, or moment), the app heavy on data, or free options like YouTube "
+           "&lsquo;good enough.&rsquo; This document defines that problem so design, engineering, and strategy "
+           "start from the same page. <b>[M1: Spotify India listening-time findings]</b>"))
 
-s.append(sec("What we&rsquo;re trying to achieve"))
+s.append(sec("2&nbsp;&nbsp;Project Description"))
+s.append(P("<b>What this is:</b> a shared, plain-language definition of Spotify India&rsquo;s engagement / "
+           "listening-time problem, building on Milestone&nbsp;1 research."))
+s.append(P("<b>What we&rsquo;re trying to achieve.</b> The <b>business goal</b>: earn more and lose fewer users "
+           "from a huge audience. The <b>product goal</b>: more <b>time spent listening</b> per person (more "
+           "active days, longer sessions, more often). In one line: the product goal (listening time) is how we "
+           "reach the business goal (revenue + retention). Chasing installs or sign-ups alone measures vanity, "
+           "not value."))
+
+s.append(sec("3&nbsp;&nbsp;Project Scope (In-Scope / Out-of-Scope)"))
+sc = [["In-scope", "Out-of-scope"],
+      [P("&bull; Defining the engagement / listening-time problem for <b>India</b>.<br/>"
+         "&bull; <b>Free</b> and <b>premium</b> users; mobile-first.<br/>"
+         "&bull; Segments, personas, journeys and Jobs-to-be-Done.<br/>"
+         "&bull; Problem-focused requirements, KPIs, assumptions.", cell),
+       P("&bull; Solutions, features, or UI (later milestones).<br/>"
+         "&bull; Pricing / packaging or content-licensing changes.<br/>"
+         "&bull; Markets outside India; backend re-architecture.<br/>"
+         "&bull; Marketing creative or vendor/tool selection.", cell)]]
+s.append(tbl(sc, [USABLE * 0.5, USABLE * 0.5]))
+
+s.append(sec("4&nbsp;&nbsp;Business Drivers"))
+s.append(P("Why this is urgent now:"))
 s.append(blist([
-    "<b>The business goal (the why):</b> earn more and lose fewer users, by getting more value out of a huge "
-    "audience.",
-    "<b>The product goal (what we&rsquo;ll actually move):</b> more <b>time spent listening</b> per person &mdash; "
-    "more days active, longer sessions, more often.",
+    "A <b>large but low-earning audience</b> &mdash; growth needs engagement, not just sign-ups.",
+    "<b>Retention economics:</b> without a listening habit, cheaply-acquired users churn to free rivals.",
+    "<b>Competition for attention</b> (JioSaavn, Wynk, YouTube Music, Apple/Amazon, and free YouTube) &mdash; "
+    "it&rsquo;s a share-of-ear battle.",
+    "<b>Revenue is tied to listening:</b> ad income scales with time spent; premium value and conversion depend "
+    "on habitual usefulness.",
 ]))
-s.append(P("In one line: <b>the product goal (listening time) is how we reach the business goal (revenue and "
-           "retention).</b> If we only chase installs or sign-ups, we&rsquo;re measuring vanity, not value."))
 
-s.append(sec("Who we&rsquo;re solving for"))
-s.append(P("India isn&rsquo;t one audience &mdash; it&rsquo;s many. People differ by <b>city vs town, free vs "
-           "paid, age, and language</b>, and each listens differently. Three quick stand-ins:"))
+s.append(sec("5&nbsp;&nbsp;Current Process (Spotify Engagement Patterns and Listening Behaviors)"))
+s.append(P("How people listen today:"))
+s.append(blist([
+    "Mostly on the <b>free tier</b>, on <b>budget Android phones</b>, often on limited data / patchy internet.",
+    "Music is usually a <b>companion</b> to something else &mdash; commute, work, chores, workouts, sleep.",
+    "<b>Regional-language</b> repertoire drives a lot of listening; relevance to a user&rsquo;s language matters.",
+    "When recommendations miss (language / mood / moment), people fall back to search, known songs, or "
+    "competitors &mdash; and sessions get shorter.",
+]))
+s.append(P("India isn&rsquo;t one audience &mdash; it differs by <b>city vs town, free vs paid, age, and "
+           "language</b>. Three quick stand-ins:"))
 per = [["Person", "In plain words", "What they really want (their &lsquo;job&rsquo;)"],
        [P("<b>Aditya</b><br/>Gen&nbsp;Z, city, free", cell), P("College student, metro, budget phone, limited "
-          "data, likes what&rsquo;s trending.", cell), P("&ldquo;On my commute or with friends, give me "
-          "effortless, on-trend music &mdash; don&rsquo;t make me search.&rdquo;", cell)],
-       [P("<b>Meera</b><br/>Millennial, Tier-2, free", cell), P("Working professional, smaller city, prefers "
-          "her regional language, watches her data.", cell), P("&ldquo;While I work or do chores, play familiar "
-          "regional music that just works and doesn&rsquo;t eat my data.&rdquo;", cell)],
+          "data, likes what&rsquo;s trending.", cell), P("&ldquo;On my commute or with friends, effortless, "
+          "on-trend music &mdash; don&rsquo;t make me search.&rdquo;", cell)],
+       [P("<b>Meera</b><br/>Millennial, Tier-2, free", cell), P("Working professional, smaller city, prefers her "
+          "regional language, watches data.", cell), P("&ldquo;While I work or do chores, familiar regional "
+          "music that just works and saves data.&rdquo;", cell)],
        [P("<b>Rohan</b><br/>Millennial, city, premium", cell), P("Busy urban professional, several devices, "
-          "playlists + podcasts.", cell), P("&ldquo;When I focus or relax, give me reliable, spot-on listening "
-          "across my devices without fiddling.&rdquo;", cell)]]
+          "playlists + podcasts.", cell), P("&ldquo;When I focus or relax, reliable, spot-on listening across "
+          "my devices without fiddling.&rdquo;", cell)]]
 s.append(tbl(per, [USABLE * 0.2, USABLE * 0.38, USABLE * 0.42]))
+s.append(P("<b>Where we lose them:</b> weak first-session relevance &rarr; no habit; relevance / continuity "
+           "gaps &rarr; fewer, shorter sessions; friction vs &lsquo;good-enough free&rsquo; &rarr; they switch.",
+           small))
 
-s.append(sec("What&rsquo;s getting in the way"))
-s.append(P("Four honest reasons people don&rsquo;t listen as much as they could:"))
+s.append(sec("6&nbsp;&nbsp;Proposed Process (Framing the Engagement Problem without Prescribing Solutions)"))
+s.append(box([P("<b>Reframe (no solutions).</b> The goal is to <i>increase meaningful listening time</i> by "
+                "reducing friction across four problem areas: <b>Relevance</b> (right content for language, "
+                "mood, moment), <b>Access</b> (data-, device-, network-friendly), <b>Habit</b> (coming back "
+                "and continuing), and <b>Value</b> (free and premium clearly worth it).", callout)]))
+s.append(P("These four become the <b>hypotheses we&rsquo;ll test</b> in Milestone&nbsp;3 &mdash; stated here "
+           "only to make the problem clear and testable, not to pick a solution.", body))
+
+s.append(sec("7&nbsp;&nbsp;Functional Requirements (Problem-Focused)"))
+s.append(P("The <i>needs</i> any future solution must meet (not features):"))
 s.append(blist([
-    "<b>Relevance</b> &mdash; the music we surface doesn&rsquo;t always match their language, mood, or the "
-    "moment, so they lose interest or go elsewhere.",
-    "<b>Access</b> &mdash; data cost, budget phones, and patchy internet make listening feel heavier than it "
-    "should.",
-    "<b>Habit</b> &mdash; without a relevant first experience, people don&rsquo;t build the daily habit, so "
-    "they come back less.",
-    "<b>Value</b> &mdash; free alternatives (especially YouTube) feel &lsquo;good enough,&rsquo; so both our "
-    "free and premium experiences have to clearly earn their place.",
+    "Help users <b>find relevant content easily</b> &mdash; by language, mood, and context.",
+    "Let users <b>keep and resume</b> listening across contexts and devices (continuity).",
+    "Work well for <b>cheap phones, low data, and weak networks</b>.",
+    "Offer a <b>free experience worth choosing</b> over &lsquo;good-enough&rsquo; alternatives.",
+    "Deliver a <b>relevant first session</b> to seed the habit early.",
+    "Let the business <b>measure engagement reliably</b> (listening time, sessions, retention) by segment.",
 ]))
 
-s.append(sec("What we&rsquo;re NOT doing (yet)"))
-s.append(P("So expectations stay clear:"))
+s.append(sec("8&nbsp;&nbsp;Non-Functional Requirements"))
 s.append(blist([
-    "We are <b>defining the problem</b>, not designing the fix &mdash; no features, screens, or ideas yet.",
-    "No pricing, packaging, or content-licensing changes here.",
-    "India only, mobile-first, both free and premium users.",
-    "Solutions come later (Milestone&nbsp;4), <i>after</i> we&rsquo;ve tested our assumptions.",
+    "<b>Fast</b> and smooth on low-to-mid-range Android devices.",
+    "<b>Light on data</b> and graceful on weak / intermittent connectivity.",
+    "<b>Reliable</b> and available; consistent offline / online.",
+    "<b>Multilingual</b> UI and content across Hindi and major regional languages.",
+    "<b>Scales</b> for peaks (festivals, releases, sale events).",
+    "<b>Private &amp; compliant</b> with Indian data / content rules; well-instrumented for metrics.",
 ]))
 
-s.append(sec("What &lsquo;good&rsquo; looks like"))
-s.append(P("Our <b>North Star</b> &mdash; the one number that best shows we&rsquo;re delivering value &mdash; is "
-           "<b>time spent listening</b> (minutes per active user per day). It rolls up simply:"))
-s.append(box([P("<b>More listening time &rarr; better retention (people stay) &rarr; more money (ad revenue + "
-                "premium conversion, higher ARPU/LTV).</b>", calloutb)]))
-s.append(P("The handful of things we&rsquo;ll watch:"))
+s.append(sec("9&nbsp;&nbsp;Assumptions and Constraints"))
+s.append(P("<b>Assumptions:</b> Milestone&nbsp;1 findings hold; most users start on free; language relevance and "
+           "affordability matter; listening time is a fair early signal of retention and revenue; usage is "
+           "mobile-first.", body))
+s.append(P("<b>Constraints:</b> low willingness to pay; varied devices and connectivity; catalogue / licensing "
+           "we can&rsquo;t change here; strong free competition; evolving Indian data rules; cross-team, "
+           "multi-time-zone working.", body))
+
+s.append(sec("10&nbsp;&nbsp;Success Criteria &amp; KPIs"))
+s.append(box([P("<b>North Star:</b> <b>Time spent listening</b> (minutes per active user per day). It rolls up: "
+                "<b>more listening &rarr; better retention &rarr; more money</b> (ad revenue + premium "
+                "conversion, higher ARPU / LTV).", calloutb)]))
+s.append(P("The few things we&rsquo;ll watch:"))
 s.append(blist([
-    "<b>Listening time</b> per active user (our North Star), by segment.",
-    "<b>Stickiness &amp; sessions:</b> daily vs monthly actives, sessions a day, how long each lasts.",
-    "<b>Retention:</b> how many come back after 7 and 30 days; how many churn.",
+    "<b>Listening time</b> per active user (North Star), by segment.",
+    "<b>Stickiness &amp; sessions:</b> daily vs monthly actives, sessions/day, session length.",
+    "<b>Retention:</b> return after 7 and 30 days; churn.",
     "<b>Money signals:</b> ad listening hours, free&rarr;premium conversion, revenue per user.",
 ]))
-s.append(P("Actual starting points and targets come from Milestone&nbsp;1 <b>[M1]</b> &mdash; we&rsquo;ll set "
-           "them together.", small))
+s.append(P("Baselines and targets come from Milestone&nbsp;1 <b>[M1]</b> &mdash; set together.", small))
 
-s.append(sec("What we&rsquo;re assuming, and what&rsquo;s fixed"))
-s.append(P("<b>We&rsquo;re assuming:</b> our Milestone&nbsp;1 findings hold; most Indian users start on free; "
-           "language relevance and affordability really matter; and listening time is a fair early signal of "
-           "retention and revenue.", body))
-s.append(P("<b>What&rsquo;s fixed (constraints):</b> low willingness to pay, varied devices and connectivity, "
-           "catalogue/licensing we can&rsquo;t change here, strong free competition, evolving Indian data "
-           "rules, and a cross-team, multi-time-zone way of working.", body))
+s.append(sec("11&nbsp;&nbsp;Timeline &amp; Milestones"))
+tl = [["Milestone", "Focus", "Status"],
+      ["M1 — Research", "Market, competitor &amp; user research; why engagement matters", P("<b>Done</b>", cell)],
+      ["M2 — BRD (this)", "Problem definition, scope, framing, KPIs", P("<b>In review</b>", cell)],
+      ["M3 — Discovery", "Test the four hypotheses; user research; sizing", "Upcoming"],
+      ["M4 — PRD &amp; design", "Solution requirements &amp; design (solutions start here)", "Upcoming"]]
+s.append(tbl(tl, [USABLE * 0.26, USABLE * 0.54, USABLE * 0.2]))
 
-s.append(sec("Who&rsquo;s involved"))
-s.append(P("Product (owns the framing), Design &amp; UX Research (users, personas, journeys), Engineering "
-           "(what&rsquo;s feasible, performance &amp; data), Data/Analytics (the metrics and baselines), "
-           "Marketing/Growth, Content &amp; Regional teams (language relevance), and Strategy/Leadership "
-           "(the business goals)."))
+s.append(sec("12&nbsp;&nbsp;Stakeholders"))
+s.append(P("<b>Product</b> (owns the framing), <b>Design &amp; UX Research</b> (users, personas, journeys), "
+           "<b>Engineering</b> (feasibility, performance, data), <b>Data / Analytics</b> (metrics, baselines), "
+           "<b>Marketing / Growth</b>, <b>Content &amp; Regional</b> teams (language relevance), and "
+           "<b>Strategy / Leadership</b> (business goals)."))
 
-s.append(sec("A few terms, in plain English"))
+s.append(sec("13&nbsp;&nbsp;(Optional) Cost &amp; Benefit"))
+s.append(P("<b>Cost of doing nothing:</b> continued low listening time &rarr; weak retention &rarr; churn to "
+           "free rivals; suppressed ad inventory and premium conversion; lost ground in a strategic market. "
+           "<b>Benefit of solving it:</b> more listening &rarr; stronger retention &rarr; more ad and "
+           "subscription revenue &rarr; better ARPU / LTV and a defensible position in India. Detailed "
+           "financials to be modelled after validation <b>[M1 / M3]</b>."))
+
+s.append(sec("14&nbsp;&nbsp;Glossary"))
 gl = [["Term", "Plain meaning"],
       ["Engagement", "How actively people use the app &mdash; here, mostly how much they listen."],
       ["North Star metric", "The one number that best shows we&rsquo;re delivering value: <b>listening time</b>."],
       ["KPI tree", "A simple map of how listening time rolls up into retention, then money."],
       ["Retention / churn", "How many people keep coming back vs how many leave."],
-      ["ARPU / LTV", "How much money an average user brings in &mdash; per period, and over their whole time with us."],
+      ["ARPU / LTV", "Revenue from an average user &mdash; per period, and over their whole time with us."],
       ["Job-to-be-Done", "The real reason someone plays music &mdash; the &lsquo;job&rsquo; they hire it for."]]
 s.append(tbl(gl, [USABLE * 0.24, USABLE * 0.76]))
-s.append(Spacer(1, 6))
-s.append(P("<b>The bottom line:</b> if we help people listen a little more &mdash; by making it more relevant, "
-           "easier to access, and worth the habit &mdash; retention and revenue follow. That&rsquo;s the whole "
-           "game. Solutions come next; agreeing on this problem comes first.", body))
+
+s.append(sec("15&nbsp;&nbsp;References"))
+s.append(P("Directional market context draws on public sources &mdash; IFPI <i>Global Music Report</i>, "
+           "FICCI&ndash;EY <i>Indian M&amp;E Report</i>, RedSeer streaming reports, and Spotify investor / "
+           "press materials &mdash; plus the reader&rsquo;s Milestone&nbsp;1 research. <b>Cite the exact "
+           "reports / editions used in Milestone&nbsp;1 for every specific figure.</b>", body))
+
+s.append(sec("16&nbsp;&nbsp;Appendix"))
+s.append(P("<b>Data to fill from Milestone&nbsp;1 [M1]:</b> Spotify India listening-time baselines by segment; "
+           "free vs premium split; urban/rural and language mix; competitor engagement benchmarks; market size, "
+           "growth and ARPU. Every <b>[M1]</b> marker in this document shows where your numbers and citations "
+           "go.", body))
+s.append(Spacer(1, 4))
+s.append(P("<b>The bottom line:</b> if we help people listen a little more &mdash; more relevant, easier to "
+           "access, worth the habit &mdash; retention and revenue follow. That&rsquo;s the whole game. "
+           "Solutions come next; agreeing on this problem comes first.", body))
 
 build("/home/user/test-sample/BRD_Spotify_India_Simplified.pdf",
       "Spotify India BRD (Simplified)", "BRD (Simplified) — Spotify India Engagement", s)
@@ -260,17 +324,18 @@ e.append(blist([
 ]))
 
 e.append(sec("One-line talking points, section by section"))
-tp = [["BRD section", "Say this in one line", "Why it&rsquo;s there"],
-      ["Executive summary", "&ldquo;Here&rsquo;s the problem and why it matters, in a paragraph.&rdquo;", "Sets the frame fast."],
-      ["Scope (in/out)", "&ldquo;We&rsquo;re defining the problem, not the fix &mdash; here&rsquo;s what&rsquo;s in and out.&rdquo;", "Prevents scope creep."],
-      ["Business drivers", "&ldquo;These forces make this urgent now.&rdquo;", "Answers &lsquo;why now.&rsquo;"],
-      ["Current process", "&ldquo;This is how people listen today &mdash; and where we lose them.&rdquo;", "Grounded in reality (personas + journey)."],
-      ["Proposed process", "&ldquo;We&rsquo;re reframing it as four problems: relevance, access, habit, value.&rdquo;", "Framing, not solutions."],
-      ["Requirements", "&ldquo;These are the needs any solution must address &mdash; still no features.&rdquo;", "Problem-focused."],
-      ["Success &amp; KPIs", "&ldquo;Our North Star is listening time; here&rsquo;s how it maps to money.&rdquo;", "How we&rsquo;ll know it worked."],
-      ["Assumptions/constraints", "&ldquo;Here&rsquo;s what we&rsquo;re assuming and what&rsquo;s fixed.&rdquo;", "Honest about limits."],
-      ["Stakeholders", "&ldquo;Here&rsquo;s who owns and informs each part.&rdquo;", "Clear roles."]]
-e.append(tbl(tp, [USABLE * 0.24, USABLE * 0.5, USABLE * 0.26]))
+tp = [["BRD section (as in the brief)", "Say this in one line", "Why it&rsquo;s there"],
+      ["Executive Summary Snapshot", "&ldquo;The problem and why it matters, in a paragraph.&rdquo;", "Sets the frame fast."],
+      ["Project Description", "&ldquo;What this is, and the goal we&rsquo;re after.&rdquo;", "Business + product goal."],
+      ["Project Scope (In/Out)", "&ldquo;We&rsquo;re defining the problem, not the fix.&rdquo;", "Prevents scope creep."],
+      ["Business Drivers", "&ldquo;These forces make it urgent now.&rdquo;", "Answers &lsquo;why now.&rsquo;"],
+      ["Current Process", "&ldquo;How people listen today &mdash; and where we lose them.&rdquo;", "Grounded (personas + journey)."],
+      ["Proposed Process", "&ldquo;Reframed as four problems: relevance, access, habit, value.&rdquo;", "Framing, not solutions."],
+      ["Functional / Non-Functional Requirements", "&ldquo;The needs any solution must meet &mdash; no features yet.&rdquo;", "Problem-focused."],
+      ["Success Criteria &amp; KPIs", "&ldquo;North Star is listening time; here&rsquo;s how it maps to money.&rdquo;", "How we&rsquo;ll know it worked."],
+      ["Assumptions and Constraints", "&ldquo;What we&rsquo;re assuming and what&rsquo;s fixed.&rdquo;", "Honest about limits."],
+      ["Stakeholders", "&ldquo;Who owns and informs each part.&rdquo;", "Clear roles."]]
+e.append(tbl(tp, [USABLE * 0.28, USABLE * 0.46, USABLE * 0.26]))
 
 e.append(sec("The &lsquo;fancy words,&rsquo; in plain English"))
 e.append(P("If someone looks puzzled, here&rsquo;s how to explain each term simply:"))

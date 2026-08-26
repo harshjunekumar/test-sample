@@ -128,7 +128,7 @@ story.append(P("Note on data: Quantitative market context below is directional a
 story.append(PageBreak())
 
 # ---------------------------------------------------------------- 1 EXEC SUMMARY
-story.append(sec("1", "Executive Summary (Snapshot)"))
+story.append(sec("1", "Executive Summary Snapshot"))
 story.append(P("India is one of Spotify&rsquo;s largest markets by users yet among its lowest by revenue per "
                "user, making <b>engagement</b> &mdash; specifically <b>time spent listening</b> &mdash; the "
                "pivotal lever for the business. Time spent listening is a leading indicator of retention and, "
@@ -183,7 +183,7 @@ story.append(P("<b>Guiding principle.</b> Product outcomes (e.g., listening time
                "explicitly linked via the KPI tree in &sect;10.", body))
 
 # ---------------------------------------------------------------- 3 SCOPE
-story.append(sec("3", "Project Scope"))
+story.append(sec("3", "Project Scope (In-Scope / Out-of-Scope)"))
 sc = [["In-Scope", "Out-of-Scope"],
       [P("&bull; Defining the engagement / listening-time problem for the <b>Indian</b> market.<br/>"
          "&bull; Both <b>free/ad-supported</b> and <b>premium</b> tiers.<br/>"
@@ -229,7 +229,7 @@ story.append(tbl(bd, [USABLE * 0.26, USABLE * 0.74]))
 story.append(PageBreak())
 
 # ---------------------------------------------------------------- 5 CURRENT PROCESS
-story.append(sec("5", "Current Process &mdash; Engagement Patterns &amp; Listening Behaviors"))
+story.append(sec("5", "Current Process (Spotify Engagement Patterns and Listening Behaviors)"))
 story.append(P("This section describes the <i>current state</i> of how Indian users engage with Spotify "
                "(and streaming broadly), synthesised from Milestone&nbsp;1 and public sources. It is "
                "descriptive, not evaluative of solutions.", body))
@@ -299,7 +299,7 @@ story.append(tbl(jm, [USABLE * 0.22, USABLE * 0.4, USABLE * 0.38]))
 story.append(PageBreak())
 
 # ---------------------------------------------------------------- 6 PROPOSED PROCESS (framing)
-story.append(sec("6", "Proposed Process &mdash; Framing the Engagement Problem"))
+story.append(sec("6", "Proposed Process (Framing the Engagement Problem without Prescribing Solutions)"))
 story.append(P("Per the brief, this section reframes the challenge as a problem to be solved &mdash; it does "
                "<b>not</b> prescribe features or solutions. The intent is to give teams a shared, testable "
                "framing.", body))
@@ -377,7 +377,7 @@ nfr = [["Category", "Requirement (problem constraint)"],
 story.append(tbl(nfr, [USABLE * 0.24, USABLE * 0.76]))
 
 # ---------------------------------------------------------------- 9 ASSUMPTIONS & CONSTRAINTS
-story.append(sec("9", "Assumptions &amp; Constraints"))
+story.append(sec("9", "Assumptions and Constraints"))
 story.append(P("9.1&nbsp;&nbsp;Assumptions", h2))
 story.append(blist([
     "Milestone&nbsp;1 findings on the Indian market, competitors, and user behaviour are valid inputs to this "
@@ -398,7 +398,7 @@ story.append(blist([
 ]))
 
 # ---------------------------------------------------------------- 10 SUCCESS CRITERIA & KPIs
-story.append(sec("10", "Success Criteria &amp; KPIs (KPI Tree)"))
+story.append(sec("10", "Success Criteria &amp; KPIs"))
 story.append(P("Success is framed around a <b>North Star</b> product metric that is causally linked to "
                "business outcomes. Targets are directional and must be baselined from Milestone&nbsp;1 "
                "<b>[M1]</b>.", body))
@@ -465,7 +465,7 @@ sh = [["Stakeholder", "Interest in the engagement problem", "RACI (M2)"],
 story.append(tbl(sh, [USABLE * 0.28, USABLE * 0.56, USABLE * 0.16]))
 
 # ---------------------------------------------------------------- 13 COST & BENEFIT
-story.append(sec("13", "Cost &amp; Benefit (Optional, Qualitative)"))
+story.append(sec("13", "(Optional) Cost &amp; Benefit"))
 cbt = [["Cost of inaction", "Benefit of solving the engagement problem"],
        [P("Continued low listening time &rarr; weak retention &rarr; churn to free alternatives; suppressed ad "
           "inventory and premium conversion; eroding share-of-ear; under-realised value from a strategic "
