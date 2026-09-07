@@ -2,6 +2,7 @@
 
 **Primary candidate:** Maruti Suzuki Victoris **VXi 1.5 6AT** — 1.5L naturally-aspirated petrol, 6-speed torque-converter automatic, FWD
 **Comparison set:** Midsize / C-segment SUVs offered with a **petrol automatic that is not a strong hybrid**
+**Includes:** a dedicated three-way against the badge-engineered siblings — **Grand Vitara** (Maruti Nexa) and **Urban Cruiser Hyryder** (Toyota) — in §8
 **Research date:** 7 September 2026
 **Prices:** ex-showroom Delhi unless stated
 
@@ -189,7 +190,91 @@ This is where the marketing numbers and reality diverge most sharply. Figures se
 
 ---
 
-## 8. Table F — Customer reviews: pros and cons reported most often
+## 8. The Nexa and Toyota siblings — same car, three badges
+
+This is the most important sub-comparison in the whole document, because these three are **not rivals in the normal sense — they are the same vehicle**. Same K15C engine, same 6-speed torque converter, same 2,600 mm wheelbase, same 210 mm ground clearance, same 215/60 R17 tyres, and all three are built at **Toyota's Bidadi plant in Karnataka**.
+
+| | **Maruti Victoris VXi AT** ⭐ | **Maruti Grand Vitara Delta AT** | **Toyota Urban Cruiser Hyryder G/S AT** |
+|---|---|---|---|
+| **Sales channel** | **Maruti Arena** | **Maruti Nexa** | **Toyota** |
+| Positioning | Arena flagship, value | Nexa premium | Toyota reliability/resale |
+| Launched | 2025 (newest) | 2022 | 2022 |
+| Price (ex-showroom) | **₹13.36 L** | **₹13.50 L** | ~₹13.5–14 L ⚠️ |
+| Engine | 1462cc K15C + 12V ISG | Identical | Identical |
+| Power / torque | 102–103 hp / 139 Nm | 103 hp / 136.8 Nm | 103 hp / 136.8 Nm |
+| Gearbox | 6-speed TC auto | 6-speed TC auto | 6-speed TC auto |
+| ARAI (petrol AT) | **21.06 kmpl** | 20.58 kmpl | ~20.58 kmpl ⚠️ |
+| ARAI (petrol MT) | 21.18 kmpl | 21.11 kmpl | 21.12 kmpl |
+| L × W × H | 4,360 × 1,795 × 1,655 | 4,345 × 1,795 × 1,645 | 4,365 × 1,795 × 1,645 |
+| Wheelbase | 2,600 mm | 2,600 mm | 2,600 mm |
+| Ground clearance | 210 mm | 210 mm | 210 mm |
+| **Boot (petrol)** | **439 L** ⚠️ | **373 L** | **373 L** |
+| Boot (strong hybrid) | ~265 L | 265 L | 265 L |
+| Tyres | 215/60 R17 | 215/60 R17 | 215/60 R17 |
+| **Level 2 ADAS** | **Yes — first ever Maruti** | **No** | **No** |
+| Bharat NCAP | **5★ tested** | **Not tested** | Not tested |
+| Airbags | 6 standard | 6 standard | 6 standard |
+| Base warranty | 2 yr free + 3 yr paid | 2 yr free + 3 yr paid | **3 yr / 1,00,000 km**, extendable to **5 yr / 2,20,000 km** |
+| Hybrid battery warranty | 8 yr / 1,60,000 km | 8 yr / 1,60,000 km | 8 yr / 1,60,000 km |
+
+### 8.1 Why the Victoris is the pick of the three
+
+Maruti launched the Victoris three years after the Grand Vitara, and used the gap to fix the Grand Vitara's weaknesses:
+
+1. **Boot space — 439 L vs 373 L.** A ~66-litre advantage on an identical wheelbase, achieved through packaging changes rather than extra length (the Victoris is only 15 mm longer). See the caveat in §8.4.
+2. **Level 2 ADAS — a Maruti first.** Ten functions, tuned for Indian conditions. Neither the Grand Vitara nor the Hyryder offers ADAS at all.
+3. **Crash-tested and proven.** The Victoris has **5 stars from Bharat NCAP and 5 from Global NCAP**. The Grand Vitara has never been submitted to Bharat NCAP. Same platform, but only one of them has the certificate.
+4. **Cheaper despite more kit.** Victoris ₹10.50–19.99 L vs Grand Vitara ₹10.77–19.66 L, while adding ADAS, LED fog lamps, front parking sensors, a powered tailgate, a better sound system and larger displays.
+5. **Arena reach.** Arena has far more outlets than Nexa, which matters for service access in smaller towns.
+6. **Better ARAI figure** — 21.06 vs 20.58 kmpl on the same powertrain, presumably from calibration and weight differences.
+7. **CNG packaging.** The Victoris is the first Maruti with an **underbody twin CNG tank**, so its CNG variants keep a usable boot where the Grand Vitara's CNG loses most of it. Irrelevant to the VXi AT itself, but it shows the Victoris is the more thoroughly re-engineered car.
+
+**Net:** on the specific brief — petrol, automatic, non-strong-hybrid — the Grand Vitara Delta AT costs **₹14,000 more** than the Victoris VXi AT and gives you a smaller boot, no ADAS, no crash-test certificate and a slightly worse ARAI figure. **There is no rational case for the Nexa car at this trim level** unless you specifically want the Nexa showroom experience or prefer its styling.
+
+### 8.2 The Toyota case — where the Hyryder genuinely wins
+
+The Hyryder is not simply a worse-value rebadge. Owners on Team-BHP who chose it over the Grand Vitara cite concrete, checkable reasons:
+
+- **Warranty structure is materially better.** Toyota gives **3 years / 1,00,000 km standard**, extendable to **5 years / 2,20,000 km** — against Maruti's 2 years free + 3 years paid. Owners also report a further service-centre-level extension after year 5.
+- **Toyota insurance** is reported as the only one offering zero-depreciation cover for 7–9 years, plus a hybrid/battery cover add-on.
+- **Hybrid servicing expertise.** The strong-hybrid technology is Toyota's, and Toyota's network has serviced hybrids in India since the Camry. (This matters much less for the mild-hybrid AT you're considering — there's no traction battery to worry about.)
+- **Resale.** Toyota's reliability reputation supports stronger residuals, though since the Grand Vitara shares the identical Toyota powertrain, the real-world gap is smaller than the badge suggests.
+- **Finish.** Several owners rate the Toyota's cosmetic finishing above the Maruti's.
+
+**Against the Hyryder:** mild-hybrid trims are priced **up to ₹50,000 above** the equivalent Grand Vitara (the relationship inverts on strong hybrids, where the Toyota is ₹50,000 *cheaper*), the dealer network is far smaller than Maruti's, and it carries the same 373 L boot, no ADAS and no Bharat NCAP rating.
+
+### 8.3 What Hyryder owners complain about
+
+Worth knowing, since these apply to the shared powertrain you'd be buying in any of the three:
+
+- **"The engine has only 104 bhp, which feels less… during overtaking or climbing, it feels weak."** This is the *same complaint* levelled at the Victoris. It is a powertrain characteristic, not a badge problem — buying the Toyota or the Nexa car will not fix it.
+- Build-quality gripes: panels reported as damaging easily on light contact.
+- **Limited boot space** — the 373 L that the Victoris improves on.
+- Isolated but serious after-sales complaints: AC and stereo failures within two months, poor resolution.
+- Mileage reality: **13–15 kmpl city, 22+ kmpl highway under 100 km/h** on the mild hybrid — closely matching the Victoris's real-world numbers, as you'd expect from an identical powertrain.
+
+### 8.4 Boot-space caveat
+
+⚠️ **The 439 L Victoris figure is contested.** Multiple independent outlets (Rushlane, TopGear India, Spinny, CarToq) quote **439 L** for the Victoris petrol against 373 L for the Grand Vitara. But some auto-generated comparison pages on ZigWheels and Cars24 list the Victoris at **373 L**, identical to the Grand Vitara.
+
+Assessment: **439 L is the better-supported figure** — it appears in editorial comparisons written by humans, while the 373 L instances appear on database-driven compare pages that plausibly inherited the sibling's value. That said, a 66-litre gain from a 15 mm length increase is a large claim on a shared platform. **Measure it yourself with your actual luggage before making it a deciding factor.**
+
+Separately and more definitively: on **all three cars the strong hybrid drops to ~265 L** because the traction battery sits under the boot floor. Since you're buying the **petrol** VXi AT, you keep the full boot — a real, often-overlooked argument for the non-hybrid within the Victoris range itself.
+
+### 8.5 Three-way recommendation
+
+| If you want… | Buy |
+|---|---|
+| **Best equipment, biggest boot, only crash-tested one, ADAS, lowest price** | **Victoris VXi AT (Arena)** |
+| The Nexa showroom experience or you prefer its styling | Grand Vitara Delta AT — accept smaller boot, no ADAS, no BNCAP rating, ₹14k more |
+| **Longest warranty (5 yr/2.2 lakh km), best resale, Toyota service** | Toyota Hyryder mild-hybrid AT — accept up to ₹50k premium and a smaller network |
+| A *strong* hybrid specifically | **Toyota Hyryder** — ₹50k cheaper than the Maruti equivalent, and Toyota owns the hybrid tech |
+
+**Bottom line on the sibling question:** for the petrol-automatic brief, the **Victoris is the newest and best-equipped of the three at the lowest price**, and it is the only one with a crash-test rating. The Hyryder's warranty is the single strongest counter-argument — if you keep cars 5+ years or drive high mileage, 5 years / 2,20,000 km against Maruti's 2+3 structure is worth real money and may justify the premium. The Grand Vitara is squeezed from both sides and is hard to justify at this trim.
+
+---
+
+## 9. Table F — Customer reviews: pros and cons reported most often
 
 Aggregated from CarDekho user reviews, CarWale reviews, ZigWheels user reviews, Autocar India owner reviews and Team-BHP ownership threads.
 
@@ -199,12 +284,13 @@ Aggregated from CarDekho user reviews, CarWale reviews, ZigWheels user reviews, 
 | Hyundai Creta | • Smooth, refined 1.5 + CVT combination<br>• Spacious, comfortable, solid build feel<br>• Feature-rich top trims (pano roof, dual-zone, cooled seats, ADAS, 360°)<br>• 360° camera "a lifesaver in dense traffic" | • **Poor city economy — 10–12 kmpl, as low as 7.5 in jams**<br>• Underpowered for spirited highway driving<br>• Electrical niggles reported: TPMS failures, boot sensor, AC issues<br>• Paint scratches easily<br>• Ivory upholstery soils fast<br>• Muted steering feedback at speed |
 | Kia Seltos | • **IVT/CVT is smooth and well-tuned for city** — no jerks or lurching<br>• Premium interior materials<br>• Feature-loaded even in lower variants<br>• Excellent AC; handles inclines confidently loaded | • **Very poor city mileage — owners report ~9 kmpl MID readings**<br>• **No auto engine stop-start** (hurts economy)<br>• CVT rubber-band effect under sudden acceleration<br>• Firmer ride over bad patches |
 | Grand Vitara | • Good real-world mileage; stop-start + regen genuinely help in city<br>• **Refined and silent engine**<br>• High seating position, good ride quality<br>• **Very low servicing cost (₹5,000–7,000)**<br>• Strong value for features + efficiency | • Big gap between ARAI and real mileage (−7.13 kmpl)<br>• **Nexa service quality rated worse than Toyota's**<br>• **Only 373 L boot** — 66 L less than Victoris<br>• Minor ergonomic and wiper-quality gripes |
+| Toyota Hyryder | • **Best warranty in the group — 3 yr/1 lakh km, extendable to 5 yr/2.2 lakh km**<br>• Toyota reliability reputation and strong resale<br>• Zero-dep insurance cover offered for 7–9 years<br>• **Excellent highway economy — 22+ kmpl under 100 km/h** on mild hybrid<br>• Proven long-term as "reliable, comfortable and economical"<br>• 6 airbags standard, 360° camera | • **"Only 104 bhp, feels weak during overtaking or climbing"** — same complaint as Victoris, it is the shared powertrain<br>• **Limited boot space (373 L)**<br>• Build quality: panels reported as damaging on light contact<br>• Isolated but serious after-sales failures reported (AC, stereo within 2 months)<br>• Mild-hybrid trims cost up to ₹50k more than the Grand Vitara equivalent<br>• Much smaller dealer network than Maruti<br>• No ADAS, no Bharat NCAP rating |
 | Honda Elevate | • **Most powerful engine here (121 bhp)**<br>• **Highest ground clearance (220 mm)** and biggest boot of the mainstream set (458 L)<br>• Spacious, comfortable, great ride quality<br>• Seamless CVT; good visibility from high seating<br>• Durable — praised at 1.5 lakh km | • **City mileage often just 8–9 kmpl** — the top complaint<br>• **Poor sound insulation — engine and tyre noise "infuriating" at speed**<br>• Rear AC blower weak<br>• **Rear drum brakes**, less smooth braking<br>• Noisy shock absorbers over bad patches<br>• Build quality/cost-cutting concerns raised by some owners |
 | VW Taigun / Skoda Kushaq | • **Best-in-group handling and driving engagement**<br>• Solid European build quality<br>• Lively, responsive 1.0 TSI; strong turbo kick for overtaking<br>• Confidence-inspiring highway manners<br>• Good feature set (pano roof, ventilated seats, digital cluster)<br>• New 8AT shifts imperceptibly | • **Worst real-world economy in the group (~10.4 kmpl vs 20 claimed)**<br>• **Firm suspension — sharp potholes felt much more than in rivals**<br>• Clutch failures reported within a year / under 20k km<br>• DSG long-term stress concerns (1.5 TSI variants)<br>• Smallest cabin (1,760 mm wide), smallest boot (385 L)<br>• Lowest ground clearance (188 mm) |
 
 ---
 
-## 9. Data confidence and conflicts
+## 10. Data confidence and conflicts
 
 Flagged so you can verify rather than be misled.
 
@@ -216,20 +302,25 @@ Flagged so you can verify rather than be misled.
 | **Victoris safety rating** | One user review said "4-star GNCAP platform" | Contradicted by multiple news reports of the actual result: **5★ GNCAP (33.72/34 AOP) and 5★ BNCAP (31.66/32 AOP)**. The user comment is wrong. |
 | **Rival AT variant prices** | Variant-level ex-showroom figures inconsistent | Model *ranges* are reliable; specific comparable-trim prices in §7 are **approximate**. |
 | **Taigun/Kushaq torque** | Not directly retrieved | ~178 Nm is the well-established figure for the 1.0 TSI; stated from established spec, not this session's retrieval. |
+| **Victoris boot space** | **439 L** (Rushlane, TopGear India, Spinny, CarToq) vs **373 L** (ZigWheels/Cars24 compare pages, same as Grand Vitara) | 439 L is better supported — it appears in human-written editorial comparisons, while 373 L shows up on database-driven compare pages that plausibly inherited the sibling's figure. But a 66 L gain from 15 mm extra length on a shared platform is a big claim. **Measure with your own luggage.** See §8.4. |
+| **Strong-hybrid boot** | — | Confirmed at **~265 L** on all three siblings (battery under the boot floor). Does not affect the petrol VXi AT. |
+| **Hyryder petrol AT ARAI** | Sites again return **27.97 kmpl** for "automatic petrol" | Cross-contamination from the strong hybrid, same error as before. The mild-hybrid AT should mirror the Grand Vitara at ~20.58 kmpl. Hyryder MT is confirmed at 21.12 kmpl. |
+| **Grand Vitara ARAI split** | Resolved | **MT 21.11 / AT 20.58 kmpl** — confirmed explicitly. This is what was earlier bleeding into Victoris listings. |
 | **Victoris spare tyre** | Team-BHP flags it as missing | **Confirm on the specific VXi AT** before purchase. |
 
 ---
 
-## 10. Verdict
+## 11. Verdict
 
 ### Where the Victoris VXi AT wins
 
 1. **Fuel efficiency — decisively.** 16.10 kmpl tested overall against 13.33 (Creta), 12.26 (Seltos), 10.45 (Taigun). Roughly ₹30,000+/year saved versus the Korean CVTs at typical usage.
 2. **Safety — uniquely.** The only car in the group with **5 stars from both Bharat NCAP and Global NCAP**, with 6 airbags standard from the base variant.
 3. **Gearbox choice.** A torque converter instead of a CVT — no rubber-band effect, better long-term durability reputation, better traffic manners.
-4. **Ground clearance (210 mm) and boot (439 L).** Beats both Suzuki-platform siblings on boot by 66 L, and beats Creta/Seltos/Taigun on clearance.
+4. **Ground clearance (210 mm) and boot (439 L ⚠️).** Beats Creta/Seltos/Taigun on clearance, and reportedly beats both Suzuki-platform siblings on boot by 66 L — though that boot figure is contested, see §8.4.
 5. **Tyre standardisation.** 215/60 R17 on every variant including the base — nobody else does this.
-6. **Running costs.** Maruti's service network and parts pricing remain the segment benchmark; Grand Vitara owners report ₹5,000–7,000 routine services.
+6. **It beats its own siblings.** Against the Nexa Grand Vitara Delta AT (₹13.50 L) and the Toyota Hyryder mild-hybrid AT, the Victoris is newer, cheaper, better equipped, the only one with Level 2 ADAS, and the only one with a Bharat NCAP rating. See §8.
+7. **Running costs.** Maruti's service network and parts pricing remain the segment benchmark; Grand Vitara owners report ₹5,000–7,000 routine services.
 
 ### Where it loses
 
@@ -239,6 +330,7 @@ Flagged so you can verify rather than be misled.
 4. **Road and tyre noise** at speed, per multiple reviews.
 5. **Size vs the new Seltos.** 100 mm shorter, 90 mm less wheelbase, 35 mm narrower — rear-seat space is a real Seltos advantage.
 6. **Missing convenience kit:** spare tyre, rain-sensing wipers, LED cabin lights, cooled glovebox.
+7. **Warranty is beaten by Toyota.** Maruti's 2 years free + 3 years paid is weaker than the Hyryder's 3 yr / 1,00,000 km extendable to 5 yr / 2,20,000 km. On the identical powertrain, that is the strongest single reason to pay the Toyota premium.
 
 ### Recommendation matrix
 
@@ -251,13 +343,18 @@ Flagged so you can verify rather than be misled.
 | Driving enjoyment and handling | VW Taigun / Skoda Kushaq — but accept ~10.5 kmpl and a firm ride |
 | Biggest boot | Tata Sierra (622 L), then Honda Elevate (458 L), then Victoris (439 L) |
 | Brand cachet and feature theatre | Hyundai Creta or Kia Seltos — pay for it in fuel |
+| **Longest warranty / highest annual mileage / best resale** | **Toyota Urban Cruiser Hyryder** mild-hybrid AT — 5 yr / 2.2 lakh km, at up to ₹50k premium |
+| The Nexa showroom experience specifically | Grand Vitara Delta AT — otherwise hard to justify over the Victoris |
+| A **strong** hybrid | Toyota Hyryder — ₹50k cheaper than the Maruti equivalent, and Toyota owns the tech (but boot falls to ~265 L) |
 | **Avoid if efficiency matters** | Victoris **AllGrip AWD AT** (11.78 kmpl tested) and Taigun/Kushaq 1.0 TSI AT (10.45 kmpl) |
 
 **Bottom line:** on the specific brief — *petrol, automatic, non-strong-hybrid, this segment* — the Victoris VXi AT is the strongest overall package, and it wins on the two things that cost money over a decade of ownership: fuel and safety. Its one genuine weakness is engine performance, and that weakness is real rather than cosmetic. The honest recommendation is to test-drive it fully loaded on a highway before committing, and to seriously price the ZXi AT, because the VXi's omissions are concentrated in exactly the areas owners notice daily.
 
+**On the badge question:** the Victoris also beats its own Nexa and Toyota siblings on this brief. The Grand Vitara Delta AT costs ₹14,000 more for a smaller boot, no ADAS and no crash-test rating. The Hyryder's only real edge is its warranty — and that edge is genuine, so if you keep cars past five years or cover high annual mileage, price the Toyota properly before defaulting to the Maruti.
+
 ---
 
-## 11. Sources
+## 12. Sources
 
 All accessed live, 7 September 2026.
 
@@ -291,6 +388,32 @@ All accessed live, 7 September 2026.
 - [Victoris pros and cons — ZigWheels](https://www.zigwheels.com/news-features/news/maruti-victoris-whats-good-and-not-so-good-about-it/56960/)
 - [Victoris 5-star Global NCAP — Autocar India](https://www.autocarindia.com/car-news/maruti-victoris-secures-5-star-global-ncap-safety-rating-437226)
 - [Victoris 5-star Bharat NCAP — Autocar India](https://www.autocarindia.com/car-news/maruti-suzuki-victoris-scores-5star-safety-rating-at-bharat-ncap-436986)
+
+**Sibling comparison — Arena vs Nexa vs Toyota**
+- [Victoris vs Grand Vitara: exterior and interior differences — Autocar India](https://www.autocarindia.com/auto-features/maruti-victoris-vs-grand-vitara-exterior-interior-differences-explained-437002)
+- [Victoris vs Grand Vitara: which has more features in top trim — Autocar India](https://www.autocarindia.com/auto-features/maruti-victoris-vs-grand-vitara-which-suv-has-more-features-in-top-trim-437038)
+- [Victoris vs Grand Vitara: price, features, dimensions, powertrain — ZigWheels](https://www.zigwheels.com/news-features/spec-comparo/maruti-suzuki-victoris-vs-grand-vitara-which-maruti-suv-deserves-your-money-in-2025/56913/)
+- [Victoris vs Grand Vitara vs Brezza compared — ZigWheels](https://www.zigwheels.com/news-features/spec-comparo/which-maruti-suv-should-you-go-for-maruti-victoris-vs-maruti-grand-vitara-vs-maruti-brezza-compared/56949/)
+- [Victoris vs Grand Vitara: boot space and interiors — Autocar India](https://www.autocarindia.com/advice/which-suv-offers-more-boot-space-and-premium-interiors-grand-vitara-or-maruti-victoris-437023)
+- [Grand Vitara / Victoris hybrid boot space — Autocar India](https://www.autocarindia.com/advice/is-grand-vitara-or-victoris-hybrid-boot-space-smaller-than-3xo-437104)
+- [Victoris vs Creta vs Seltos paper specs — TopGear India](https://www.topgearmag.in/news/cars/maruti-suzuki-victoris-vs-kia-seltos-vs-hyundai-creta)
+- [New Seltos size and engine vs Creta, Victoris, Grand Vitara, Hyryder, Sierra — Rushlane](https://www.rushlane.com/new-kia-seltos-size-engine-vs-rivals-creta-victoris-grand-vitara-hyryder-sierra-12536027.html)
+- [Grand Vitara vs Hyryder: similarities and differences — Autocar India](https://www.autocarindia.com/car-news/maruti-suzuki-grand-vitara-vs-toyota-urban-cruiser-hyryder-how-different-are-they-425160)
+- [Why I chose the Toyota Hyryder over the Maruti Grand Vitara — Team-BHP](https://www.team-bhp.com/news/why-i-chose-buy-toyota-hyryder-over-maruti-grand-vitara)
+- [Grand Vitara vs Hyryder: which sibling would you choose — Team-BHP](https://www.team-bhp.com/forum/suvs-muvs-4x4s/257758-maruti-grand-vitara-vs-toyota-hyryder-sibling-would-you-choose-why.html)
+- [Grand Vitara vs Hyryder hybrid resale and battery life — Autocar India](https://www.autocarindia.com/advice/grand-vitara-vs-hyryder-hybrid-resale-and-battery-life-442014)
+- [Grand Vitara vs Hyryder price comparison — ZigWheels](https://www.zigwheels.com/news-features/hybrid-vehicle-news/maruti-grand-vitara-vs-toyota-hyryder-price-comparison/47200/)
+- [Grand Vitara vs Hyryder — Cars24](https://www.cars24.com/new-cars/compare-cars/maruti-suzuki-grand-vitara-vs-toyota-urban-cruiser-hyryder/)
+- [Grand Vitara Zeta AT — ZigWheels](https://www.zigwheels.com/maruti-suzuki-cars/grand-vitara/zeta-at)
+- [Grand Vitara variants — AckoDrive](https://ackodrive.com/cars/maruti-suzuki-grand-vitara/variants/)
+- [Hyryder variants and prices — Autocar India](https://www.autocarindia.com/cars/toyota/urban-cruiser-hyryder/variants)
+- [Hyryder gets new AWD AT trim — Autocar India](https://www.autocarindia.com/car-news/toyota-urban-cruiser-hyryder-gets-new-awd-at-trim-more-features-435025)
+- [Hyryder user reviews (437) — CarDekho](https://www.cardekho.com/toyota/hyryder/user-reviews)
+- [Hyryder long-term review: reliable, comfortable, economical — Team-BHP](https://www.team-bhp.com/news/toyota-hyryder-long-term-review-reliable-comfortable-and-economical)
+- [Why I chose the Grand Vitara over Creta, Seltos, Elevate, Kushaq — Team-BHP](https://www.team-bhp.com/news/why-i-chose-grand-vitara-over-creta-seltos-elevate-kushaq)
+- [Grand Vitara mileage — Autocar India](https://www.autocarindia.com/cars-mileage/maruti-suzuki/grand-vitara)
+- [What Victoris offers that Creta and Seltos don't — CarToq](https://www.cartoq.com/car-news/maruti-victoris-vs-hyundai-creta-vs-kia-seltos-comparison/)
+- [Victoris vs Seltos comparison — Spinny](https://www.spinny.com/blog/comparison-maruti-suzuki-victoris-vs-kia-seltos/)
 
 **Rivals**
 - [Creta specifications — Autocar India](https://www.autocarindia.com/cars/hyundai/creta/specifications)
