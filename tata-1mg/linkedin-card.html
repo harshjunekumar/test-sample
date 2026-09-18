@@ -1,0 +1,115 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+:root{
+  --ink:#10222A; --ink2:#44616B; --muted:#7D949B; --line:#D3DEE0; --soft:#E7EEEF; --panel:#F2F7F7;
+  --acc:#D9541F; --s1:#D9541F; --s2:#2F4E9E; --s3:#00806B; --s4:#8A3E8F; --crit:#C0392B;
+  --sans:"Bricolage Grotesque","Liberation Sans",sans-serif;
+  --serif:"Source Serif 4","Liberation Serif",Georgia,serif;
+  --mono:"IBM Plex Mono","DejaVu Sans Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;height:1500px;background:#fff;font-family:var(--serif);color:var(--ink);overflow:hidden}
+.card{width:1200px;height:1500px;display:flex;flex-direction:column}
+
+/* header */
+.hero{background:var(--ink);color:#F2F7F7;padding:38px 64px 32px;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+  background:linear-gradient(90deg,var(--s1) 0 72%,var(--s2) 72% 85%,var(--s3) 85% 96%,var(--s4) 96% 100%)}
+.eyebrow{font-family:var(--mono);font-size:15px;letter-spacing:.24em;text-transform:uppercase;color:#E09773;margin-bottom:16px}
+h1{font-family:var(--sans);font-weight:700;font-size:56px;line-height:1.03;letter-spacing:-.028em;max-width:19ch}
+h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:#F0A47E}
+.sub{font-size:21px;line-height:1.38;color:#A8C0C6;margin-top:14px;max-width:52ch}
+.sub b{color:#F2F7F7;font-weight:600}
+
+/* body */
+.body{padding:26px 64px 0;flex:1;display:flex;flex-direction:column;gap:18px}
+.lbl{font-family:var(--mono);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.lbl::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* tree */
+.eq{font-family:var(--mono);font-size:19px;color:var(--ink2);background:var(--panel);border:1px solid var(--soft);
+  padding:11px 18px;border-radius:6px;margin-bottom:13px}
+.eq em{font-style:normal;color:var(--acc);font-weight:600}
+.lines{display:grid;gap:7px}
+.ln{display:flex;align-items:center;gap:14px}
+.ln .nm{font-family:var(--sans);font-weight:600;font-size:20px;width:225px;flex:none}
+.ln .nm span{display:block;font-family:var(--mono);font-size:13px;font-weight:400;color:var(--muted);margin-top:2px}
+.ln .b{height:24px;border-radius:2px 4px 4px 2px}
+.ln .amt{font-family:var(--mono);font-size:20px;font-weight:600;white-space:nowrap}
+.ln .amt i{font-style:normal;color:var(--muted);font-size:15px;font-weight:400;margin-left:8px}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.fact{border-top:4px solid var(--crit);padding-top:13px}
+.fact h3{font-family:var(--sans);font-weight:600;font-size:21px;line-height:1.2;margin-bottom:7px}
+.fact p{font-size:17.5px;line-height:1.38;color:var(--ink2)}
+
+/* levers */
+.bars{display:grid;gap:9px}
+.row{display:flex;align-items:center;gap:16px}
+.row .rk{font-family:var(--mono);font-size:15px;color:var(--muted);width:16px;flex:none}
+.row .nm{font-size:19px;width:392px;flex:none;line-height:1.22}
+.row .nm span{font-family:var(--mono);font-size:14px;color:var(--muted);display:block;margin-top:2px}
+.row .bar{height:26px;background:var(--acc);border-radius:2px 5px 5px 2px}
+.row .v{font-family:var(--mono);font-size:20px;font-weight:600;white-space:nowrap}
+
+/* result */
+.result{background:var(--panel);border-top:4px solid var(--acc);margin-top:auto;padding:22px 64px 20px;
+  display:flex;align-items:center;gap:38px}
+.result .big{font-family:var(--sans);font-weight:700;font-size:47px;letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.result .big small{font-size:23px;font-weight:500;color:var(--ink2)}
+.result .big em{font-style:normal;color:var(--acc)}
+.result .txt{font-size:20px;line-height:1.38;color:var(--ink2);flex:1}
+.result .txt b{color:var(--ink);font-weight:600}
+.note{font-family:var(--mono);font-size:13.5px;color:var(--muted);line-height:1.5;padding:10px 64px 13px;border-top:1px solid var(--line)}
+</style></head><body>
+<div class="card">
+
+  <div class="hero">
+    <div class="eyebrow">Case study · Tata 1mg · Growth diagnosis</div>
+    <h1>Tata 1mg doesn't have a traffic problem. It has a <em>refill</em> problem.</h1>
+    <p class="sub">A patient on metformin, glimepiride and a statin should generate <b>12 refills a year.</b> Most platforms capture seven or eight. That gap — not a shortage of traffic — is where the next ₹40 Cr a month lives.</p>
+  </div>
+
+  <div class="body">
+
+    <div>
+      <div class="lbl">The KPI tree starts with an identity, not a mystery</div>
+      <div class="eq">Monthly revenue = <em>Σ</em> ( MTU <em>×</em> orders per user <em>×</em> AOV <em>×</em> net realisation )</div>
+      <div class="lines">
+        <div class="ln"><div class="nm">Pharmacy<span>~22% product margin</span></div><div class="b" style="width:519px;background:var(--s1)"></div><div class="amt">₹136.5 Cr<i>71.8%</i></div></div>
+        <div class="ln"><div class="nm">Diagnostics<span>~55% gross margin</span></div><div class="b" style="width:95px;background:var(--s2)"></div><div class="amt">₹25.0 Cr<i>13.2%</i></div></div>
+        <div class="ln"><div class="nm">Wellness &amp; OTC<span>~35% gross margin</span></div><div class="b" style="width:80px;background:var(--s3)"></div><div class="amt">₹21.0 Cr<i>11.1%</i></div></div>
+        <div class="ln"><div class="nm">Ancillary<span>ads, consult, offline, B2B</span></div><div class="b" style="width:29px;background:var(--s4)"></div><div class="amt">₹7.5 Cr<i>3.9%</i></div></div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><h3>Chronic is an annuity that leaks</h3><p>A missed refill month isn't deferred revenue. The patient walks to the chemist downstairs and the habit resets.</p></div>
+      <div class="fact"><h3>Out-of-stock is silent churn</h3><p>One short line splits the basket — the patient needs all three strips together, so the whole order goes offline.</p></div>
+      <div class="fact"><h3>The molecule already names the test</h3><p>Metformin implies HbA1c every 90 days. Pharmacy knows the molecule; diagnostics carries twice the margin.</p></div>
+    </div>
+
+    <div>
+      <div class="lbl">Seven levers, ranked by monthly rupees</div>
+      <div class="bars">
+        <div class="row"><span class="rk">1</span><div class="nm">Chronic auto-refill engine<span>orders per user  1.30 → 1.42</span></div><div class="bar" style="width:317px"></div><span class="v">+₹12.6 Cr</span></div>
+        <div class="row"><span class="rk">2</span><div class="nm">Diagnostics protocol cross-sell<span>labs penetration  6% → 11%</span></div><div class="bar" style="width:199px"></div><span class="v">+₹7.9 Cr</span></div>
+        <div class="row"><span class="rk">3</span><div class="nm">Care Plan penetration<span>subscriber share  4% → 9%</span></div><div class="bar" style="width:158px"></div><span class="v">+₹6.3 Cr</span></div>
+        <div class="row"><span class="rk">4</span><div class="nm">Rx → OTC &amp; private-label attach<span>AOV  ₹1,180 → ₹1,225</span></div><div class="bar" style="width:143px"></div><span class="v">+₹5.7 Cr</span></div>
+        <div class="row"><span class="rk">5</span><div class="nm">Retail media on Rx intent<span>ad revenue per order  ₹25 → ₹47</span></div><div class="bar" style="width:103px"></div><span class="v">+₹4.1 Cr</span></div>
+        <div class="row"><span class="rk">6</span><div class="nm">Line fill rate &amp; cart substitution<span>fill rate  91% → 96%</span></div><div class="bar" style="width:93px"></div><span class="v">+₹3.7 Cr</span></div>
+        <div class="row"><span class="rk">7</span><div class="nm">Personalised discount depth<span>net realisation  89.0% → 90.5%</span></div><div class="bar" style="width:63px"></div><span class="v">+₹2.5 Cr</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="result">
+    <div class="big">₹190 Cr <em>→</em> ₹230 Cr <small>/ month</small></div>
+    <div class="txt">About <b>+20% in four quarters</b>, net of overlap between levers. Roughly <b>64% of it comes from patients already on the platform</b> — frequency, basket and fill rate. Four of the seven levers need <b>zero incremental CAC.</b></div>
+  </div>
+  <div class="note">Figures are an illustrative, internally consistent model — not Tata 1mg's reported financials, which aren't public at this granularity. The structure is the point: swap in actuals and the tree, the levers and the ranking all still hold.</div>
+
+</div></body></html>
