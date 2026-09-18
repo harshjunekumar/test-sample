@@ -1,0 +1,880 @@
+<title>Tata 1mg Revenue Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --ground:#EDF1F2; --surface:#FFFFFF; --surface-2:#F5F8F8; --surface-3:#E7EEEF;
+  --ink:#10222A; --ink-2:#44616B; --muted:#78939B;
+  --line:#D3DEE0; --line-soft:#E4EBEC;
+  --accent:#D9541F;
+  --s1:#D9541F; --s2:#2F4E9E; --s3:#00806B; --s4:#8A3E8F;
+  --good:#0A8F0A; --warn:#B4700A; --crit:#C0392B;
+  --shadow:0 1px 2px rgba(16,34,42,.06), 0 8px 24px -16px rgba(16,34,42,.30);
+  --sans:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0A1417; --surface:#12242A; --surface-2:#162C33; --surface-3:#1B343C;
+    --ink:#E9F1F2; --ink-2:#A8C0C6; --muted:#83999F;
+    --line:#243B41; --line-soft:#1C3138;
+    --accent:#E0713F;
+    --s1:#E0713F; --s2:#6E92E4; --s3:#22A06E; --s4:#B06BB8;
+    --good:#0CA30C; --warn:#FAB219; --crit:#E66767;
+    --shadow:0 1px 2px rgba(0,0,0,.40), 0 10px 28px -18px rgba(0,0,0,.80);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0A1417; --surface:#12242A; --surface-2:#162C33; --surface-3:#1B343C;
+  --ink:#E9F1F2; --ink-2:#A8C0C6; --muted:#83999F;
+  --line:#243B41; --line-soft:#1C3138;
+  --accent:#E0713F;
+  --s1:#E0713F; --s2:#6E92E4; --s3:#22A06E; --s4:#B06BB8;
+  --good:#0CA30C; --warn:#FAB219; --crit:#E66767;
+  --shadow:0 1px 2px rgba(0,0,0,.40), 0 10px 28px -18px rgba(0,0,0,.80);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:var(--serif); font-size:16.5px; line-height:1.62;
+  margin:0; padding-block:0 72px; padding-left:20px; padding-right:20px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px; margin:0 auto}
+.prose{max-width:66ch}
+h1,h2,h3,h4{font-family:var(--sans); font-weight:600; text-wrap:balance; margin:0}
+h2{font-size:clamp(1.45rem,1.15rem + 1.1vw,2rem); letter-spacing:-.018em; line-height:1.15}
+h3{font-size:1.07rem; letter-spacing:-.008em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+.eyebrow{
+  font-family:var(--mono); font-size:.685rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); margin:0 0 .55rem;
+}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.sec{padding-block:clamp(38px,5vw,62px); border-top:1px solid var(--line)}
+.sec-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:.2rem 1rem; margin-bottom:1.5rem}
+.sec-head .kicker{font-family:var(--mono); font-size:.72rem; color:var(--muted); letter-spacing:.04em}
+
+/* ---------- masthead ---------- */
+header.mast{padding-block:clamp(40px,6vw,76px) clamp(28px,3.5vw,44px)}
+.mast .tag{
+  display:inline-flex; align-items:center; gap:.5rem; font-family:var(--mono);
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent);
+  border:1px solid var(--line); background:var(--surface); border-radius:999px;
+  padding:.36rem .72rem; margin-bottom:1.15rem;
+}
+.mast .tag::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--accent)}
+h1{
+  font-size:clamp(2.15rem,1.3rem + 3.6vw,3.65rem); line-height:1.02; letter-spacing:-.032em;
+  font-weight:700; max-width:17ch; margin-bottom:.7rem;
+}
+h1 em{font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:-.01em}
+.deck{font-size:clamp(1.05rem,.98rem + .35vw,1.24rem); color:var(--ink-2); max-width:58ch; margin:0}
+.byline{
+  margin-top:1.6rem; padding-top:1rem; border-top:1px solid var(--line);
+  font-family:var(--mono); font-size:.73rem; color:var(--muted);
+  display:flex; flex-wrap:wrap; gap:.4rem 1.4rem;
+}
+
+/* ---------- baseline strip ---------- */
+.strip{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+  background:var(--line); gap:1px; border:1px solid var(--line); border-radius:10px; overflow:hidden;
+  margin-top:2.3rem;
+}
+.stat{background:var(--surface); padding:1.05rem 1.15rem 1.15rem}
+.stat .k{font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:.5rem}
+.stat .v{font-family:var(--sans); font-weight:600; font-size:1.62rem; letter-spacing:-.022em; line-height:1; display:block}
+.stat .v small{font-size:.92rem; font-weight:500; color:var(--ink-2); letter-spacing:0}
+.stat .n{font-family:var(--serif); font-size:.86rem; color:var(--ink-2); display:block; margin-top:.42rem; line-height:1.4}
+
+/* ---------- charts ---------- */
+.fig{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.25rem 1.3rem 1.35rem; box-shadow:var(--shadow)}
+.fig-title{font-family:var(--sans); font-weight:600; font-size:1rem; letter-spacing:-.008em; margin:0 0 .18rem}
+.fig-sub{font-size:.85rem; color:var(--ink-2); margin:0 0 1.1rem; line-height:1.45}
+.stack{display:flex; gap:2px; height:44px; margin-bottom:.7rem}
+.stack span{
+  display:block; border-radius:2px; position:relative; cursor:default;
+  transition:filter .14s ease;
+}
+.stack span:first-child{border-radius:4px 2px 2px 4px}
+.stack span:last-child{border-radius:2px 4px 4px 2px}
+.stack span:hover,.stack span:focus-visible{filter:brightness(1.08); outline:none; box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink-2)}
+.legend{display:flex; flex-wrap:wrap; gap:.45rem 1.25rem; font-size:.84rem; color:var(--ink-2)}
+.legend i{width:11px; height:11px; border-radius:3px; display:inline-block; margin-right:.42rem; vertical-align:-1px}
+.legend b{font-family:var(--mono); font-weight:600; font-size:.8rem; color:var(--ink); margin-left:.35rem}
+.bars{display:grid; gap:.52rem}
+.bar-row{display:grid; grid-template-columns:minmax(0,1fr); gap:.2rem}
+@media (min-width:620px){ .bar-row{grid-template-columns:230px minmax(0,1fr); gap:.9rem; align-items:center} }
+.bar-lab{font-size:.865rem; color:var(--ink); line-height:1.3}
+.bar-lab u{text-decoration:none; font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-right:.4rem}
+.bar-track{display:flex; align-items:center; gap:.6rem}
+.bar-fill{height:17px; border-radius:2px 4px 4px 2px; background:var(--accent); min-width:3px; transition:filter .14s ease}
+.bar-fill:hover,.bar-fill:focus-visible{filter:brightness(1.1); outline:none; box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink-2)}
+.bar-val{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:.82rem; font-weight:500; white-space:nowrap}
+.axis{margin-top:.85rem; padding-top:.5rem; border-top:1px solid var(--line-soft); font-family:var(--mono); font-size:.7rem; color:var(--muted); display:flex; justify-content:space-between}
+#tip{
+  position:fixed; z-index:50; pointer-events:none; opacity:0; transition:opacity .1s ease;
+  background:var(--ink); color:var(--ground); font-family:var(--mono); font-size:.72rem; line-height:1.5;
+  padding:.42rem .6rem; border-radius:6px; max-width:240px; box-shadow:0 6px 20px rgba(0,0,0,.28);
+}
+#tip b{color:var(--surface); font-weight:600}
+
+/* ---------- footprint ---------- */
+.fp-group{margin-bottom:2.1rem}
+.fp-group > h3{
+  display:flex; align-items:baseline; gap:.7rem; margin-bottom:.15rem;
+  font-size:.78rem; font-family:var(--mono); font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--zone);
+}
+.fp-group > h3::after{content:""; flex:1; height:1px; background:var(--line)}
+.fp-note{font-size:.88rem; color:var(--ink-2); margin:0 0 1rem; max-width:62ch}
+.fp-grid{display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(272px,1fr))}
+.actor{
+  background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--zone);
+  border-radius:4px 10px 10px 4px; padding:1rem 1.05rem 1.05rem; display:flex; flex-direction:column; gap:.6rem;
+}
+.actor h4{font-size:.99rem; letter-spacing:-.01em; line-height:1.25}
+.actor h4 span{display:block; font-family:var(--mono); font-size:.66rem; font-weight:400; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:.28rem}
+.field{font-size:.87rem; line-height:1.48}
+.field > b{
+  font-family:var(--mono); font-size:.63rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); font-weight:500; display:block; margin-bottom:.12rem;
+}
+.jtbd{font-style:italic; color:var(--ink-2); border-left:2px solid var(--line); padding-left:.7rem}
+.kpis{display:flex; flex-wrap:wrap; gap:.3rem; margin-top:auto; padding-top:.15rem}
+.kpis span{
+  font-family:var(--mono); font-size:.685rem; line-height:1.35; padding:.22rem .48rem;
+  background:var(--surface-2); border:1px solid var(--line-soft); border-radius:5px; color:var(--ink-2);
+}
+
+/* ---------- KPI tree ---------- */
+.tree{margin-top:.4rem}
+.l0{
+  background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.15rem 1.25rem;
+  box-shadow:var(--shadow); display:grid; gap:.9rem;
+}
+@media (min-width:760px){ .l0{grid-template-columns:minmax(0,260px) minmax(0,1fr); align-items:center; gap:1.6rem} }
+.l0 .lab{font-family:var(--mono); font-size:.66rem; letter-spacing:.11em; text-transform:uppercase; color:var(--muted)}
+.l0 .big{font-family:var(--sans); font-weight:700; font-size:2.5rem; letter-spacing:-.03em; line-height:1; margin:.35rem 0 .2rem}
+.l0 .big sup{font-size:.95rem; font-weight:500; letter-spacing:0; color:var(--muted); vertical-align:super}
+.l0 .sub{font-size:.85rem; color:var(--ink-2)}
+.identity{
+  font-family:var(--mono); font-size:.79rem; line-height:1.9; background:var(--surface-2);
+  border:1px solid var(--line-soft); border-radius:8px; padding:.8rem .9rem; overflow-x:auto; white-space:nowrap;
+}
+.identity em{font-style:normal; color:var(--accent); font-weight:600}
+.branch-rail{height:22px; margin-left:26px; border-left:2px solid var(--line)}
+.branches{display:grid; gap:12px}
+.branch{
+  background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; position:relative;
+}
+.branch::before{content:""; position:absolute; inset:0 auto 0 0; width:3px; background:var(--c)}
+.branch-head{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:.3rem .8rem; padding:.85rem 1.1rem .8rem 1.25rem;
+  border-bottom:1px solid var(--line-soft); background:var(--surface-2);
+}
+.branch-head h3{font-size:.97rem; color:var(--c)}
+.branch-head .amt{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:.9rem; font-weight:600; margin-left:auto}
+.branch-head .share{font-family:var(--mono); font-size:.72rem; color:var(--muted)}
+.drivers{display:grid}
+@media (min-width:900px){ .drivers{grid-template-columns:1fr 1fr} .drivers > .drv:nth-child(odd){border-right:1px solid var(--line-soft)} }
+.drv{padding:.8rem 1.1rem .85rem 1.25rem; border-top:1px solid var(--line-soft)}
+.drv:first-child,.drv:nth-child(2):not(:last-child){border-top:none}
+@media (max-width:899px){ .drivers .drv:nth-child(2):not(:last-child){border-top:1px solid var(--line-soft)} }
+.drv-head{display:flex; align-items:baseline; gap:.6rem; margin-bottom:.5rem}
+.drv-head .nm{font-family:var(--sans); font-weight:600; font-size:.855rem; letter-spacing:-.005em}
+.drv-head .lv{font-family:var(--mono); font-size:.6rem; color:var(--muted); border:1px solid var(--line); border-radius:3px; padding:0 .25rem}
+.drv-head .vl{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:.84rem; font-weight:600; margin-left:auto; color:var(--c)}
+.subs{display:flex; flex-wrap:wrap; gap:.3rem}
+.subs span{
+  font-family:var(--mono); font-size:.685rem; line-height:1.4; padding:.2rem .45rem;
+  border:1px solid var(--line-soft); border-radius:5px; color:var(--ink-2); background:var(--surface);
+}
+.subs span b{color:var(--ink); font-weight:600}
+.subs span.hot{border-color:var(--accent); background:color-mix(in srgb, var(--accent) 8%, var(--surface))}
+.subs span.hot::after{content:"▲"; font-size:.55rem; color:var(--accent); margin-left:.3rem; vertical-align:1px}
+.tree-key{display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-top:1rem}
+.tree-key b{color:var(--ink-2); font-weight:500}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:760px; font-size:.87rem}
+th,td{text-align:left; padding:.62rem .8rem; border-bottom:1px solid var(--line-soft); vertical-align:top}
+thead th{
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.09em; text-transform:uppercase; color:var(--muted);
+  font-weight:500; background:var(--surface-2); border-bottom:1px solid var(--line); white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.total td{background:var(--surface-2); font-weight:600; border-top:1px solid var(--line)}
+td.n{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+td .mv{font-family:var(--mono); font-size:.78rem; color:var(--ink-2); white-space:nowrap}
+td .mv i{font-style:normal; color:var(--accent)}
+.pill{font-family:var(--mono); font-size:.66rem; padding:.14rem .42rem; border-radius:4px; border:1px solid currentColor; white-space:nowrap}
+.pill.hi{color:var(--good)} .pill.md{color:var(--warn)} .pill.lo{color:var(--muted)}
+.rank{font-family:var(--mono); color:var(--muted); font-size:.78rem}
+
+/* ---------- misc blocks ---------- */
+.callout{
+  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:1.05rem 1.2rem; margin:1.5rem 0; border-top:3px solid var(--accent);
+}
+.callout p:last-child{margin-bottom:0}
+.leaks{display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-top:1.3rem}
+.leak{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1rem 1.1rem}
+.leak h4{font-size:.95rem; margin-bottom:.4rem; display:flex; gap:.5rem; align-items:baseline}
+.leak h4 .num{font-size:.72rem; color:var(--crit)}
+.leak p{font-size:.875rem; color:var(--ink-2); margin:0}
+.phases{display:grid; gap:0; margin-top:1.2rem; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface)}
+.phase{display:grid; gap:.5rem; padding:1rem 1.15rem; border-top:1px solid var(--line-soft)}
+.phase:first-child{border-top:none}
+@media (min-width:720px){ .phase{grid-template-columns:150px minmax(0,1fr); gap:1.4rem; align-items:start} }
+.phase .when{font-family:var(--mono); font-size:.72rem; color:var(--accent); letter-spacing:.06em; text-transform:uppercase; padding-top:.15rem}
+.phase h4{font-size:.95rem; margin-bottom:.3rem}
+.phase ul{margin:0; padding-left:1.05rem; font-size:.88rem; color:var(--ink-2)}
+.phase li{margin-bottom:.25rem}
+.phase li b{color:var(--ink); font-weight:600}
+.guard{display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.1rem}
+.guard span{font-family:var(--mono); font-size:.72rem; padding:.3rem .55rem; border:1px solid var(--line); border-radius:6px; background:var(--surface); color:var(--ink-2)}
+.guard span b{color:var(--ink)}
+footer{border-top:1px solid var(--line); margin-top:8px; padding-top:1.4rem; font-size:.83rem; color:var(--muted); max-width:70ch}
+footer code{font-family:var(--mono); font-size:.78rem; color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important; animation:none!important} }
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="tag">Case study · Growth diagnosis</div>
+  <h1>Tata 1mg doesn't have a traffic problem. It has a <em>refill</em> problem.</h1>
+  <p class="deck">A working model for lifting monthly revenue ~20% in four quarters — built on the patients already on the platform, not the ones a discount would buy. Below: the actor footprint, the jobs each actor is really hired for, a four-level KPI tree, and seven ranked levers.</p>
+  <div class="byline">
+    <span>Model basis · illustrative baseline, ₹190 Cr / month</span>
+    <span>Horizon · 4 quarters</span>
+    <span>Unit of analysis · the chronic patient-month</span>
+  </div>
+
+  <div class="strip">
+    <div class="stat">
+      <span class="k">Baseline / month</span>
+      <span class="v num">₹190 <small>Cr</small></span>
+      <span class="n">Pharmacy, diagnostics, wellness and ancillary, net of discount and returns.</span>
+    </div>
+    <div class="stat">
+      <span class="k">Addressable uplift</span>
+      <span class="v num" style="color:var(--accent)">+₹38–40 <small>Cr</small></span>
+      <span class="n">Net of overlap between levers. Gross of overlap it models at ₹42.8 Cr.</span>
+    </div>
+    <div class="stat">
+      <span class="k">From existing users</span>
+      <span class="v num">~64<small>%</small></span>
+      <span class="n">Of the uplift comes from frequency, basket and fill — zero incremental CAC.</span>
+    </div>
+    <div class="stat">
+      <span class="k">Marginal CAC needed</span>
+      <span class="v num">₹0</span>
+      <span class="n">For levers 1, 4, 6 and 7. Acquisition is the last lever, not the first.</span>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="diagnosis">
+  <div class="sec-head"><h2>Where the revenue actually is</h2><span class="kicker">01 — Diagnosis</span></div>
+
+  <div class="prose">
+    <p>Monthly revenue at a health platform is an identity, not a mystery. For each line of business it is <span class="num">monthly transacting users × orders per user × average order value × net realisation</span>. Four numbers. Every strategy is a claim about which of them moves.</p>
+    <p>The instinct is to push the first term — more users, more installs, more coupons. At a pharmacy AOV near ₹1,180 and a blended product margin in the low twenties, a discount-acquired user needs roughly five orders to pay back. Most never get there. Meanwhile the second and fourth terms are leaking against users already acquired.</p>
+  </div>
+
+  <div class="fig" style="margin:1.7rem 0 1.5rem">
+    <p class="fig-title">Monthly revenue, ₹190 Cr baseline</p>
+    <p class="fig-sub">Pharmacy carries the volume; diagnostics and wellness carry the margin. Ancillary — retail media, teleconsult, offline and B2B — is the only line with no inventory behind it.</p>
+    <div class="stack" id="stack" role="img" aria-label="Stacked bar: pharmacy 136.5 crore, diagnostics 25.0 crore, wellness and OTC 21.0 crore, ancillary 7.5 crore"></div>
+    <div class="legend" id="stack-legend"></div>
+    <div class="axis"><span>₹0</span><span>₹190 Cr / month</span></div>
+  </div>
+
+  <div class="prose">
+    <p>Three structural facts follow from that split, and they set the whole plan:</p>
+  </div>
+
+  <div class="leaks">
+    <div class="leak">
+      <h4><span class="num">01</span> Chronic is an annuity that leaks</h4>
+      <p>A patient on metformin, glimepiride and a statin should generate twelve refill orders a year. Platforms typically capture seven or eight. A missed month isn't deferred revenue — the patient walks to the chemist downstairs, and the habit resets.</p>
+    </div>
+    <div class="leak">
+      <h4><span class="num">02</span> Out-of-stock is silent churn</h4>
+      <p>An unserviceable line at a pin code doesn't lose its own value alone. It splits the basket: the patient needs all three strips together, so the whole order goes offline. Line fill rate is a revenue KPI wearing an ops badge.</p>
+    </div>
+    <div class="leak">
+      <h4><span class="num">03</span> The molecule already names the test</h4>
+      <p>Metformin implies HbA1c every ninety days. Thyroxine implies TSH. Pharmacy knows the molecule and the dose date; diagnostics carries roughly twice the gross margin. Single-digit cross-penetration is the largest un-priced asset in the business.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><b>The thesis in one line:</b> treat the chronic patient-month — not the order — as the unit of revenue. Every lever below either adds a patient-month, protects one that was going to leak, or raises what a patient-month is worth.</p>
+  </div>
+</section>
+
+<section class="sec" id="footprint">
+  <div class="sec-head"><h2>The footprint: who is in the system, and what they are hired to do</h2><span class="kicker">02 — Actors</span></div>
+  <div class="prose">
+    <p>Revenue is produced by a chain of actors, and it stops at the weakest one. A verifying pharmacist with a nine-minute queue caps the growth of every demand lever above them. Each card below states what the actor is there for, the job they hire the platform to do, and the metric that says whether they got it.</p>
+  </div>
+
+  <div class="fp-group" style="--zone:var(--s1)">
+    <h3>Demand side · five people, five different clocks</h3>
+    <p class="fp-note">These five look like one "customer" in a dashboard and behave nothing alike. The chronic patient runs on a 30-day dose clock; the acute buyer runs on a two-hour clock. Merging them into one retention number hides both.</p>
+    <div class="fp-grid">
+      <article class="actor">
+        <h4>Chronic patient<span>45–70 · 3–6 repeat molecules</span></h4>
+        <div class="field"><b>Purpose</b>Stay on therapy without a gap, at a predictable price.</div>
+        <div class="field jtbd">"When my strip is down to four days, get me the same molecule at the same price at my door before I miss a dose — without me having to remember."</div>
+        <div class="kpis"><span>Refill-on-time %</span><span>Dose-days covered</span><span>M6 repeat rate</span><span>Molecule persistence</span></div>
+      </article>
+      <article class="actor">
+        <h4>Caregiver<span>Ordering for a parent, often remotely</span></h4>
+        <div class="field"><b>Purpose</b>Run someone else's regimen without being the failure point.</div>
+        <div class="field jtbd">"When I'm managing my father's six medicines from another city, give me one profile, one reminder and one bill — and tell me when he's about to run out."</div>
+        <div class="kpis"><span>Profiles per account</span><span>Multi-profile order share</span><span>Caregiver cohort M3 retention</span></div>
+      </article>
+      <article class="actor">
+        <h4>Acute buyer<span>Episodic · speed-elastic</span></h4>
+        <div class="field"><b>Purpose</b>Resolve tonight's problem tonight.</div>
+        <div class="field jtbd">"When I'm ill at 9pm, get it to me in two hours — otherwise I walk to the chemist and you lose the order and the next one."</div>
+        <div class="kpis"><span>Sub-4h serviceable pin codes</span><span>Express order share</span><span>First→second order conversion</span></div>
+      </article>
+      <article class="actor">
+        <h4>Wellness shopper<span>OTC, supplements, personal care</span></h4>
+        <div class="field"><b>Purpose</b>Act on a self-diagnosed goal without reading 400 labels.</div>
+        <div class="field jtbd">"When I decide to fix my vitamin D or my gut, tell me what to take and for how long — one credible choice, not a category page."</div>
+        <div class="kpis"><span>OTC AOV</span><span>Private-label mix %</span><span>60-day category repeat</span></div>
+      </article>
+      <article class="actor">
+        <h4>Diagnostics user<span>Doctor-directed or preventive</span></h4>
+        <div class="field"><b>Purpose</b>Turn a doctor's instruction into a report, fast.</div>
+        <div class="field jtbd">"When my doctor says get an HbA1c, send a phlebotomist at 7am and give me the report before my 6pm appointment."</div>
+        <div class="kpis"><span>Slot adherence %</span><span>Sample-to-report TAT</span><span>90-day retest rate</span></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="fp-group" style="--zone:var(--s2)">
+    <h3>Fulfilment side · the constraint actors</h3>
+    <p class="fp-note">None of these five sell anything. All five can cap revenue. Their metrics belong on the growth dashboard, not only the ops one.</p>
+    <div class="fp-grid">
+      <article class="actor">
+        <h4>Verifying pharmacist<span>Statutory gate on every Rx order</span></h4>
+        <div class="field"><b>Purpose</b>Validate the prescription so the order can legally ship.</div>
+        <div class="field jtbd">"When an Rx lands, let me clear or query it fast enough that the order doesn't die in my queue — and give me a legible image the first time."</div>
+        <div class="kpis"><span>Verification TAT</span><span>Rx rejection %</span><span>Drop-off at verification</span></div>
+      </article>
+      <article class="actor">
+        <h4>Teleconsult doctor<span>Partner or panel</span></h4>
+        <div class="field"><b>Purpose</b>Generate a safe, fillable prescription — and with it, demand.</div>
+        <div class="field jtbd">"When a patient consults, give me their order history and last reports so I can prescribe safely in eight minutes."</div>
+        <div class="kpis"><span>Consult→Rx %</span><span>Rx→fill %</span><span>Repeat consult rate</span></div>
+      </article>
+      <article class="actor">
+        <h4>Warehouse &amp; dark-store ops<span>Inventory placement</span></h4>
+        <div class="field"><b>Purpose</b>Have the exact SKU within delivery range of the patient who takes it.</div>
+        <div class="field jtbd">"When demand shifts at a pin code, tell me early enough to re-depth the SKU — before a line goes short and takes the basket with it."</div>
+        <div class="kpis"><span>Line fill rate</span><span>Pin-code SKU availability</span><span>Cold-chain compliance</span><span>Inventory days</span></div>
+      </article>
+      <article class="actor">
+        <h4>Phlebotomist / lab partner<span>Home collection &amp; processing</span></h4>
+        <div class="field"><b>Purpose</b>Convert a booking into a valid, on-time report.</div>
+        <div class="field jtbd">"When I accept a 7–9am window, give me a clustered route so I actually make it, and flag fasting cases before I arrive."</div>
+        <div class="kpis"><span>Slot adherence</span><span>Sample rejection %</span><span>Collections per phlebo-day</span></div>
+      </article>
+      <article class="actor">
+        <h4>Delivery partner<span>Last mile</span></h4>
+        <div class="field"><b>Purpose</b>Close the loop the patient actually experiences.</div>
+        <div class="field jtbd">"When I pick up, give me an address that resolves on the first attempt and a handover that doesn't need three calls."</div>
+        <div class="kpis"><span>On-time %</span><span>First-attempt delivery %</span><span>Cost per delivery</span></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="fp-group" style="--zone:var(--s4)">
+    <h3>Monetisation &amp; governance · the actors who change the margin</h3>
+    <p class="fp-note">Two of these pay for traffic the platform has already bought. One of them can shut the business down. Both kinds belong in the same frame.</p>
+    <div class="fp-grid">
+      <article class="actor">
+        <h4>Pharma &amp; FMHG brand<span>Advertiser</span></h4>
+        <div class="field"><b>Purpose</b>Reach intent-qualified patients at the moment of brand choice.</div>
+        <div class="field jtbd">"When a diabetic searches for my molecule, put my brand in front of the substitution decision — with creative that clears compliance."</div>
+        <div class="kpis"><span>Ad revenue per order</span><span>Inventory fill %</span><span>ROAS</span><span>Share of search</span></div>
+      </article>
+      <article class="actor">
+        <h4>Insurer / corporate HR<span>B2B2C demand channel</span></h4>
+        <div class="field"><b>Purpose</b>Deliver a health benefit to a covered population at a known cost.</div>
+        <div class="field jtbd">"When I run a benefit for 20,000 employees, give me one vendor for checkups, pharmacy discount and utilisation data I can defend to finance."</div>
+        <div class="kpis"><span>Contracted lives</span><span>Activation %</span><span>Revenue per covered life</span></div>
+      </article>
+      <article class="actor">
+        <h4>Regulator<span>CDSCO · State FDA · DPCO · NMC</span></h4>
+        <div class="field"><b>Purpose</b>Constrain. This actor is not a customer and has no upside to sell.</div>
+        <div class="field jtbd">"Ensure no Schedule-H molecule dispenses without a valid prescription, and no scheduled formulation prices above its ceiling."</div>
+        <div class="kpis"><span>Rx compliance audit pass</span><span>DPCO ceiling breaches = 0</span><span>Dispensing exceptions</span></div>
+      </article>
+      <article class="actor">
+        <h4>Tata Neu &amp; group ecosystem<span>Traffic and loyalty currency</span></h4>
+        <div class="field"><b>Purpose</b>Lower blended acquisition cost and give health a reason to recur.</div>
+        <div class="field jtbd">"When a Neu user has coins to spend, make health the category they spend them in — and send that customer back to us."</div>
+        <div class="kpis"><span>Neu-sourced MTU share</span><span>Blended CAC</span><span>Cross-brand repeat</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kpi-tree">
+  <div class="sec-head"><h2>KPI tree</h2><span class="kicker">03 — Metrics</span></div>
+  <div class="prose">
+    <p>Four levels. <b>L0</b> is the number the business is judged on. <b>L1</b> splits it by line of business, because the margins differ by a factor of two. <b>L2</b> is the revenue identity — the only four things that can move a line. <b>L3</b> is where a team can actually do something on a Monday morning. Chips marked <span class="num" style="color:var(--accent)">▲</span> are the ones the plan moves.</p>
+  </div>
+
+  <div class="tree">
+    <div class="l0">
+      <div>
+        <span class="lab">L0 · Monthly net revenue</span>
+        <div class="big num">₹190<sup> Cr</sup></div>
+        <span class="sub">Illustrative baseline. Every figure below is modelled, not reported — see the note at the foot.</span>
+      </div>
+      <div class="identity">
+        Revenue = <em>Σ</em><sub>lines</sub> ( MTU <em>×</em> Orders per user <em>×</em> AOV <em>×</em> Net realisation )
+      </div>
+    </div>
+
+    <div class="branch-rail"></div>
+
+    <div class="branches">
+
+      <section class="branch" style="--c:var(--s1)">
+        <div class="branch-head">
+          <h3>L1 · Pharmacy</h3><span class="share">71.8% of revenue · ~22% product margin</span>
+          <span class="amt">₹136.5 Cr</span>
+        </div>
+        <div class="drivers">
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Monthly transacting users</span><span class="lv">L2</span><span class="vl num">1.00 M</span></div>
+            <div class="subs">
+              <span>New <b>180k</b> · first-order CVR <b>2.4%</b></span>
+              <span>Reactivated <b>120k</b></span>
+              <span>Retained <b>700k</b> · M6 repeat <b>38%</b></span>
+              <span>Sessions <b>46 M</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Orders per user</span><span class="lv">L2</span><span class="vl num">1.30</span></div>
+            <div class="subs">
+              <span class="hot">Refill-on-time <b>47%</b></span>
+              <span class="hot">Auto-refill penetration <b>4%</b></span>
+              <span>Reminder→order CVR <b>18%</b></span>
+              <span>Dose-days covered <b>71%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Average order value</span><span class="lv">L2</span><span class="vl num">₹1,180</span></div>
+            <div class="subs">
+              <span>Lines per order <b>3.4</b></span>
+              <span class="hot">Rx→OTC attach <b>22%</b></span>
+              <span class="hot">Private-label mix <b>11%</b></span>
+              <span>90-day pack share <b>9%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Net realisation</span><span class="lv">L2</span><span class="vl num">89.0%</span></div>
+            <div class="subs">
+              <span class="hot">Discount depth <b>9.4%</b></span>
+              <span class="hot">Line fill rate <b>91%</b></span>
+              <span>Cancellation <b>4.8%</b></span>
+              <span>Returns / RTO <b>2.1%</b></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="branch" style="--c:var(--s2)">
+        <div class="branch-head">
+          <h3>L1 · Diagnostics</h3><span class="share">13.2% of revenue · ~55% gross margin</span>
+          <span class="amt">₹25.0 Cr</span>
+        </div>
+        <div class="drivers">
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Monthly transacting users</span><span class="lv">L2</span><span class="vl num">220k</span></div>
+            <div class="subs">
+              <span class="hot">Pharmacy→labs cross-sell <b>6%</b></span>
+              <span>Doctor-Rx-led <b>18%</b> of bookings</span>
+              <span>Corporate lives <b>1.4 M</b> · activation <b>9%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Bookings per user</span><span class="lv">L2</span><span class="vl num">1.05</span></div>
+            <div class="subs">
+              <span class="hot">Chronic quarterly protocol adherence <b>21%</b></span>
+              <span>Family-profile bookings <b>27%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Average order value</span><span class="lv">L2</span><span class="vl num">₹1,150</span></div>
+            <div class="subs">
+              <span>Tests per booking <b>2.6</b></span>
+              <span>Preventive package share <b>31%</b></span>
+              <span>Radiology attach <b>4%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Net realisation</span><span class="lv">L2</span><span class="vl num">94.0%</span></div>
+            <div class="subs">
+              <span>Slot no-show <b>7%</b></span>
+              <span>Sample rejection <b>1.4%</b></span>
+              <span>Sample→report TAT <b>22h</b></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="branch" style="--c:var(--s3)">
+        <div class="branch-head">
+          <h3>L1 · Wellness &amp; OTC</h3><span class="share">11.1% of revenue · ~35% gross margin</span>
+          <span class="amt">₹21.0 Cr</span>
+        </div>
+        <div class="drivers">
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Monthly transacting users</span><span class="lv">L2</span><span class="vl num">350k</span></div>
+            <div class="subs">
+              <span>Organic / SEO-led <b>54%</b></span>
+              <span class="hot">Attached to an Rx order <b>22%</b></span>
+              <span>Content→cart CVR <b>3.1%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Orders per user</span><span class="lv">L2</span><span class="vl num">1.15</span></div>
+            <div class="subs">
+              <span>60-day category repeat <b>24%</b></span>
+              <span>Supplement subscription <b>6%</b></span>
+              <span>Course-length adherence <b>41%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Average order value</span><span class="lv">L2</span><span class="vl num">₹580</span></div>
+            <div class="subs">
+              <span class="hot">Private-label mix <b>19%</b></span>
+              <span>Units per order <b>2.2</b></span>
+              <span>Pack upsize take <b>12%</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Net realisation</span><span class="lv">L2</span><span class="vl num">90.0%</span></div>
+            <div class="subs">
+              <span>Discount depth <b>8.1%</b></span>
+              <span>Returns <b>1.9%</b></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="branch" style="--c:var(--s4)">
+        <div class="branch-head">
+          <h3>L1 · Ancillary</h3><span class="share">3.9% of revenue · 60–90% margin, no inventory</span>
+          <span class="amt">₹7.5 Cr</span>
+        </div>
+        <div class="drivers">
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Retail media</span><span class="lv">L2</span><span class="vl num">₹4.2 Cr</span></div>
+            <div class="subs">
+              <span class="hot">Ad revenue per order <b>₹25</b></span>
+              <span class="hot">Inventory fill <b>34%</b></span>
+              <span>ROAS <b>4.1×</b></span>
+              <span>Monetisable orders <b>1.70 M</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Teleconsult</span><span class="lv">L2</span><span class="vl num">₹1.1 Cr</span></div>
+            <div class="subs">
+              <span>Consult→Rx <b>61%</b></span>
+              <span>Rx→fill on platform <b>43%</b></span>
+              <span>Treat as funnel, not P&amp;L</span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Offline &amp; B2B</span><span class="lv">L2</span><span class="vl num">₹2.2 Cr</span></div>
+            <div class="subs">
+              <span>Stores &amp; collection centres <b>190</b></span>
+              <span>Revenue per store-month <b>₹9.2 L</b></span>
+              <span>Corporate contracts <b>34</b></span>
+            </div>
+          </div>
+          <div class="drv">
+            <div class="drv-head"><span class="nm">Subscription (1mg Care Plan)</span><span class="lv">L2</span><span class="vl num">in pharmacy</span></div>
+            <div class="subs">
+              <span class="hot">Penetration of pharmacy MTU <b>4%</b></span>
+              <span>Member order frequency <b>1.9×</b> base</span>
+              <span>Booked inside pharmacy revenue</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="tree-key">
+      <span><b>L0</b> outcome</span><span><b>L1</b> line of business</span><span><b>L2</b> revenue identity term</span><span><b>L3</b> operable driver</span><span style="color:var(--accent)"><b style="color:var(--accent)">▲</b> moved by the plan</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="levers">
+  <div class="sec-head"><h2>Seven levers, ranked by monthly rupees</h2><span class="kicker">04 — The plan</span></div>
+  <div class="prose">
+    <p>Ranked by modelled monthly uplift, not by how interesting they are. Note the shape: the top lever is a reminder system, the sixth is an inventory problem, and nothing in the list is a new category or a new city.</p>
+  </div>
+
+  <div class="fig" style="margin:1.7rem 0 1.6rem">
+    <p class="fig-title">Modelled monthly uplift by lever, ₹ Cr</p>
+    <p class="fig-sub">Steady-state monthly contribution once the lever is fully landed. Sums to ₹42.8 Cr gross; overlap between levers 1, 3 and 4 nets it to ₹38–40 Cr.</p>
+    <div class="bars" id="bars"></div>
+    <div class="axis"><span>₹0</span><span>₹14 Cr / month</span></div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Lever</th><th>KPI it moves</th><th>From → to</th><th>₹Cr&#8202;/&#8202;mo</th><th>Margin quality</th><th>Time to impact</th><th>Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td><b>Chronic auto-refill engine.</b> Model dose-days per user from pack size and directions; reorder prompt at day&nbsp;26, one-tap or standing order.</td>
+          <td>Orders per pharmacy MTU</td>
+          <td class="mv">1.30 <i>→</i> 1.42</td>
+          <td class="n">+12.6</td>
+          <td>Blended ~22%</td>
+          <td class="n">60–90 d</td>
+          <td><span class="pill hi">High</span></td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td><b>Diagnostics protocol cross-sell.</b> Map molecule → guideline test → cadence. Prompt the test inside the refill flow, not as a separate campaign.</td>
+          <td>Labs penetration of chronic base</td>
+          <td class="mv">6% <i>→</i> 11%</td>
+          <td class="n">+7.9</td>
+          <td>High ~55% GM</td>
+          <td class="n">90–120 d</td>
+          <td><span class="pill hi">High</span></td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td><b>Care Plan penetration.</b> Price the subscription against the chronic basket — free delivery, fixed discount, lab credits — so it prepays frequency.</td>
+          <td>Subscriber share of pharmacy MTU</td>
+          <td class="mv">4% <i>→</i> 9%</td>
+          <td class="n">+6.3</td>
+          <td>High, prepaid</td>
+          <td class="n">120 d</td>
+          <td><span class="pill md">Medium</span></td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td><b>Rx → OTC and private-label attach.</b> Condition-aware attach at cart (statin → CoQ10; metformin → B12), pharmacist-reviewed, capped at two suggestions.</td>
+          <td>Pharmacy AOV</td>
+          <td class="mv">₹1,180 <i>→</i> ₹1,225</td>
+          <td class="n">+5.7</td>
+          <td>High, private label ~45%</td>
+          <td class="n">60 d</td>
+          <td><span class="pill hi">High</span></td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td><b>Retail media on Rx intent.</b> Sell sponsored placement on molecule search and substitution, with compliance review on creative and no Schedule-H promotion.</td>
+          <td>Ad revenue per monetisable order</td>
+          <td class="mv">₹25 <i>→</i> ₹47</td>
+          <td class="n">+4.1</td>
+          <td>Very high ~90%</td>
+          <td class="n">90 d</td>
+          <td><span class="pill md">Medium</span></td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td><b>Line fill rate and cart substitution.</b> Pin-code demand forecasting on chronic molecules, plus a pharmacist-approved equivalent offered before the basket breaks.</td>
+          <td>Line fill rate</td>
+          <td class="mv">91% <i>→</i> 96%</td>
+          <td class="n">+3.7</td>
+          <td>Blended</td>
+          <td class="n">45–90 d</td>
+          <td><span class="pill hi">High</span></td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td><b>Personalised discount depth.</b> Stop paying retention money to people who would have refilled anyway; concentrate depth on at-risk and first-refill cohorts.</td>
+          <td>Net realisation</td>
+          <td class="mv">89.0% <i>→</i> 90.5%</td>
+          <td class="n">+2.5</td>
+          <td>Pure margin</td>
+          <td class="n">30–60 d</td>
+          <td><span class="pill hi">High</span></td>
+        </tr>
+        <tr class="total">
+          <td></td><td>Total, gross of overlap</td><td></td><td class="mv">₹190 <i>→</i> ₹233 Cr</td><td class="n">+42.8</td><td></td><td class="n">4 quarters</td><td><span class="pill lo">≈ +20% net</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose" style="margin-top:1.5rem">
+    <p>Levers 1, 3 and 4 double-count: a Care Plan member who is also on auto-refill is one patient, counted in two models. Netting the overlap at roughly 10% puts the honest number at <b>₹38–40 Cr a month, or about +20%</b>. Say that to the board before someone else finds it.</p>
+  </div>
+
+  <div class="callout" style="border-top-color:var(--crit)">
+    <p><b>And what not to do.</b> Three things will be proposed in the same meeting and should lose. <b>Deeper platform-wide discounting</b> — payback runs past three quarters at this AOV, and it trains the base to wait for the coupon. <b>New-city expansion</b> before line fill in the existing top twenty is above 95% — you would be buying demand you cannot serve, which costs the order and the customer. <b>A new vertical</b> before the chronic engine works: every launch competes for the same product and pharmacist capacity that levers 1, 2 and 6 need.</p>
+  </div>
+</section>
+
+<section class="sec" id="sequencing">
+  <div class="sec-head"><h2>Sequencing</h2><span class="kicker">05 — Execution</span></div>
+  <div class="prose"><p>The first thirty days buy no revenue. They buy the instrumentation without which the other eleven months are guesswork — specifically, a dose-days model per user and a line fill rate cut by pin code.</p></div>
+
+  <div class="phases">
+    <div class="phase">
+      <span class="when">Days 0–30</span>
+      <div>
+        <h4>Instrument, then ship the cheapest lever</h4>
+        <ul>
+          <li><b>Dose-days model</b> per user per molecule, from pack size, strength and directions — the spine of levers 1, 2 and 3.</li>
+          <li><b>Line fill rate</b> reported by pin code and by chronic molecule, daily, owned by growth as well as ops.</li>
+          <li><b>Chronic cohort definition</b> agreed once, across pharmacy and labs, so the cross-sell in month three has a denominator.</li>
+          <li>Ship refill reminders on the <b>top 12 chronic molecules</b>. Measure reminder→order conversion by day offset.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase">
+      <span class="when">Days 31–60</span>
+      <div>
+        <h4>Protect the basket, then price the habit</h4>
+        <ul>
+          <li><b>Standing orders</b> (auto-refill) with pause and skip, plus a pre-dispatch confirmation so nothing ships unwanted.</li>
+          <li><b>Substitution at cart</b> for out-of-stock lines — equivalent brand, pharmacist-approved, price delta shown.</li>
+          <li><b>Care Plan repriced</b> around the chronic basket; sold at the second refill, not at signup.</li>
+          <li><b>Attach engine</b> live on the top condition–OTC pairs, capped at two suggestions per cart.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase">
+      <span class="when">Days 61–90</span>
+      <div>
+        <h4>Open the high-margin adjacencies</h4>
+        <ul>
+          <li><b>Protocol-based lab prompts</b> to the chronic cohort, timed to the refill, with slot booking in the same flow.</li>
+          <li><b>Retail media beta</b> with 6–8 brands on molecule search; compliance review gate on every creative.</li>
+          <li><b>Discount depth by cohort</b> replaces the flat rate; hold a control group so the margin gain is provable.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase">
+      <span class="when">Quarters 2–4</span>
+      <div>
+        <h4>Scale what the first quarter proved</h4>
+        <ul>
+          <li>Extend auto-refill beyond the top 12 molecules; push refill-on-time from the low fifties toward 58%.</li>
+          <li><b>Omnichannel</b>: stores and collection centres as fulfilment nodes for same-day, not just as retail.</li>
+          <li><b>Corporate and insurer</b> channel — priced per covered life, activation owned as a KPI, not left to HR mailers.</li>
+          <li><b>Private label</b> depth in the top five OTC categories, where the attach engine has already proven demand.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose" style="margin-top:1.8rem">
+    <h3 style="margin-bottom:.5rem">Guardrails — the metrics that must not move</h3>
+    <p style="font-size:.93rem">A frequency push can be faked with discounts, and an attach engine can be faked with pressure. These are the counter-metrics that tell you the growth is real, and two of them are non-negotiable.</p>
+  </div>
+  <div class="guard">
+    <span><b>Rx compliance audit pass</b> = 100%</span>
+    <span><b>DPCO ceiling breaches</b> = 0</span>
+    <span>Contribution margin per order <b>↑ or flat</b></span>
+    <span>Complaint rate per 1,000 orders</span>
+    <span>Delivery SLA adherence</span>
+    <span>Unsubscribe rate on refill nudges</span>
+    <span>Attach-driven return rate</span>
+    <span>Pharmacist verification TAT</span>
+  </div>
+</section>
+
+<footer>
+  <p><b>On the numbers.</b> The baseline of ₹190 Cr a month and every L2/L3 value in the tree are <b>illustrative</b> — a consistent model built to make the structure legible and the arithmetic checkable, not a report of Tata 1mg's actual figures, which are not public at this granularity. Replace them with actuals and the tree, the levers and the sequencing all still hold; only the sizing moves. Cross-checks worth running first: <code>orders/MTU</code> against your own chronic cohort, <code>line fill rate</code> at the line level rather than the order level, and <code>net realisation</code> after returns rather than after discount alone.</p>
+</footer>
+
+</div>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var lines = [
+    {name:"Pharmacy",        v:136.5, c:"--s1", note:"~22% product margin · 1.30 M orders"},
+    {name:"Diagnostics",     v:25.0,  c:"--s2", note:"~55% gross margin · 231k bookings"},
+    {name:"Wellness & OTC",  v:21.0,  c:"--s3", note:"~35% gross margin · 403k orders"},
+    {name:"Ancillary",       v:7.5,   c:"--s4", note:"Retail media, consult, offline, B2B"}
+  ];
+  var total = lines.reduce(function(a,b){return a+b.v;},0);
+  var stack = document.getElementById('stack');
+  var legend = document.getElementById('stack-legend');
+  lines.forEach(function(d){
+    var seg = document.createElement('span');
+    seg.style.flex = d.v + ' 0 0';
+    seg.style.background = 'var(' + d.c + ')';
+    seg.tabIndex = 0;
+    seg.dataset.tip = '<b>' + d.name + '</b><br>₹' + d.v.toFixed(1) + ' Cr · ' + (d.v/total*100).toFixed(1) + '%<br>' + d.note;
+    stack.appendChild(seg);
+    var li = document.createElement('span');
+    li.innerHTML = '<i style="background:var(' + d.c + ')"></i>' + d.name + '<b>₹' + d.v.toFixed(1) + ' Cr</b>';
+    legend.appendChild(li);
+  });
+
+  var levers = [
+    {n:1, name:"Chronic auto-refill engine",      v:12.6, kpi:"Orders per MTU 1.30 → 1.42"},
+    {n:2, name:"Diagnostics protocol cross-sell", v:7.9,  kpi:"Labs penetration 6% → 11%"},
+    {n:3, name:"Care Plan penetration",           v:6.3,  kpi:"Subscriber share 4% → 9%"},
+    {n:4, name:"Rx → OTC & private-label attach", v:5.7,  kpi:"AOV ₹1,180 → ₹1,225"},
+    {n:5, name:"Retail media on Rx intent",       v:4.1,  kpi:"Ad revenue/order ₹25 → ₹47"},
+    {n:6, name:"Line fill rate & substitution",   v:3.7,  kpi:"Fill rate 91% → 96%"},
+    {n:7, name:"Personalised discount depth",     v:2.5,  kpi:"Net realisation 89.0% → 90.5%"}
+  ];
+  var max = 14, bars = document.getElementById('bars');
+  levers.forEach(function(d){
+    var row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML =
+      '<div class="bar-lab"><u>' + d.n + '</u>' + d.name + '</div>' +
+      '<div class="bar-track"><div class="bar-fill" tabindex="0" style="width:' + (d.v/max*100).toFixed(2) + '%"></div>' +
+      '<span class="bar-val">₹' + d.v.toFixed(1) + ' Cr</span></div>';
+    row.querySelector('.bar-fill').dataset.tip = '<b>' + d.name + '</b><br>+₹' + d.v.toFixed(1) + ' Cr / month<br>' + d.kpi;
+    bars.appendChild(row);
+  });
+
+  var tip = document.getElementById('tip');
+  function show(e){
+    var t = e.target.closest('[data-tip]');
+    if(!t){ return; }
+    tip.innerHTML = t.dataset.tip;
+    tip.style.opacity = '1';
+    var r = t.getBoundingClientRect();
+    var x = (e.clientX || r.left + r.width/2), y = r.top;
+    tip.style.left = Math.min(Math.max(10, x - 60), window.innerWidth - tip.offsetWidth - 10) + 'px';
+    tip.style.top = Math.max(10, y - tip.offsetHeight - 10) + 'px';
+  }
+  function hide(){ tip.style.opacity = '0'; }
+  document.addEventListener('mousemove', function(e){ e.target.closest('[data-tip]') ? show(e) : hide(); });
+  document.addEventListener('focusin', function(e){ e.target.closest('[data-tip]') ? show(e) : hide(); });
+  document.addEventListener('focusout', hide);
+  document.addEventListener('scroll', hide, {passive:true});
+})();
+</script>
