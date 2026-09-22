@@ -47,7 +47,8 @@ E.append(Paragraph(
   "Functional and Business Analyst with 5+ years in high-scale retail and mobile-commerce (Flipkart) and global B2B SaaS "
   "(Enverus), pairing strong business analysis with functional solution delivery. I analyze business problems, gather and "
   "translate requirements into functional solutions, and partner with cross-functional and technical teams to develop, "
-  "test (UAT), and ship improvements. On a mobile-first retail marketplace I track app funnel, conversion, traffic, "
+  "test (UAT), and ship improvements &mdash; including in-app features such as a product exchange flow and loyalty coupons "
+  "within the payment method. On a mobile-first retail marketplace I track app funnel, conversion, traffic, "
   "pricing, and in-app promotions, and build the dashboards and KPIs that drive category growth and innovation. Proficient "
   "in SQL, Tableau, Power BI, and Advanced Excel; skilled in requirement analysis, process improvement (Lean Six Sigma), "
   "and stakeholder management, delivering results in fast-paced environments. VIT engineering graduate &mdash; currently "
@@ -63,8 +64,8 @@ skills = [
        "Retail Analytics, Category &amp; Merchandising, Assortment &amp; Pricing, Sell-through &amp; GMV, In-Stock &amp; Inventory, "
        "Demand Planning")],
  [cell("Mobile Commerce &amp; Apps",
-       "Mobile-Commerce App Analytics (Flipkart), App Funnel &amp; Conversion, In-App Promotions, App Feature Requirements, "
-       "Mobile App SDLC / Testing (familiarity)"),
+       "Mobile-Commerce App Analytics (Flipkart), App Funnel &amp; Conversion, In-App Promotions, App Feature Delivery "
+       "(Product Exchange, Loyalty Coupons in Payments), Requirements &amp; UAT"),
   cell("BI, SQL &amp; Reporting",
        "SQL, Tableau, Microsoft Power BI, Advanced Excel (Pivots, Power Query), Dashboards &amp; KPIs, Automated / "
        "AI-Assisted Reporting")],
@@ -85,11 +86,12 @@ head("Professional Experience")
 job("Flipkart", "Jun 2024 &ndash; Present", "Business Analyst &mdash; Large Appliances (Retail / Mobile-Commerce Marketplace)", [
  "Analyze business problems and identify improvement opportunities for a mobile-first retail marketplace category; "
  "gather and translate business needs into functional solutions with product and tech teams.",
+ "Drove requirements and functional design for in-app features &mdash; a product exchange flow and loyalty coupons within "
+ "the payment method &mdash; from requirement analysis through development, UAT, and rollout.",
  "Track app funnel, conversion, traffic, pricing, and in-app promotions; build and automate Tableau / Power BI "
  "dashboards (SQL, Google Apps Script) and standardize KPIs across teams.",
- "Coordinate development, testing (UAT), and delivery of features and changes across cross-functional teams; run demand "
- "forecasting and pull growth levers (pricing, assortment, promotions).",
- "Data-driven planning and promotion analysis drove a 55% category revenue uplift during Big Billion Days.",
+ "Run demand forecasting and pull growth levers (pricing, assortment, promotions); data-driven planning and promotion "
+ "analysis drove a 55% category revenue uplift during Big Billion Days.",
 ])
 job("Enverus", "Jan 2023 &ndash; May 2024", "Business Analyst I &mdash; Market Research (B2B SaaS)", [
  "Gathered and analyzed requirements and delivered reporting solutions for global commercial stakeholders; built "
