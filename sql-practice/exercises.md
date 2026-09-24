@@ -1,6 +1,7 @@
 # SQL Exercises: Basic to Advanced (Business Analyst Track)
 
 There are 63 questions across 8 levels. Each one is a question a stakeholder might really ask.
+New to SQL? Read [`sql-syntax-guide.md`](sql-syntax-guide.md) first.
 Write your query first, then compare with `python run.py solution <n>` or `solutions.sql`.
 
 ## The business

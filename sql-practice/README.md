@@ -5,6 +5,7 @@ written like stakeholder requests, and a tested reference solution for each one.
 
 | File | What it is |
 |---|---|
+| [`sql-syntax-guide.md`](sql-syntax-guide.md) | **Start here if you're new.** Explains every keyword and piece of syntax, with real results and practice questions |
 | [`exercises.md`](exercises.md) | The questions, from Level 1 (SELECT) to Level 8 (gaps and islands, recursive CTEs) |
 | [`solutions.sql`](solutions.sql) | Reference solutions, each tagged `-- Q<level>.<n>` |
 | `schema.sql` + `seed.sql` | Portable DDL and data (SQLite / PostgreSQL / MySQL 8) |
