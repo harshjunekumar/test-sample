@@ -50,7 +50,7 @@ rule()
 
 # ---------- EXPERIENCE ----------
 sect("EXPERIENCE")
-jobline("Flipkart", "Assistant Manager &ndash; Business Development, Large Appliances (eCommerce)", "Jun 2024 &ndash; Sep 2026")
+jobline("Flipkart", "Business Analyst &ndash; Large Appliances (eCommerce Marketplace)", "Jun 2024 &ndash; Sep 2026")
 E.append(Paragraph("Owned category, seller &amp; SKU performance for a large marketplace category &mdash; driving growth via "
                    "assortment, pricing, promotions, and demand planning across GMV, conversion, and in-stock.", intro))
 b("Owned <b>cohort and SKU trend analysis</b> (YoY &amp; MoM); used these insights to drive <b>product exchange bump-ups</b> on select high-value SKUs, growing overall category <b>revenue by 19% YoY</b>.")
@@ -80,6 +80,15 @@ E.append(Paragraph(
   "Category Growth | Category Management | Assortment &amp; Merchandising | Pricing &amp; Promotions | Demand Forecasting | "
   "Cohort &amp; Conversion Analysis | Competitive Intelligence | Dashboards &amp; 360&deg; Reporting | Stakeholder Management | "
   "SQL | Tableau | Power BI | Advanced Excel | Python (familiarity)", skill))
+rule(sb=4)
+
+# ---------- CERTIFICATIONS ----------
+sect("CERTIFICATIONS")
+b("<b>Agile Project Management</b> &mdash; Google")
+b("<b>Mastering Advanced SQL Queries</b> &mdash; Coursera")
+b("<b>Customer Value, Acquisition, and Retention</b> &mdash; University of Maryland, College Park")
+b("<b>Introduction to Generative AI</b> &mdash; Google Cloud")
+b("<b>Generative AI for Leaders</b> &mdash; Vanderbilt University")
 rule(sb=4)
 
 # ---------- LEADERSHIP & ACHIEVEMENTS ----------
