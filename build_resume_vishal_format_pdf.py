@@ -50,8 +50,8 @@ rule()
 
 # ---------- EXPERIENCE ----------
 sect("EXPERIENCE")
-jobline("Flipkart", "Business Analyst &ndash; Large Appliances (eCommerce Marketplace)", "Jun 2024 &ndash; Present")
-E.append(Paragraph("Own category, seller &amp; SKU performance for a large marketplace category &mdash; driving growth via "
+jobline("Flipkart", "Business Analyst &ndash; Large Appliances (eCommerce Marketplace)", "Jun 2024 &ndash; Sep 2026")
+E.append(Paragraph("Owned category, seller &amp; SKU performance for a large marketplace category &mdash; driving growth via "
                    "assortment, pricing, promotions, and demand planning across GMV, conversion, and in-stock.", intro))
 b("Drove <b>product exchange bump-ups</b> for select high-value SKUs, growing overall category <b>revenue by 19% YoY</b>.")
 b("Introduced the <b>Windows segment</b> into the category assortment, lifting overall <b>Flipkart market-penetration share by ~1%</b>.")
