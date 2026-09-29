@@ -62,16 +62,10 @@ b("Ran <b>cohort, trend &amp; regression-based demand forecasting</b>; data-driv
 
 jobline("Enverus", "Business Analyst I &ndash; Market Research (B2B SaaS)", "Jan 2023 &ndash; May 2024")
 b("Built and maintained <b>Tableau / Power BI dashboards</b> giving US commercial leaders real-time visibility into sales trends and KPIs, supporting <b>ARR that scaled into the $500MM range</b>.")
-b("Re-engineered reporting with <b>Lean Six Sigma (20% faster)</b>, standardizing KPIs across global teams.")
+b("Re-engineered reporting through <b>Lean Six Sigma</b> optimization, driving a <b>20% reduction in cycle times</b> and standardizing KPIs across global teams.")
 
-jobline("Enverus", "Associate &ndash; Commercial Intelligence", "May 2021 &ndash; Dec 2022")
+E.append(Paragraph("<b>Associate &ndash; Commercial Intelligence</b> &nbsp;|&nbsp; <font color='#6b6b6b'>May 2021 &ndash; Dec 2022</font>", compln))
 b("Published quantitative research across <b>3 cycles</b> and built financial / operational and unit-economics models; produced competitive and price intelligence to support leadership decisions.")
-
-jobline("Technology Risk Partners", "GRC Consultant &ndash; Intern", "Feb 2021 &ndash; May 2021")
-b("Built Oracle Cloud reporting components and automated control testing to support <b>UAT and compliance</b>.")
-
-jobline("Sun Pharmaceutical Industries", "Intern &ndash; Research &amp; Data", "Jun 2020 &ndash; Jan 2021")
-b("Compiled and validated large multi-source datasets to support research and operations.")
 rule(sb=4)
 
 # ---------- EDUCATION ----------
