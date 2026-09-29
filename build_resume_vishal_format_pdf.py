@@ -78,8 +78,9 @@ rule(sb=4)
 sect("SKILLS")
 E.append(Paragraph(
   "Category Growth | Category Management | Assortment &amp; Merchandising | Pricing &amp; Promotions | Demand Forecasting | "
-  "Cohort &amp; Conversion Analysis | Competitive Intelligence | Dashboards &amp; 360&deg; Reporting | Stakeholder Management | "
-  "SQL | Tableau | Power BI | Advanced Excel | Python (familiarity)", skill))
+  "Cohort &amp; Conversion Analysis | Competitive Intelligence | Requirements (BRD / FRD) | Agile / Scrum | "
+  "Stakeholder Management | Dashboards &amp; 360&deg; Reporting | SQL | Tableau | Power BI | Advanced Excel | "
+  "Jira | Confluence | Python (familiarity)", skill))
 rule(sb=4)
 
 # ---------- CERTIFICATIONS ----------
