@@ -16,14 +16,14 @@ function bullet(t) { return new Paragraph({ bullet: { level: 0 }, spacing: { aft
 function jobline(company, rest, dates, companyBold = true) {
   return new Paragraph({ spacing: { before: 90, after: 18 }, children: [
     new TextRun({ text: company, bold: companyBold, size: 20 }),
-    new TextRun({ text: rest ? ` – ${rest}  |  ` : `  |  `, size: 20 }),
+    new TextRun({ text: rest ? ` - ${rest}  |  ` : `  |  `, size: 20 }),
     new TextRun({ text: dates, size: 20, color: GREY }),
   ]});
 }
 function plain(t, size = 19) { return new Paragraph({ spacing: { after: 30 }, children: runs(t, size) }); }
 
-const SUMMARY = "E-commerce and retail Business Analyst with 5+ years owning category growth and analytics at Flipkart and Enverus (B2B SaaS). Expert in category strategy, assortment, pricing and promotions, demand forecasting, and 360° reporting — turning data into revenue and margin growth. Known for solving ambiguous problems through analytics and cross-functional stakeholder management.";
-const FLIPKART_INTRO = "**Owned category, seller & SKU performance for a large marketplace category — driving growth via assortment, pricing, promotions, and demand planning across GMV, conversion, and in-stock.**";
+const SUMMARY = "E-commerce and retail Business Analyst with 5+ years owning category growth and analytics at Flipkart and Enverus (B2B SaaS). Expert in category strategy, assortment, pricing and promotions, demand forecasting, and 360° reporting - turning data into revenue and margin growth. Known for solving ambiguous problems through analytics and cross-functional stakeholder management.";
+const FLIPKART_INTRO = "**Owned category, seller & SKU performance for a large marketplace category - driving growth via assortment, pricing, promotions, and demand planning across GMV, conversion, and in-stock.**";
 const FLIPKART_BULLETS = [
   "Owned **cohort and SKU trend analysis** (YoY & MoM); used these insights to drive **product exchange bump-ups** on select high-value SKUs, growing overall category **revenue by 19% YoY**.",
   "Led **market research and assortment / selection analysis**; introduced the **Windows segment** into the assortment, lifting overall **Flipkart market-penetration share by ~1%**.",
@@ -38,16 +38,16 @@ const ENVERUS_BULLETS = [
 ];
 const ASSOCIATE_BULLET = "Published quantitative research across **3 cycles** and built financial / operational and unit-economics models; produced competitive and price intelligence to support leadership decisions.";
 const CERTS = [
-  "**Agile Project Management** — Google",
-  "**Mastering Advanced SQL Queries** — Coursera",
-  "**From Excel to Power BI** — Knowledge Accelerators",
-  "**Customer Value, Acquisition, and Retention** — University of Maryland, College Park",
-  "**Introduction to Generative AI** — Google Cloud",
-  "**Generative AI for Leaders** — Vanderbilt University",
+  "**Agile Project Management** - Google",
+  "**Mastering Advanced SQL Queries** - Coursera",
+  "**From Excel to Power BI** - Knowledge Accelerators",
+  "**Customer Value, Acquisition, and Retention** - University of Maryland, College Park",
+  "**Introduction to Generative AI** - Google Cloud",
+  "**Generative AI for Leaders** - Vanderbilt University",
 ];
 const LEADERSHIP = [
-  "Led operations, logistics & teams for corporate / college events hosting **800–1,000+ participants**.",
-  "Consistent data-led growth record — **55% BBD category uplift**, **19% YoY revenue growth**, and **20% faster reporting**.",
+  "Led operations, logistics & teams for corporate / college events hosting **800-1,000+ participants**.",
+  "Consistent data-led growth record - **55% BBD category uplift**, **19% YoY revenue growth**, and **20% faster reporting**.",
 ];
 
 function buildChildren(opts) {
@@ -65,18 +65,18 @@ function buildChildren(opts) {
   c.push(new Paragraph({ spacing: { after: 30 }, alignment: AlignmentType.JUSTIFIED, children: runs(SUMMARY, 19) }));
 
   c.push(header('EXPERIENCE'));
-  c.push(jobline('Flipkart', opts.flipkartTitle, 'Jun 2024 – Sep 2026'));
+  c.push(jobline('Flipkart', opts.flipkartTitle, 'Jun 2024 - Sep 2026'));
   c.push(new Paragraph({ spacing: { after: 30 }, children: runs(FLIPKART_INTRO, 19) }));
   FLIPKART_BULLETS.forEach(b => c.push(bullet(b)));
-  c.push(jobline('Enverus', 'Business Analyst I – Market Research (B2B SaaS)', 'Jan 2023 – May 2024'));
+  c.push(jobline('Enverus', 'Business Analyst I - Market Research (B2B SaaS)', 'Jan 2023 - May 2024'));
   ENVERUS_BULLETS.forEach(b => c.push(bullet(b)));
-  c.push(jobline('Associate – Commercial Intelligence', '', 'May 2021 – Dec 2022'));
+  c.push(jobline('Associate - Commercial Intelligence', '', 'May 2021 - Dec 2022'));
   c.push(bullet(ASSOCIATE_BULLET));
 
   c.push(header('EDUCATION'));
   c.push(new Paragraph({ spacing: { after: 16 }, children: [
-    new TextRun({ text: 'B.Tech – Biotechnology', bold: true, size: 19 }),
-    new TextRun({ text: ' | Vellore Institute of Technology (VIT) | 2017 – 2021 | GPA: 8.55 / 10', size: 19 }),
+    new TextRun({ text: 'B.Tech - Biotechnology', bold: true, size: 19 }),
+    new TextRun({ text: ' | Vellore Institute of Technology (VIT) | 2017 - 2021 | GPA: 8.55 / 10', size: 19 }),
   ]}));
   c.push(new Paragraph({ spacing: { after: 16 }, children: runs('**12th (ISC)** | Spring Dale College | 2016 | 88%     •     **10th (ICSE)** | Spring Dale College | 2014 | 88%', 19) }));
 
@@ -98,9 +98,9 @@ const SKILLS_6 = "Category Growth | Category Management | Assortment & Merchandi
 
 const configs = [
   { file: '/home/user/test-sample/Juhi_Bhalla_Resume_9.docx',
-    flipkartTitle: 'Business Analyst – Large Appliances (eCommerce Marketplace)', skills: SKILLS_9, certs: true },
+    flipkartTitle: 'Business Analyst - Large Appliances (eCommerce Marketplace)', skills: SKILLS_9, certs: true },
   { file: '/home/user/test-sample/Juhi_Bhalla_Resume_6.docx',
-    flipkartTitle: 'Assistant Manager – Business Development, Large Appliances (eCommerce)', skills: SKILLS_6, certs: false },
+    flipkartTitle: 'Assistant Manager - Business Development, Large Appliances (eCommerce)', skills: SKILLS_6, certs: false },
 ];
 
 (async () => {
