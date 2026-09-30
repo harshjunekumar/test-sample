@@ -1,0 +1,50 @@
+{
+ "v": 4,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-09-30T16:39:53Z"
+ },
+ "lists": "css",
+ "title": "Flipkart Service & Retention Findings",
+ "order": [
+  "cover",
+  "context",
+  "tree",
+  "hyp",
+  "prep",
+  "kpi",
+  "lever",
+  "sent",
+  "nomatter",
+  "verdicts",
+  "demand",
+  "recs",
+  "track",
+  "close"
+ ],
+ "sections": {
+  "s1": {
+   "description": "Context, metric tree and hypotheses (Checkpoint 1)",
+   "start": "cover"
+  },
+  "s2": {
+   "description": "Data preparation, statistics and hypothesis results (Checkpoint 2)",
+   "start": "prep"
+  },
+  "s3": {
+   "description": "Recommendations and tracking (Checkpoint 3)",
+   "start": "recs"
+  }
+ },
+ "faces": {
+  "source-serif-4": {
+   "family": "Source Serif 4",
+   "href": "https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400..700&display=swap"
+  },
+  "ibm-plex-sans": {
+   "family": "IBM Plex Sans",
+   "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+  }
+ },
+ "designSystems": []
+}

@@ -1,0 +1,393 @@
+<title>Flipkart Service CSAT Dashboard</title>
+<meta name="description" content="Interactive dashboard of 30,000 Flipkart customer-service contacts (Oct 2020): CSAT, sentiment, SLA response time, call duration and call-centre location.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: control-room board. Filters in one row, KPI strip, one driver panel as the answer, then a 2-column chart grid. */
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --line: #dde3ec;
+  --grid: #eceff4;
+  --ink: #111827;
+  --ink-2: #4b5565;
+  --ink-3: #7a8494;
+  --accent: #2a78d6;
+  --accent-soft: #e3eefc;
+  --neg-2: #b93a3a;
+  --neg-1: #e79a95;
+  --mid: #b9bdc4;
+  --pos-1: #86b6ef;
+  --pos-2: #1c5cab;
+  --warn: #b45309;
+  --good: #0f7a4f;
+  --h1: #cde2fb; --h2: #9ec5f4; --h3: #6da7ec; --h4: #3987e5; --h5: #256abf; --h6: #184f95;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1319; --surface: #171c24; --line: #2a313c; --grid: #222833;
+    --ink: #f1f4f8; --ink-2: #b7c0cc; --ink-3: #8a94a3;
+    --accent: #3987e5; --accent-soft: #1b2a40;
+    --neg-2: #e66767; --neg-1: #9c4a47; --mid: #5b606a; --pos-1: #3f6fa8; --pos-2: #6da7ec;
+    --warn: #f0a44b; --good: #4cc38a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1319; --surface: #171c24; --line: #2a313c; --grid: #222833;
+  --ink: #f1f4f8; --ink-2: #b7c0cc; --ink-3: #8a94a3;
+  --accent: #3987e5; --accent-soft: #1b2a40;
+  --neg-2: #e66767; --neg-1: #9c4a47; --mid: #5b606a; --pos-1: #3f6fa8; --pos-2: #6da7ec;
+  --warn: #f0a44b; --good: #4cc38a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 14px; line-height: 1.45; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 48px; display: grid; gap: 18px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; }
+.eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(24px, 3.4vw, 34px); letter-spacing: -.01em; margin: 4px 0 0; text-wrap: balance; }
+.meta { color: var(--ink-2); font-size: 13px; max-width: 460px; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; }
+.filters label { display: grid; gap: 3px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; flex: 1 1 140px; min-width: 0; }
+select { font: inherit; font-size: 13.5px; text-transform: none; letter-spacing: 0; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 7px 8px; width: 100%; }
+select:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.reset { font: inherit; font-size: 13px; font-weight: 600; color: var(--accent); background: transparent; border: 1px solid var(--line); border-radius: 7px; padding: 7px 12px; cursor: pointer; flex: 0 0 auto; }
+button.reset:hover { background: var(--accent-soft); }
+.kpis { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 2px; min-width: 0; }
+.kpi .k { font-size: 11.5px; color: var(--ink-3); letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+.kpi .v { font-family: var(--display); font-weight: 700; font-size: 26px; font-variant-numeric: tabular-nums; }
+.kpi .d { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.kpi .d.up { color: var(--good); } .kpi .d.down { color: var(--neg-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px 18px; min-width: 0; display: grid; gap: 10px; align-content: start; }
+.panel h2 { font-family: var(--display); font-size: 15.5px; font-weight: 700; margin: 0; }
+.panel .sub { color: var(--ink-3); font-size: 12.5px; margin-top: -6px; }
+.driver { border-color: var(--accent); }
+.driver-body { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.finding { display: grid; gap: 8px; font-size: 13.5px; color: var(--ink-2); }
+.finding strong { color: var(--ink); }
+.finding .big { font-family: var(--display); font-size: 21px; font-weight: 700; color: var(--ink); line-height: 1.25; text-wrap: balance; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.hbar { display: grid; gap: 7px; }
+.hrow { display: grid; grid-template-columns: 116px minmax(0, 1fr) 64px; align-items: center; gap: 10px; font-size: 13px; cursor: default; }
+.hrow .lab { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hrow .track { height: 18px; position: relative; }
+.hrow .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 4px 4px 0; background: var(--accent); transition: width .35s ease; }
+.hrow .val { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; color: var(--ink); }
+.hrow:hover .fill { filter: brightness(1.08); }
+.hrow:hover .lab { color: var(--ink); }
+.scale { display: grid; grid-template-columns: 116px minmax(0, 1fr) 64px; gap: 10px; font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); }
+.scale .ticks { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 3px; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { fill: var(--ink-3); font-family: var(--mono); font-size: 10.5px; }
+.heat { width: 100%; border-collapse: separate; border-spacing: 2px; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.heat th { font-weight: 500; color: var(--ink-3); text-align: center; padding: 4px; font-size: 11.5px; }
+.heat th.row { text-align: left; color: var(--ink-2); }
+.heat td { text-align: center; font-family: var(--mono); padding: 10px 4px; border-radius: 4px; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.recs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.rec { border-top: 3px solid var(--accent); padding-top: 10px; display: grid; gap: 4px; font-size: 13.2px; color: var(--ink-2); }
+.rec b { color: var(--ink); font-family: var(--display); font-size: 14.5px; }
+.tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); justify-self: start; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; }
+summary { cursor: pointer; font-weight: 600; font-family: var(--display); }
+.tbl-wrap { overflow-x: auto; margin-top: 10px; }
+table.data { border-collapse: collapse; width: 100%; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+table.data th, table.data td { padding: 6px 8px; border-bottom: 1px solid var(--grid); text-align: right; white-space: nowrap; }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+table.data th { color: var(--ink-3); font-weight: 600; font-size: 11.5px; }
+#tip { position: fixed; pointer-events: none; z-index: 20; background: var(--ink); color: var(--bg); font-size: 12px; padding: 7px 9px; border-radius: 6px; line-height: 1.4; max-width: 240px; opacity: 0; transition: opacity .1s; font-variant-numeric: tabular-nums; }
+#tip b { font-weight: 600; }
+footer { color: var(--ink-3); font-size: 12px; }
+@media (max-width: 980px) { .kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } .driver-body, .grid { grid-template-columns: minmax(0, 1fr); } .recs { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hrow, .scale { grid-template-columns: 92px minmax(0, 1fr) 56px; } .filters { position: static; } }
+@media (prefers-reduced-motion: reduce) { .hrow .fill { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Customer service analytics · 1–31 Oct 2020 · 30,000 contacts</div>
+      <h1>Flipkart Service CSAT Dashboard</h1>
+    </div>
+    <p class="meta">What drives customer satisfaction (CSAT, 1–10) and, through it, retention? Filter by call centre, channel, reason, sentiment or response time. Every number below recalculates.</p>
+  </header>
+
+  <div class="filters" role="group" aria-label="Filters">
+    <label for="f-center">Call centre<select id="f-center" data-key="center"></select></label>
+    <label for="f-channel">Channel<select id="f-channel" data-key="channel"></select></label>
+    <label for="f-reason">Reason<select id="f-reason" data-key="reason"></select></label>
+    <label for="f-sentiment">Sentiment<select id="f-sentiment" data-key="sentiment"></select></label>
+    <label for="f-resp">Response time<select id="f-resp" data-key="resp"></select></label>
+    <button class="reset" id="reset" type="button">Reset filters</button>
+  </div>
+
+  <section class="kpis" id="kpis" aria-label="Key metrics"></section>
+
+  <section class="panel driver" aria-labelledby="drv-h">
+    <h2 id="drv-h">What moves CSAT?</h2>
+    <div class="sub">Gap between the best and worst group's average CSAT, for each factor (points on a 1–10 scale). Longer bar = bigger lever.</div>
+    <div class="driver-body">
+      <div id="drivers"></div>
+      <div class="finding" id="finding"></div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="panel"><h2>Avg CSAT by customer sentiment</h2><div class="sub">H2: sentiment explains ~80% of CSAT variance (r = 0.90)</div><div id="c-sent"></div></section>
+    <section class="panel"><h2>Avg CSAT by response time</h2><div class="sub">H1: SLA status barely changes CSAT</div><div id="c-resp"></div></section>
+    <section class="panel"><h2>Avg CSAT by call duration</h2><div class="sub">H3: longer calls are not rated lower</div><div id="c-dur"></div></section>
+    <section class="panel"><h2>Avg CSAT by call centre</h2><div class="sub">H4: all four sites perform alike</div><div id="c-center"></div></section>
+    <section class="panel"><h2>Avg CSAT by channel</h2><div class="sub">H5: Chatbot is lowest, by a small margin</div><div id="c-channel"></div></section>
+    <section class="panel"><h2>Survey response rate by sentiment</h2><div class="sub">H6: ~63% of customers leave no CSAT score, happy or not</div><div id="c-rr"></div></section>
+    <section class="panel"><h2>Daily contacts</h2><div class="sub">1–30 Oct (31 Oct has a single contact and is left out)</div><div id="c-daily"></div></section>
+    <section class="panel"><h2>Daily average CSAT</h2><div class="sub">Flat through the month; no trend to explain</div><div id="c-dcsat"></div></section>
+    <section class="panel"><h2>CSAT score distribution</h2><div class="sub">Rated contacts only</div><div id="c-dist"></div><div class="legend"><span><i style="background:var(--neg-2)"></i>Dissatisfied 1–4</span><span><i style="background:var(--mid)"></i>Neutral 5–7</span><span><i style="background:var(--pos-2)"></i>Satisfied 8–10</span></div></section>
+    <section class="panel"><h2>Contacts by reason</h2><div class="sub">Billing questions dominate demand</div><div id="c-reason"></div></section>
+    <section class="panel" style="grid-column: 1 / -1"><h2>Avg CSAT: call centre × channel</h2><div class="sub">Darker = higher CSAT. Shading spans this table's own min–max, so small gaps look bigger than they are.</div><div class="tbl-wrap" id="c-heat"></div></section>
+  </div>
+
+  <section class="panel" aria-labelledby="rec-h">
+    <h2 id="rec-h">Recommendations</h2>
+    <div class="recs">
+      <div class="rec"><span class="tag">Biggest lever</span><b>Fix how negative interactions end</b>52% of contacts are negative or very negative, and they average 2.5–4.5 CSAT. Train agents in de-escalation and empathy, add a supervisor call-back for very-negative contacts, and track the sentiment change from start to end of each contact.</div>
+      <div class="rec"><span class="tag">Demand</span><b>Remove the reasons people call</b>71% of contacts are billing questions. Clearer invoices, refund and payment status in the app, and a self-serve billing FAQ reduce contact volume and the frustration that comes with it.</div>
+      <div class="rec"><span class="tag">Feedback</span><b>Close the survey blind spot</b>Only 37% of contacts get a CSAT score. Use a one-tap in-app survey sent right after the contact, and link CSAT to repeat-purchase data so retention can be measured directly.</div>
+      <div class="rec"><span class="tag">Don't over-invest</span><b>Keep SLA and AHT as hygiene metrics</b>Response time and call length show no link to CSAT here. Hold today's 87% SLA compliance, but don't push agents to shorten calls at the cost of solving the problem.</div>
+      <div class="rec"><span class="tag">Channel</span><b>Tune the chatbot hand-off</b>Chatbot CSAT is 0.11 points lower than other channels (p = 0.03). Send negative-sentiment chats to a human agent sooner.</div>
+      <div class="rec"><span class="tag">Measure</span><b>Track retention directly</b>This data has no repeat-purchase or churn field, so CSAT stands in for retention. Link each contact ID to the customer's orders over the next 90 days, so the effect of service on retention can be measured rather than inferred.</div>
+    </div>
+  </section>
+
+  <details>
+    <summary>Data table for the current filter</summary>
+    <div class="tbl-wrap"><table class="data" id="tbl"></table></div>
+  </details>
+
+  <footer>Source: DAF Flipkart customer-service dataset (30,000 contacts). CSAT averages use rated contacts only. Built from the cleaned data in this project's Excel workbook.</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+const D = /*__DATA__*/null;
+const L = D.labels;
+const N = D.n;
+const DURB = ["5–15 min", "16–25 min", "26–35 min", "36–45 min"];
+const cols = {};
+for (const k of ["center", "channel", "reason", "sentiment", "resp"]) {
+  const a = new Uint8Array(N); const s = D[k];
+  for (let i = 0; i < N; i++) a[i] = s.charCodeAt(i) - 48;
+  cols[k] = a;
+}
+const dur = new Uint8Array(N), day = new Uint8Array(N), csat = new Uint8Array(N), durb = new Uint8Array(N);
+for (let i = 0; i < N; i++) {
+  dur[i] = +D.dur.substr(i * 2, 2); day[i] = +D.day.substr(i * 2, 2);
+  const c = D.csat[i]; csat[i] = c === "A" ? 10 : +c;
+  durb[i] = dur[i] <= 15 ? 0 : dur[i] <= 25 ? 1 : dur[i] <= 35 ? 2 : 3;
+}
+const F = { center: -1, channel: -1, reason: -1, sentiment: -1, resp: -1 };
+const $ = (id) => document.getElementById(id);
+const fmt = { n: (v) => v.toLocaleString("en-IN"), c: (v) => v.toFixed(2), p: (v) => (v * 100).toFixed(1) + "%", m: (v) => v.toFixed(1) };
+
+function blank() { return { n: 0, r: 0, s: 0, sat: 0, dis: 0, neg: 0, br: 0, d: 0 }; }
+function add(g, i) {
+  g.n++; g.d += dur[i];
+  if (cols.sentiment[i] <= 1) g.neg++;
+  if (cols.resp[i] === 2) g.br++;
+  const c = csat[i];
+  if (c) { g.r++; g.s += c; if (c >= 8) g.sat++; if (c <= 4) g.dis++; }
+}
+const avg = (g) => (g.r ? g.s / g.r : NaN);
+
+function compute() {
+  const tot = blank(), all = blank();
+  const by = { center: [], channel: [], reason: [], sentiment: [], resp: [], durb: [] };
+  for (const k in by) for (let j = 0; j < (k === "durb" ? 4 : L[k].length); j++) by[k].push(blank());
+  const daily = Array.from({ length: 31 }, blank), dist = new Array(11).fill(0);
+  const heat = Array.from({ length: 4 }, () => Array.from({ length: 4 }, blank));
+  for (let i = 0; i < N; i++) {
+    add(all, i);
+    if ((F.center >= 0 && cols.center[i] !== F.center) || (F.channel >= 0 && cols.channel[i] !== F.channel) ||
+        (F.reason >= 0 && cols.reason[i] !== F.reason) || (F.sentiment >= 0 && cols.sentiment[i] !== F.sentiment) ||
+        (F.resp >= 0 && cols.resp[i] !== F.resp)) continue;
+    add(tot, i);
+    for (const k of ["center", "channel", "reason", "sentiment", "resp"]) add(by[k][cols[k][i]], i);
+    add(by.durb[durb[i]], i); add(daily[day[i] - 1], i); dist[csat[i]]++;
+    add(heat[cols.center[i]][cols.channel[i]], i);
+  }
+  return { tot, all, by, daily, dist, heat };
+}
+
+// ---------- tooltip
+const tip = $("tip");
+function showTip(e, html) { tip.innerHTML = html; tip.style.opacity = 1; moveTip(e); }
+function moveTip(e) {
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = e.clientX + 14, y = e.clientY + 14;
+  if (x + w > innerWidth - 8) x = e.clientX - w - 14;
+  if (y + h > innerHeight - 8) y = e.clientY - h - 14;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+function hideTip() { tip.style.opacity = 0; }
+function tipFor(label, g) {
+  return `<b>${label}</b><br>Avg CSAT ${isNaN(avg(g)) ? "–" : fmt.c(avg(g))} (${fmt.n(g.r)} rated)<br>` +
+    `${fmt.n(g.n)} contacts · response ${g.n ? fmt.p(g.r / g.n) : "–"}<br>SLA breach ${g.n ? fmt.p(g.br / g.n) : "–"} · avg ${g.n ? fmt.m(g.d / g.n) : "–"} min`;
+}
+
+// ---------- horizontal bar chart
+function hbar(el, items, max, ticks, valFmt) {
+  el.innerHTML = "";
+  const box = document.createElement("div"); box.className = "hbar";
+  items.forEach((it) => {
+    const row = document.createElement("div"); row.className = "hrow";
+    const w = isNaN(it.v) ? 0 : Math.max(0, (it.v / max) * 100);
+    row.innerHTML = `<span class="lab" title="${it.label}">${it.label}</span><span class="track"><span class="fill" style="width:${w}%;${it.color ? "background:" + it.color : ""}"></span></span><span class="val">${isNaN(it.v) ? "–" : valFmt(it.v)}</span>`;
+    row.addEventListener("pointerenter", (e) => showTip(e, it.tip));
+    row.addEventListener("pointermove", moveTip);
+    row.addEventListener("pointerleave", hideTip);
+    box.appendChild(row);
+  });
+  if (ticks) {
+    const sc = document.createElement("div"); sc.className = "scale";
+    sc.innerHTML = `<span></span><span class="ticks">${ticks.map((t) => `<span>${t}</span>`).join("")}</span><span></span>`;
+    box.appendChild(sc);
+  }
+  el.appendChild(box);
+}
+const csatBars = (el, groups, labels, colors) =>
+  hbar(el, groups.map((g, j) => ({ label: labels[j], v: avg(g), color: colors && colors[j], tip: tipFor(labels[j], g) })),
+    10, [0, 2, 4, 6, 8, 10], fmt.c);
+
+// ---------- line chart (single series, one axis)
+function line(el, pts, yMin, yMax, yTicks, yFmt, tipFn) {
+  const W = 560, H = 190, l = 40, r = 12, t = 10, b = 24;
+  const x = (d) => l + ((d - 1) / 29) * (W - l - r);
+  const y = (v) => t + (1 - (v - yMin) / (yMax - yMin)) * (H - t - b);
+  const valid = pts.filter((p) => !isNaN(p.v));
+  const path = valid.map((p, i) => `${i ? "L" : "M"}${x(p.d).toFixed(1)},${y(p.v).toFixed(1)}`).join("");
+  const last = valid[valid.length - 1];
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="line chart">`;
+  yTicks.forEach((v) => { s += `<line x1="${l}" x2="${W - r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/><text x="${l - 6}" y="${y(v) + 3.5}" text-anchor="end">${yFmt(v)}</text>`; });
+  [1, 5, 10, 15, 20, 25, 30].forEach((d) => { s += `<text x="${x(d)}" y="${H - 6}" text-anchor="middle">${d} Oct</text>`; });
+  s += `<path d="${path}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>`;
+  if (last) s += `<circle cx="${x(last.d)}" cy="${y(last.v)}" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>`;
+  s += `<line class="xh" y1="${t}" y2="${H - b}" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="3 3" visibility="hidden"/><circle class="xd" r="4.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2" visibility="hidden"/>`;
+  s += `<rect x="${l}" y="0" width="${W - l - r}" height="${H - b}" fill="transparent"/></svg>`;
+  el.innerHTML = s;
+  const svg = el.querySelector("svg"), xh = svg.querySelector(".xh"), xd = svg.querySelector(".xd");
+  svg.addEventListener("pointermove", (e) => {
+    const rc = svg.getBoundingClientRect(); const px = ((e.clientX - rc.left) / rc.width) * W;
+    const d = Math.min(30, Math.max(1, Math.round(1 + ((px - l) / (W - l - r)) * 29)));
+    const p = pts[d - 1]; if (isNaN(p.v)) return hideTip();
+    xh.setAttribute("x1", x(d)); xh.setAttribute("x2", x(d)); xh.setAttribute("visibility", "visible");
+    xd.setAttribute("cx", x(d)); xd.setAttribute("cy", y(p.v)); xd.setAttribute("visibility", "visible");
+    showTip(e, tipFn(p));
+  });
+  svg.addEventListener("pointerleave", () => { xh.setAttribute("visibility", "hidden"); xd.setAttribute("visibility", "hidden"); hideTip(); });
+}
+
+// ---------- render
+const SENT_COL = ["var(--neg-2)", "var(--neg-1)", "var(--mid)", "var(--pos-1)", "var(--pos-2)"];
+const DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function render() {
+  const { tot, all, by, daily, dist, heat } = compute();
+  const k = [
+    ["Contacts", fmt.n(tot.n), tot.n === all.n ? "all contacts" : fmt.p(tot.n / all.n) + " of all", ""],
+    ["Avg CSAT", tot.r ? fmt.c(avg(tot)) : "–", delta(avg(tot) - avg(all), fmt.c, true), cls(avg(tot) - avg(all), true)],
+    ["% Satisfied (8–10)", tot.r ? fmt.p(tot.sat / tot.r) : "–", delta(tot.sat / tot.r - all.sat / all.r, pp, true), cls(tot.sat / tot.r - all.sat / all.r, true)],
+    ["Survey response", tot.n ? fmt.p(tot.r / tot.n) : "–", delta(tot.r / tot.n - all.r / all.n, pp, true), cls(tot.r / tot.n - all.r / all.n, true)],
+    ["Negative sentiment", tot.n ? fmt.p(tot.neg / tot.n) : "–", delta(tot.neg / tot.n - all.neg / all.n, pp, false), cls(tot.neg / tot.n - all.neg / all.n, false)],
+    ["SLA breach", tot.n ? fmt.p(tot.br / tot.n) : "–", delta(tot.br / tot.n - all.br / all.n, pp, false), cls(tot.br / tot.n - all.br / all.n, false)],
+  ];
+  $("kpis").innerHTML = k.map(([a, b, c, d]) => `<div class="kpi"><span class="k">${a}</span><span class="v">${b}</span><span class="d ${d}">${c}</span></div>`).join("");
+
+  // drivers: spread of avg CSAT across groups of each factor
+  const drv = [["Sentiment", "sentiment", L.sentiment], ["Call centre", "center", L.center], ["Channel", "channel", L.channel],
+    ["Call duration", "durb", DURB], ["Contact reason", "reason", L.reason], ["Response time", "resp", L.resp]].map(([name, key, labs]) => {
+    const vals = by[key].map((g, j) => ({ v: g.r >= 30 ? avg(g) : NaN, l: labs[j] })).filter((o) => !isNaN(o.v));
+    if (F[key] >= 0 || vals.length < 2) return { label: name, v: NaN, tip: `<b>${name}</b><br>Filtered to one group` };
+    vals.sort((a, b) => b.v - a.v);
+    const hi = vals[0], lo = vals[vals.length - 1];
+    return { label: name, v: hi.v - lo.v, color: key === "sentiment" ? "var(--accent)" : "var(--mid)",
+      tip: `<b>${name}</b>: ${fmt.c(hi.v - lo.v)} pts<br>Best: ${hi.l} (${fmt.c(hi.v)})<br>Worst: ${lo.l} (${fmt.c(lo.v)})` };
+  });
+  hbar($("drivers"), drv, 8, [0, 2, 4, 6, 8], fmt.c);
+  const top = drv.filter((d) => !isNaN(d.v)).sort((a, b) => b.v - a.v);
+  const rest = top.slice(1).reduce((m, d) => Math.max(m, d.v), 0);
+  $("finding").innerHTML = top.length ? `<div class="big">${top[0].label} is the lever: a ${fmt.c(top[0].v)}-point CSAT gap. The next factor moves it ${fmt.c(rest)}.</div>
+    <div>Speed (SLA), call length, location and channel each shift CSAT by <strong>less than 0.2 points</strong> on the full data. How the customer <em>feels</em> during the contact decides the score.</div>
+    <div>Negative + very negative contacts: <strong>${fmt.p(tot.neg / tot.n)}</strong> of volume, averaging <strong>${fmt.c((by.sentiment[0].s + by.sentiment[1].s) / Math.max(1, by.sentiment[0].r + by.sentiment[1].r))}</strong> CSAT.</div>` : "<div>No data for this filter.</div>";
+
+  csatBars($("c-sent"), by.sentiment, L.sentiment, SENT_COL);
+  csatBars($("c-resp"), by.resp, L.resp);
+  csatBars($("c-dur"), by.durb, DURB);
+  csatBars($("c-center"), by.center, L.center);
+  csatBars($("c-channel"), by.channel, L.channel);
+  hbar($("c-rr"), by.sentiment.map((g, j) => ({ label: L.sentiment[j], v: g.n ? g.r / g.n : NaN, color: SENT_COL[j], tip: `<b>${L.sentiment[j]}</b><br>${fmt.n(g.r)} of ${fmt.n(g.n)} rated the contact` })), 1, ["0%", "25%", "50%", "75%", "100%"], fmt.p);
+  const rmax = Math.max(...by.reason.map((g) => g.n), 1);
+  hbar($("c-reason"), by.reason.map((g, j) => ({ label: L.reason[j], v: g.n, tip: `<b>${L.reason[j]}</b><br>${fmt.n(g.n)} contacts (${fmt.p(g.n / Math.max(1, tot.n))})<br>Avg CSAT ${isNaN(avg(g)) ? "–" : fmt.c(avg(g))}` })), rmax, null, fmt.n);
+  const rated = Math.max(1, dist.slice(1).reduce((a, b) => a + b, 0)), dmax = Math.max(...dist.slice(1), 1);
+  hbar($("c-dist"), [10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((s) => ({ label: "CSAT " + s, v: dist[s], color: s >= 8 ? "var(--pos-2)" : s <= 4 ? "var(--neg-2)" : "var(--mid)", tip: `<b>CSAT ${s}</b><br>${fmt.n(dist[s])} contacts (${fmt.p(dist[s] / rated)} of rated)` })), dmax, null, fmt.n);
+
+  const dPts = daily.slice(0, 30).map((g, j) => ({ d: j + 1, v: g.n, g }));
+  const dm = Math.max(...dPts.map((p) => p.v), 10), top_ = Math.ceil(dm / 250) * 250;
+  const dowOf = (d) => DOW[new Date(2020, 9, d).getDay()];
+  line($("c-daily"), dPts, 0, top_, [0, top_ / 2, top_], fmt.n, (p) => `<b>${dowOf(p.d)} ${p.d} Oct</b><br>${fmt.n(p.v)} contacts<br>SLA breach ${fmt.p(p.g.br / p.g.n)}`);
+  const cPts = daily.slice(0, 30).map((g, j) => ({ d: j + 1, v: g.r >= 5 ? avg(g) : NaN, g }));
+  line($("c-dcsat"), cPts, 0, 10, [0, 2.5, 5, 7.5, 10], (v) => v.toFixed(1), (p) => `<b>${dowOf(p.d)} ${p.d} Oct</b><br>Avg CSAT ${fmt.c(p.v)} (${fmt.n(p.g.r)} rated)`);
+
+  // heatmap
+  const hv = heat.flat().map(avg).filter((v) => !isNaN(v));
+  const lo = Math.min(...hv), hi = Math.max(...hv);
+  const ramp = ["--h1", "--h2", "--h3", "--h4", "--h5", "--h6"];
+  let h = `<table class="heat"><thead><tr><th></th>${L.channel.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>`;
+  heat.forEach((row, i) => {
+    h += `<tr><th class="row">${L.center[i]}</th>`;
+    row.forEach((g, j) => {
+      const v = avg(g);
+      if (isNaN(v)) { h += `<td style="color:var(--ink-3)">–</td>`; return; }
+      const step = hi > lo ? Math.min(5, Math.floor(((v - lo) / (hi - lo)) * 6)) : 2;
+      h += `<td data-i="${i}" data-j="${j}" style="background:var(${ramp[step]});color:${step >= 3 ? "#fff" : "#0d2440"}">${fmt.c(v)}</td>`;
+    });
+    h += "</tr>";
+  });
+  $("c-heat").innerHTML = h + "</tbody></table>";
+  $("c-heat").querySelectorAll("td[data-i]").forEach((td) => {
+    const g = heat[+td.dataset.i][+td.dataset.j];
+    td.addEventListener("pointerenter", (e) => showTip(e, tipFor(`${L.center[+td.dataset.i]} · ${L.channel[+td.dataset.j]}`, g)));
+    td.addEventListener("pointermove", moveTip); td.addEventListener("pointerleave", hideTip);
+  });
+
+  // data table
+  const rowsT = [["Sentiment", "sentiment", L.sentiment], ["Response time", "resp", L.resp], ["Call centre", "center", L.center], ["Channel", "channel", L.channel], ["Reason", "reason", L.reason], ["Duration", "durb", DURB]];
+  let t = "<thead><tr><th>Group</th><th>Contacts</th><th>Rated</th><th>Avg CSAT</th><th>% Satisfied</th><th>Response rate</th><th>SLA breach</th><th>Avg min</th></tr></thead><tbody>";
+  rowsT.forEach(([name, key, labs]) => by[key].forEach((g, j) => {
+    if (!g.n) return;
+    t += `<tr><td>${name}: ${labs[j]}</td><td>${fmt.n(g.n)}</td><td>${fmt.n(g.r)}</td><td>${g.r ? fmt.c(avg(g)) : "–"}</td><td>${g.r ? fmt.p(g.sat / g.r) : "–"}</td><td>${fmt.p(g.r / g.n)}</td><td>${fmt.p(g.br / g.n)}</td><td>${fmt.m(g.d / g.n)}</td></tr>`;
+  }));
+  $("tbl").innerHTML = t + "</tbody>";
+}
+function pp(v) { return (v >= 0 ? "+" : "") + (v * 100).toFixed(1) + " pts"; }
+function delta(v, f, _) { if (isNaN(v) || Math.abs(v) < 1e-9) return "same as overall"; return (v > 0 ? "+" : "") + (f === pp ? pp(v).replace("+", "") : f(v)) + " vs overall"; }
+function cls(v, higherGood) { if (isNaN(v) || Math.abs(v) < 0.005) return ""; return (v > 0) === higherGood ? "up" : "down"; }
+
+// ---------- filters
+document.querySelectorAll(".filters select").forEach((sel) => {
+  const key = sel.dataset.key;
+  sel.innerHTML = `<option value="-1">All</option>` + L[key].map((l, i) => `<option value="${i}">${l}</option>`).join("");
+  sel.addEventListener("change", () => { F[key] = +sel.value; render(); });
+});
+$("reset").addEventListener("click", () => {
+  for (const k in F) F[k] = -1;
+  document.querySelectorAll(".filters select").forEach((s) => (s.value = "-1"));
+  render();
+});
+render();
+</script>
