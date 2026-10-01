@@ -1,0 +1,4 @@
+risk_tier,customers,avg_risk,annual_revenue,expected_revenue_at_risk
+Low,4021,0.06,2463698.4,149119.28
+Medium,1800,0.23,1199685.12,280408.86
+High,675,0.48,533231.64,255647.1

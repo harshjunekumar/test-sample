@@ -1,0 +1,11 @@
+,std_coefficient
+Tenure (months),-0.582
+Completed onboarding,-0.31
+Usage hours,-0.304
+Pays by PayPal,-0.03
+Pays by bank transfer,-0.004
+Pays by e-check,0.209
+Monthly charge,0.287
+One-year contract,0.338
+Support tickets (90d),0.619
+Month-to-month contract,0.936

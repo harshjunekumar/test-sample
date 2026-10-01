@@ -1,0 +1,5 @@
+region,customers,revenue,revenue_per_customer,avg_order_value
+East,1835,791043.0,431.09,182.23
+North,1711,719897.0,420.75,178.63
+South,1301,553733.0,425.62,175.34
+West,1153,512346.0,444.36,184.76

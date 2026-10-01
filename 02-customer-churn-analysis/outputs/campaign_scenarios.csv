@@ -1,0 +1,4 @@
+scenario,customers_contacted,cost,revenue_retained,net_benefit,roi
+Blanket: all active customers,6496,389760,205552.57,-184207.43,-0.47
+Targeted: High risk only,675,40500,76694.13,36194.13,0.89
+Targeted: High + Medium risk,2475,148500,160816.79,12316.79,0.08

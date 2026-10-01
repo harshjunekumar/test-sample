@@ -1,0 +1,6 @@
+acquisition_channel,customers,orders_per_customer,revenue_per_customer,repeat_rate_pct
+Referral,755,3.26,604.75,88.6
+Email,929,2.93,523.79,83.2
+Organic Search,1783,2.41,437.65,72.6
+Marketplace,1051,2.1,362.51,65.3
+Paid Social,1482,1.77,318.82,51.3

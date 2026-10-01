@@ -1,0 +1,27 @@
+business_objective,business_req,functional_req,user_story,test_case,test_description,priority,status
+BO-1;BO-2,BR-01,FR-01,US-01,TC-01,Applicant completes and submits full online application,Must,Passed
+BO-2,BR-01,FR-01,US-02,TC-02,Save progress and resume via secure link within 30 days,Must,Passed
+BO-2,BR-01,FR-01,US-02,TC-03,Expired resume link (>30 days) shows expiry message,Must,Passed
+BO-2,BR-01,FR-02,US-03,TC-04,Existing customer details pre-filled after login,Should,Passed
+BO-2,BR-01,FR-03,US-04,TC-05,Invalid email/phone/postcode flagged inline before submit,Must,Passed
+BO-4,BR-02,FR-04,US-05,TC-06,Valid ID + selfie with match >=90% sets status Verified,Must,Passed
+BO-4,BR-02,FR-04,US-05,TC-07,Two failed face matches route to manual KYC review,Must,Failed - DEF-014
+BO-4,BR-02,FR-04,US-05,TC-08,Expired ID document blocks progression,Must,Passed
+BO-4,BR-02,FR-05,US-06,TC-09,Sanctions/PEP hit holds application and alerts Compliance,Must,Passed
+BO-1,BR-03,FR-06,US-07,TC-10,Bureau report retrieved only after consent captured,Must,Passed
+BO-1;BO-3,BR-03,FR-07,US-08,TC-11,Income verified via open-banking connection,Must,Passed
+BO-1;BO-3,BR-03,FR-08,US-09,TC-12,Score>=720 DTI<=35% amount<=25K auto-approved in <60s,Must,Passed
+BO-1;BO-3,BR-03,FR-08,US-09,TC-13,Score 620-719 referred to underwriter queue with 24h SLA,Must,Passed
+BO-4,BR-03,FR-08,US-09,TC-14,Score<620 declined with adverse-action reasons,Must,Passed
+BO-4,BR-03;BR-08,FR-09,US-10,TC-15,Rule threshold change requires checker approval before activation,Should,Passed
+BO-1,BR-04,FR-10,US-11,TC-16,Queue sorted by SLA; <4h highlighted red,Must,Passed
+BO-1,BR-04,FR-10,US-11,TC-17,Application locked while another underwriter is reviewing,Must,Passed
+BO-1;BO-3,BR-04,FR-11,US-12,TC-18,Workbench shows application + docs + bureau + rule outcomes,Must,Passed
+BO-1,BR-04,FR-12,US-13,TC-19,Underwriter requests document; applicant notified and uploads,Should,In progress
+BO-2,BR-05,FR-13,US-14,TC-20,Email/SMS sent at submitted/referred/approved/declined,Should,Passed
+BO-2,BR-05,FR-14,US-15,TC-21,Portal displays current status and next step,Could,Not started
+BO-1;BO-5,BR-06,FR-15,US-16,TC-22,Approved applicant e-signs; signed PDF stored and emailed,Must,Passed
+BO-1;BO-5,BR-06,FR-15,US-16,TC-23,Unsigned offer withdrawn after 14 days,Must,Passed
+BO-3;BO-5,BR-06,FR-16,US-17,TC-24,Signed loan posted to core banking disbursement API,Must,Passed
+BO-1;BO-3,BR-07,FR-17,US-18,TC-25,Dashboard shows funnel/auto-decision rate/SLA breaches,Should,Passed
+BO-4,BR-08,FR-18,US-18,TC-26,Every decision logged with inputs/rules/user/timestamp; log immutable,Must,Passed

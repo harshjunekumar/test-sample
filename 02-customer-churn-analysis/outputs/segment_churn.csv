@@ -1,0 +1,26 @@
+dimension,segment,customers,churn_rate_pct,lift_vs_avg
+contract,Month-to-month,4159.0,29.5,1.57
+contract,One year,2149.0,9.7,0.52
+contract,Two year,1692.0,4.0,0.21
+tenure_band,0-6m,655.0,38.8,2.06
+tenure_band,7-12m,919.0,29.1,1.55
+tenure_band,13-24m,2060.0,23.8,1.27
+tenure_band,25-48m,3311.0,14.0,0.74
+tenure_band,49-72m,1055.0,2.7,0.15
+ticket_band,0,2132.0,11.9,0.63
+ticket_band,1-2,4131.0,16.5,0.88
+ticket_band,3-4,1198.0,27.2,1.45
+ticket_band,5+,539.0,44.9,2.39
+payment_method,Bank transfer,1883.0,17.8,0.95
+payment_method,Credit card,2665.0,16.8,0.89
+payment_method,Electronic check,2044.0,23.8,1.27
+payment_method,PayPal,1408.0,16.6,0.88
+plan,Basic,3205.0,15.0,0.8
+plan,Premium,1634.0,25.5,1.35
+plan,Standard,3161.0,19.2,1.02
+completed_onboarding,0,4426.0,22.3,1.19
+completed_onboarding,1,3574.0,14.4,0.77
+region,East,1997.0,21.5,1.15
+region,North,2022.0,18.6,0.99
+region,South,1950.0,18.5,0.98
+region,West,2031.0,16.5,0.88
