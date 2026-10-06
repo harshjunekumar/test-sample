@@ -22,6 +22,7 @@ intro = ParagraphStyle("intro", fontName="Helvetica-Bold", fontSize=8.55, textCo
 bul = ParagraphStyle("bul", fontName="Helvetica", fontSize=8.55, textColor=BLACK, leading=10.9, leftIndent=10, bulletIndent=1, spaceAfter=1.3)
 edu = ParagraphStyle("edu", fontName="Helvetica", fontSize=8.7, textColor=BLACK, leading=12.0)
 skill = ParagraphStyle("skill", fontName="Helvetica", fontSize=8.6, textColor=BLACK, leading=12.3)
+subl = ParagraphStyle("subl", fontName="Helvetica-Bold", fontSize=8.5, textColor=GREY, leading=11, spaceBefore=3, spaceAfter=1)
 
 doc = SimpleDocTemplate(OUT, pagesize=A4, topMargin=10*mm, bottomMargin=8*mm, leftMargin=14*mm,
                         rightMargin=14*mm, title="Juhi Bhalla - Resume", author="Juhi Bhalla")
@@ -69,12 +70,16 @@ E.append(Paragraph("<b>Associate - Commercial Intelligence</b> &nbsp;|&nbsp; <fo
 b("Published quantitative research across <b>3 cycles</b> and built financial / operational and unit-economics models; produced competitive and price intelligence to support leadership decisions.")
 rule(sb=4)
 
-# ---------- PROJECTS ----------
-sect("PROJECTS")
+# ---------- PROJECTS & CERTIFICATIONS ----------
+sect("PROJECTS &amp; CERTIFICATIONS")
 E.append(Paragraph("<b>AI Personal Stylist</b> - Conversational Fashion Recommender (Streamlit, Python, Generative AI) &nbsp;|&nbsp; "
                    f"<link href='{DEMO}' color='{LINKB}'><u>Live Demo</u></link> &nbsp;|&nbsp; <font color='#6b6b6b'>2026 (Work in Progress)</font>", compln))
 b("Designed and built a chatbot that turns <b>4 quick questions</b> (gender/age, style, vibe, colour) into a personalized <b>style persona</b> with <b>3 complete, colour-matched looks</b> - outfit plus accessories - each linked to <b>Google Shopping</b>, with 2026 trend inputs drawn from current fashion sources.")
 b("Applied business-analyst product thinking end-to-end (problem framing, user flow, recommendation logic): personas that <b>change the recommendation, not just the label</b>; <b>4 questions vs 20 filters</b> to cut friction; and <b>&ldquo;complete the look&rdquo;</b> as a <b>basket-size / AOV lever</b>. Iterating on features from user feedback.")
+E.append(Paragraph("Certifications", subl))
+b("<b>Agile Project Management</b> - Google &nbsp;&bull;&nbsp; <b>Mastering Advanced SQL Queries</b> - Coursera")
+b("<b>From Excel to Power BI</b> - Knowledge Accelerators &nbsp;&bull;&nbsp; <b>Customer Value, Acquisition, and Retention</b> - University of Maryland, College Park")
+b("<b>Introduction to Generative AI</b> - Google Cloud &nbsp;&bull;&nbsp; <b>Generative AI for Leaders</b> - Vanderbilt University")
 rule(sb=4)
 
 # ---------- SKILLS ----------
@@ -90,13 +95,6 @@ rule(sb=4)
 sect("EDUCATION")
 E.append(Paragraph("<b>B.Tech - Biotechnology</b> | Vellore Institute of Technology (VIT) | 2017 - 2021 | GPA: 8.55 / 10", edu))
 E.append(Paragraph("<b>12th (ISC)</b> | Spring Dale College | 2016 | 88% &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b>10th (ICSE)</b> | Spring Dale College | 2014 | 88%", edu))
-rule(sb=4)
-
-# ---------- CERTIFICATIONS (condensed 2 per line) ----------
-sect("CERTIFICATIONS")
-b("<b>Agile Project Management</b> - Google &nbsp;&bull;&nbsp; <b>Mastering Advanced SQL Queries</b> - Coursera")
-b("<b>From Excel to Power BI</b> - Knowledge Accelerators &nbsp;&bull;&nbsp; <b>Customer Value, Acquisition, and Retention</b> - University of Maryland, College Park")
-b("<b>Introduction to Generative AI</b> - Google Cloud &nbsp;&bull;&nbsp; <b>Generative AI for Leaders</b> - Vanderbilt University")
 rule(sb=4)
 
 # ---------- LEADERSHIP & ACHIEVEMENTS ----------
