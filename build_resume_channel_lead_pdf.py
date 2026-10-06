@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Juhi Bhalla - tailored for Channel Lead - Ecommerce (Brand Concepts Ltd). 1 page, ATS-safe, no dashes."""
+"""Juhi Bhalla - Channel Lead - Ecommerce (Brand Concepts Ltd) + Project & merged certs. 1 page, ATS-safe, no dashes."""
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.lib import colors
@@ -9,20 +9,22 @@ from reportlab.lib.enums import TA_JUSTIFY
 
 BLACK = colors.HexColor("#1a1a1a"); GREY = colors.HexColor("#6b6b6b"); RULE = colors.HexColor("#b7b7b7")
 LINKB = "#0563C1"
+DEMO = "https://quwgk58euw9vyk7yewlnvo.streamlit.app/"
 OUT = "/home/user/test-sample/Juhi_Bhalla_Resume_ChannelLead.pdf"
 
 name = ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=15.5, textColor=BLACK, leading=18, spaceAfter=2)
 contact = ParagraphStyle("contact", fontName="Helvetica", fontSize=8.9, textColor=BLACK, leading=11.5, spaceAfter=1)
 tagline = ParagraphStyle("tag", fontName="Helvetica", fontSize=8.5, textColor=GREY, leading=11)
-sec = ParagraphStyle("sec", fontName="Helvetica-Bold", fontSize=10.3, textColor=BLACK, leading=12, spaceBefore=5, spaceAfter=2)
-summ = ParagraphStyle("summ", fontName="Helvetica", fontSize=8.75, textColor=BLACK, leading=11.3, alignment=TA_JUSTIFY)
-compln = ParagraphStyle("compln", fontName="Helvetica", fontSize=9.2, textColor=BLACK, leading=12, spaceBefore=3, spaceAfter=1)
-intro = ParagraphStyle("intro", fontName="Helvetica-Bold", fontSize=8.65, textColor=BLACK, leading=11.1, spaceAfter=1)
-bul = ParagraphStyle("bul", fontName="Helvetica", fontSize=8.65, textColor=BLACK, leading=11.1, leftIndent=10, bulletIndent=1, spaceAfter=1.4)
-edu = ParagraphStyle("edu", fontName="Helvetica", fontSize=8.8, textColor=BLACK, leading=12.3)
-skill = ParagraphStyle("skill", fontName="Helvetica", fontSize=8.7, textColor=BLACK, leading=12.6)
+sec = ParagraphStyle("sec", fontName="Helvetica-Bold", fontSize=10.1, textColor=BLACK, leading=11.2, spaceBefore=3.4, spaceAfter=1.5)
+summ = ParagraphStyle("summ", fontName="Helvetica", fontSize=8.6, textColor=BLACK, leading=10.8, alignment=TA_JUSTIFY)
+compln = ParagraphStyle("compln", fontName="Helvetica", fontSize=9.0, textColor=BLACK, leading=11.2, spaceBefore=2.4, spaceAfter=1)
+intro = ParagraphStyle("intro", fontName="Helvetica-Bold", fontSize=8.5, textColor=BLACK, leading=10.6, spaceAfter=1)
+bul = ParagraphStyle("bul", fontName="Helvetica", fontSize=8.5, textColor=BLACK, leading=10.6, leftIndent=10, bulletIndent=1, spaceAfter=1.0)
+edu = ParagraphStyle("edu", fontName="Helvetica", fontSize=8.65, textColor=BLACK, leading=11.5)
+skill = ParagraphStyle("skill", fontName="Helvetica", fontSize=8.55, textColor=BLACK, leading=11.6)
+subl = ParagraphStyle("subl", fontName="Helvetica-Bold", fontSize=8.5, textColor=GREY, leading=10.6, spaceBefore=2.4, spaceAfter=1)
 
-doc = SimpleDocTemplate(OUT, pagesize=A4, topMargin=10*mm, bottomMargin=8*mm, leftMargin=14*mm,
+doc = SimpleDocTemplate(OUT, pagesize=A4, topMargin=9*mm, bottomMargin=7*mm, leftMargin=14*mm,
                         rightMargin=14*mm, title="Juhi Bhalla - Resume", author="Juhi Bhalla")
 E = []
 def rule(sb=3, sa=2): E.append(HRFlowable(width="100%", thickness=0.7, color=RULE, spaceBefore=sb, spaceAfter=sa))
@@ -80,6 +82,19 @@ b("Published quantitative <b>market and consumer research</b> across 3 cycles an
   "competitive and price intelligence to guide leadership strategy.")
 rule(sb=4)
 
+# ---------- PROJECTS & CERTIFICATIONS ----------
+sect("PROJECTS &amp; CERTIFICATIONS")
+E.append(Paragraph("<b>AI Personal Stylist</b> - Conversational Fashion Recommender (Streamlit, Python, Generative AI) &nbsp;|&nbsp; "
+                   f"<link href='{DEMO}' color='{LINKB}'><u>Live Demo</u></link> &nbsp;|&nbsp; <font color='#6b6b6b'>2026 (Work in Progress)</font>", compln))
+b("Designed and built a chatbot that turns <b>4 quick questions</b> (gender/age, style, vibe, colour) into a personalized <b>style persona</b> "
+  "with <b>3 complete, colour-matched looks</b> - outfit plus accessories - each linked to <b>Google Shopping</b>, with 2026 trend inputs from current fashion sources.")
+b("Applied product thinking end-to-end (problem framing, user flow, recommendation logic): personas that <b>change the recommendation, "
+  "not just the label</b>; <b>4 questions vs 20 filters</b> to cut friction; and <b>&ldquo;complete the look&rdquo;</b> as a <b>basket-size / AOV lever</b>.")
+E.append(Paragraph("Certifications", subl))
+b("<b>Customer Value, Acquisition, and Retention</b> - University of Maryland, College Park &nbsp;&bull;&nbsp; <b>Agile Project Management</b> - Google")
+b("<b>Mastering Advanced SQL Queries</b> - Coursera &nbsp;&bull;&nbsp; <b>From Excel to Power BI</b> - Knowledge Accelerators")
+rule(sb=4)
+
 # ---------- SKILLS ----------
 sect("SKILLS")
 E.append(Paragraph(
@@ -87,7 +102,7 @@ E.append(Paragraph(
   "Brand Strategy &amp; Go-to-Market | Pricing &amp; Promotions | Digital Marketing Spend | Assortment &amp; Merchandising | "
   "Demand &amp; Revenue Forecasting | Consumer Research &amp; Insights | Cohort &amp; Conversion Analysis | "
   "Competitive &amp; Price Intelligence | Sales / Marketing / Operations Partnership | New Business Development | "
-  "Stakeholder Management | SQL | Tableau | Power BI | Advanced Excel", skill))
+  "Product Thinking | Stakeholder Management | SQL | Tableau | Power BI | Advanced Excel | Generative AI / LLM Apps", skill))
 E.append(Paragraph(
   "<font color='#6b6b6b'>Platforms / landscape:</font> Marketplaces (Amazon, Flipkart, Myntra, Nykaa) &amp; "
   "Quick Commerce (Blinkit, Zepto, Instamart) - channel &amp; ecosystem fluency; Online + Offline Integration (familiarity).", skill))
@@ -97,12 +112,6 @@ rule(sb=4)
 sect("EDUCATION")
 E.append(Paragraph("<b>B.Tech - Biotechnology</b> | Vellore Institute of Technology (VIT) | 2017 - 2021 | GPA: 8.55 / 10", edu))
 E.append(Paragraph("<b>12th (ISC)</b> | Spring Dale College | 2016 | 88% &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b>10th (ICSE)</b> | Spring Dale College | 2014 | 88%", edu))
-rule(sb=4)
-
-# ---------- CERTIFICATIONS ----------
-sect("CERTIFICATIONS")
-b("<b>Customer Value, Acquisition, and Retention</b> - University of Maryland, College Park &nbsp;&bull;&nbsp; <b>Agile Project Management</b> - Google")
-b("<b>Mastering Advanced SQL Queries</b> - Coursera &nbsp;&bull;&nbsp; <b>From Excel to Power BI</b> - Knowledge Accelerators")
 rule(sb=4)
 
 # ---------- LEADERSHIP & ACHIEVEMENTS ----------
