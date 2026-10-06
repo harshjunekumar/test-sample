@@ -82,10 +82,25 @@ Add 3 links, one per project, using the chart from each project as the thumbnail
 >
 > #BusinessAnalysis #Requirements #Agile #UserStories #ProcessImprovement #BABOK
 
+### Post 4: AI persona chatbot
+> 🤖 **I built a chatbot that answers "who are our customers?" from the data, not from guesswork.**
+>
+> Business teams ask analysts the same persona questions again and again. So I:
+> 1️⃣ Clustered 6,000 customers into 5 behavioural personas (K-Means on frequency, basket value, recency, discount use, returns and category mix)
+> 2️⃣ Gave an AI model (Claude) five "tools" that look up persona data
+> 3️⃣ Made the bot answer only from what those tools return, so it can't invent numbers
+>
+> Now a question like "Which persona should we target for the festive sale?" gets a data-backed answer in seconds, and shows which data it used.
+>
+> Code and walkthrough 👉 <repo-link>
+>
+> #AI #BusinessAnalysis #CustomerInsights #GenAI #Python
+
 ## 5. Resume bullets
 - Analysed 14K+ e-commerce transactions in SQL and Python. Found discount bands eroding margin from 40% to 13% and recommended a discount cap and channel budget shift.
 - Built RFM segmentation and cohort retention analysis, identifying a lapsed high-value segment holding 42% of lifetime revenue.
 - Built a churn model (logistic regression, AUC 0.81) and ROI business case. Showed targeted retention returns +89% versus –47% for a blanket campaign.
+- Built an AI persona-insights chatbot: segmented 6,000 customers into 5 behavioural personas (K-Means) and connected them to an LLM through tool calls, so answers come only from calculated data.
 - Wrote a full BRD, 18 user stories with Gherkin acceptance criteria, AS-IS/TO-BE process maps, RACI and a traceability matrix for a loan-origination redesign targeting same-day decisions.
 
 ## 6. Tips

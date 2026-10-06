@@ -1,21 +1,23 @@
 # 📊 Business Analyst Portfolio
 
-Three end-to-end projects covering the full range of business analysis work: **data analysis**, **predictive insight with a business case**, and **requirements engineering**. Each project starts from a business question and ends with clear recommendations.
+Four end-to-end projects covering the full range of business analysis work: **data analysis**, **predictive insight with a business case**, **requirements engineering**, and **AI-powered self-serve insights**. Each project starts from a business question and ends with clear recommendations.
 
 | # | Project | Business question | Key skills | Headline result |
 |---|---|---|---|---|
 | 1 | [E-commerce Sales Performance & Customer Value](01-ecommerce-sales-analysis/) | *Where does our revenue come from, and are promotions paying off?* | SQL (CTEs, window functions), Python, KPI design, RFM, cohort retention | Found that 21–30% discounts cut margin from **40% → 13%**, and flagged a lapsing high-value segment worth **$1.09M in lifetime revenue** |
 | 2 | [Customer Churn Analysis & Retention Business Case](02-customer-churn-analysis/) | *Why do customers leave, who's next, and is a retention campaign worth it?* | Root-cause analysis, logistic regression (AUC 0.81), risk scoring, ROI modelling | Showed a **targeted** campaign returns **+89% ROI**, while a blanket campaign **loses 47%** |
 | 3 | [Digital Loan Origination: Requirements & Process Redesign](03-loan-origination-requirements/) | *How do we cut loan decisions from 10 days to same-day?* | BRD, AS-IS/TO-BE BPMN, gap analysis, user stories + Gherkin, RACI, RTM, UAT | Full requirements set: 8 business reqs → 18 functional reqs → 18 user stories → 26 traced test cases |
+| 4 | [Persona Insights Chatbot](04-persona-insights-chatbot/) | *Can business teams get persona insights without waiting for an analyst?* | K-Means segmentation, persona design, LLM tool use (Claude API), Python | 5 behavioural personas behind a chatbot that answers only from calculated numbers, never invented ones |
 
 ## 🧰 Toolkit
-`SQL` · `Python (pandas, scikit-learn, matplotlib)` · `Excel / Power BI-ready CSV outputs` · `BPMN / Mermaid process modelling` · `Agile (Scrum, user stories, MoSCoW)` · `Requirements traceability` · `UAT`
+`SQL` · `Python (pandas, scikit-learn, matplotlib)` · `Claude API (tool use)` · `Excel / Power BI-ready CSV outputs` · `BPMN / Mermaid process modelling` · `Agile (Scrum, user stories, MoSCoW)` · `Requirements traceability` · `UAT`
 
 ## ▶️ Run the analytics projects
 ```bash
 pip install -r requirements.txt
 cd 01-ecommerce-sales-analysis && python generate_data.py && python analysis.py && cd ..
 cd 02-customer-churn-analysis  && python generate_data.py && python analysis.py && cd ..
+cd 04-persona-insights-chatbot  && python build_personas.py && python chatbot.py   # chatbot needs ANTHROPIC_API_KEY
 ```
 All datasets are synthetic and generated from a fixed seed, so every number in the READMEs can be reproduced exactly.
 

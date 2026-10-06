@@ -1,0 +1,187 @@
+{
+  "source": "Synthetic e-commerce data from project 01 (2024-2025)",
+  "total_customers": 6000,
+  "total_revenue": 2577017.97,
+  "personas": [
+    {
+      "name": "Big-Ticket Tech Buyers",
+      "tagline": "Few, expensive electronics orders; higher return risk",
+      "customers": 1213,
+      "customer_share_pct": 20.2,
+      "revenue_share_pct": 41.6,
+      "avg_orders": 2.51,
+      "avg_order_value": 384.47,
+      "avg_lifetime_spend": 883.03,
+      "median_days_since_last_order": 269,
+      "avg_discount_pct": 7.6,
+      "return_rate_pct": 11.1,
+      "holiday_order_share_pct": 12.0,
+      "repeat_rate_pct": 78.6,
+      "category_mix_pct": {
+        "Electronics": 80.9,
+        "Sports": 6.0,
+        "Fashion": 5.4,
+        "Home & Kitchen": 5.1,
+        "Beauty": 1.8,
+        "Books": 0.7
+      },
+      "top_regions_pct": {
+        "East": 31.7,
+        "North": 26.4,
+        "South": 21.6,
+        "West": 20.4
+      },
+      "acquisition_channels_pct": {
+        "Organic Search": 31.2,
+        "Paid Social": 22.3,
+        "Email": 16.5,
+        "Marketplace": 16.4,
+        "Referral": 13.7
+      }
+    },
+    {
+      "name": "Deal & Festive Shoppers",
+      "tagline": "Buy when discounts or holiday sales are on",
+      "customers": 1322,
+      "customer_share_pct": 22.0,
+      "revenue_share_pct": 26.0,
+      "avg_orders": 3.43,
+      "avg_order_value": 141.69,
+      "avg_lifetime_spend": 506.78,
+      "median_days_since_last_order": 48,
+      "avg_discount_pct": 16.1,
+      "return_rate_pct": 6.9,
+      "holiday_order_share_pct": 67.7,
+      "repeat_rate_pct": 92.4,
+      "category_mix_pct": {
+        "Electronics": 30.0,
+        "Fashion": 21.4,
+        "Home & Kitchen": 20.4,
+        "Sports": 20.1,
+        "Beauty": 5.2,
+        "Books": 3.0
+      },
+      "top_regions_pct": {
+        "North": 28.7,
+        "East": 27.9,
+        "South": 22.9,
+        "West": 20.5
+      },
+      "acquisition_channels_pct": {
+        "Organic Search": 31.2,
+        "Email": 18.8,
+        "Paid Social": 17.2,
+        "Referral": 16.4,
+        "Marketplace": 16.3
+      }
+    },
+    {
+      "name": "Everyday Home & Kitchen Shoppers",
+      "tagline": "Regular, mid-value baskets in one main category",
+      "customers": 1220,
+      "customer_share_pct": 20.3,
+      "revenue_share_pct": 15.8,
+      "avg_orders": 2.23,
+      "avg_order_value": 149.75,
+      "avg_lifetime_spend": 332.85,
+      "median_days_since_last_order": 281,
+      "avg_discount_pct": 6.6,
+      "return_rate_pct": 6.3,
+      "holiday_order_share_pct": 5.9,
+      "repeat_rate_pct": 71.3,
+      "category_mix_pct": {
+        "Home & Kitchen": 63.1,
+        "Fashion": 12.6,
+        "Sports": 11.5,
+        "Electronics": 7.3,
+        "Beauty": 3.3,
+        "Books": 2.2
+      },
+      "top_regions_pct": {
+        "East": 30.9,
+        "North": 29.8,
+        "South": 21.7,
+        "West": 17.5
+      },
+      "acquisition_channels_pct": {
+        "Organic Search": 31.0,
+        "Paid Social": 24.7,
+        "Marketplace": 17.2,
+        "Referral": 13.8,
+        "Email": 13.4
+      }
+    },
+    {
+      "name": "Everyday Fashion Shoppers",
+      "tagline": "Regular, mid-value baskets in one main category",
+      "customers": 1365,
+      "customer_share_pct": 22.8,
+      "revenue_share_pct": 10.9,
+      "avg_orders": 1.61,
+      "avg_order_value": 128.13,
+      "avg_lifetime_spend": 206.29,
+      "median_days_since_last_order": 271,
+      "avg_discount_pct": 6.2,
+      "return_rate_pct": 7.4,
+      "holiday_order_share_pct": 1.7,
+      "repeat_rate_pct": 39.9,
+      "category_mix_pct": {
+        "Fashion": 51.5,
+        "Sports": 37.6,
+        "Books": 6.1,
+        "Home & Kitchen": 2.4,
+        "Beauty": 1.4,
+        "Electronics": 1.0
+      },
+      "top_regions_pct": {
+        "East": 33.1,
+        "North": 27.7,
+        "South": 20.9,
+        "West": 18.3
+      },
+      "acquisition_channels_pct": {
+        "Paid Social": 32.5,
+        "Organic Search": 26.1,
+        "Marketplace": 19.3,
+        "Email": 13.5,
+        "Referral": 8.7
+      }
+    },
+    {
+      "name": "Everyday Beauty Shoppers",
+      "tagline": "Regular, mid-value baskets in one main category",
+      "customers": 880,
+      "customer_share_pct": 14.7,
+      "revenue_share_pct": 5.8,
+      "avg_orders": 2.06,
+      "avg_order_value": 77.34,
+      "avg_lifetime_spend": 168.49,
+      "median_days_since_last_order": 280,
+      "avg_discount_pct": 7.6,
+      "return_rate_pct": 4.9,
+      "holiday_order_share_pct": 11.6,
+      "repeat_rate_pct": 67.4,
+      "category_mix_pct": {
+        "Beauty": 44.9,
+        "Sports": 18.8,
+        "Fashion": 17.9,
+        "Home & Kitchen": 9.6,
+        "Electronics": 4.7,
+        "Books": 4.1
+      },
+      "top_regions_pct": {
+        "North": 30.7,
+        "East": 28.7,
+        "South": 21.1,
+        "West": 19.4
+      },
+      "acquisition_channels_pct": {
+        "Organic Search": 29.3,
+        "Paid Social": 27.4,
+        "Marketplace": 18.5,
+        "Email": 15.1,
+        "Referral": 9.7
+      }
+    }
+  ]
+}
