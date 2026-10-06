@@ -51,6 +51,27 @@ def looks_link(query: str) -> str:
     return "https://www.google.com/search?tbm=isch&q=" + quote_plus(query + " outfit")
 
 
+ACCESSORY_WORDS = re.compile(
+    r"(sneaker|flat|heel|jutti|kolhapuri|mojari|loafer|boot|sandal|mule|derb|slider|high-top|bag|tote|clutch|"
+    r"potli|minaudiere|jhumka|earring|chandbali|stud|hoop|chain|necklace|choker|jewel|watch|brooch|bracelet|"
+    r"pocket square|kalgi|shoe|accessor)")
+# Occasions shift the accessory style: e.g. a "comfortable" dresser gets classy accessories for a wedding
+OCCASION_VIBE = {"wedding": {"comfortable": "classy", "fashionable": "statement"},
+                 "festive": {"comfortable": "classy"},
+                 "party": {"comfortable": "fashionable", "classy": "fashionable"},
+                 "office": {"statement": "classy", "fashionable": "classy"}}
+ICONS = {"Footwear": "👟", "Purse": "👜", "Bag": "👜", "Earrings": "💎", "Pendant / necklace": "📿",
+         "Sunglasses": "🕶️", "Watch / bangles": "⌚", "Watch": "⌚", "Finishing touch": "✨", "Jewellery": "💍"}
+
+
+def clean_styling(styling: str) -> str:
+    """Drop accessory mentions (shoes, bags, jewellery) from an outfit's styling note, since the
+    complete look lists accessories separately. 'with a denim jacket and slip-on sneakers' -> 'with a denim jacket'."""
+    parts = re.split(r",? and |, ", re.sub(r"^(with|and) ", "", styling))
+    keep = [p for p in parts if not ACCESSORY_WORDS.search(p)]
+    return ("with " + " and ".join(keep)) if keep else ""
+
+
 def age_band(age: int) -> str:
     for limit, band in [(17, "Under 18"), (24, "18-24"), (34, "25-34"), (44, "35-44"), (54, "45-54")]:
         if age <= limit:
@@ -151,8 +172,9 @@ class Stylist:
         if colour:
             title += f", plus a touch of {colour}" if has_colour else f" in {colour}"
         q = f"{'' if has_colour else colour + ' '}{hero.split(' or ')[0]} {GENDER_WORD[self.answers['gender']]}"
-        return (f"**{title}** {styling}  \n"
-                f"[🛍 Shop on Google]({shop_link(q)}) · [🖼 See looks]({looks_link(q)})")
+        styling = clean_styling(styling)
+        return (f"**{title}**{' ' + styling if styling else ''}  \n"
+                f"[🛍 Shop on Google]({shop_link(q)}) · [🖼 See looks]({looks_link(q)})  ")
 
     def persona(self) -> tuple[str, str]:
         adj, vibe_desc = K.VIBE_PERSONA[self.answers["vibe"]]
@@ -169,20 +191,48 @@ class Stylist:
         picks.append(K.TRENDS["accessories"][0 if self.answers["vibe"] in ("fashionable", "statement") else 1])
         return picks
 
+    def _family(self, i: int) -> str:
+        wear = self.answers["wear"]
+        return ["western", "indo", "traditional"][i] if wear == "mix" else wear
+
+    def complete_look(self, i: int, family: str, occasion: str = None) -> list[tuple[str, str, str]]:
+        """Accessories for outfit number i: [(icon, slot, item)], matched to gender, wear, vibe and colour.
+        For an occasion, accessories are dressed up (wedding, festive, party) or toned down (office)."""
+        a = self.answers
+        g, vibe = a["gender"], OCCASION_VIBE.get(occasion, {}).get(a["vibe"], a["vibe"])
+        fill = {"metal": K.METAL[a["colour"]], "accent": K.PALETTES[a["colour"]][(i + 2) % 4][0]}
+
+        def pick(options: str) -> str:
+            choices = options.split("|")
+            return choices[i % len(choices)].format(**fill)
+
+        if g == "woman":
+            slots = [(slot, by[family][vibe] if slot != "Sunglasses" else by[vibe]) for slot, by in K.LOOK_WOMAN.items()]
+        elif g == "man":
+            slots = [(slot, by[family][vibe] if family in by else by[vibe]) for slot, by in K.LOOK_MAN.items()]
+        else:
+            slots = [("Footwear", K.LOOK_MAN["Footwear"][family][vibe]), ("Bag", K.LOOK_NEUTRAL["Bag"][vibe]),
+                     ("Jewellery", K.LOOK_NEUTRAL["Jewellery"][vibe]), ("Watch", K.LOOK_MAN["Watch"][vibe]),
+                     ("Sunglasses", K.LOOK_MAN["Sunglasses"][vibe])]
+        return [(ICONS[slot], slot, pick(options)) for slot, options in slots]
+
+    def _look_block(self, i: int, family: str, occasion: str = None) -> str:
+        gw = GENDER_WORD[self.answers["gender"]]
+        lines = [f"   - {icon} **{slot}:** [{item}]({shop_link(item + ' ' + gw)})"
+                 for icon, slot, item in self.complete_look(i, family, occasion)]
+        return "   *Complete the look:*\n" + "\n".join(lines)
+
     def recommend(self, intro: str = "") -> dict:
         a = self.answers
         name, desc = self.persona()
-        outfits = "\n".join(f"{i}. {self._item_line(self._colour_for(i - 1), hero, styling)}"
-                            for i, (hero, styling) in enumerate(self._outfits(), 1))
-        gw = GENDER_WORD[a["gender"]]
-        acc = "\n".join(f"- **{k}:** {v} ([shop]({shop_link(v.split(' or ')[0] + ' ' + gw)}))"
-                        for k, v in K.ACCESSORIES[a["gender"]][a["vibe"]].items())
+        looks = "\n".join(f"{i}. {self._item_line(self._colour_for(i - 1), hero, styling)}\n{self._look_block(i - 1, self._family(i - 1))}\n"
+                          for i, (hero, styling) in enumerate(self._outfits(), 1))
         tips = "\n".join(f"- {t}" for t in K.AGE_TIPS[a["age"]])
         trends = "\n".join(f"- {t} ([source]({url}))" for t, url in self._trends())
         text = (f"{intro}✨ **Your style persona: {name}**  \n*{desc}*\n\n"
-                f"#### 👗 Outfits picked just for you\n{outfits}\n\n"
-                f"#### 👜 Accessories to complete the look\n{acc}\n\n"
-                f"#### 🎨 Your colour palette: {a['colour']}\n{K.PALETTE_TIPS[a['colour']]}\n\n"
+                f"#### 👗 Complete looks picked just for you\n{looks}\n"
+                f"#### 🎨 Your colour palette: {a['colour']}\n{K.PALETTE_TIPS[a['colour']]} "
+                f"Your accessories are in **{K.METAL[a['colour']]}** tones to match.\n\n"
                 f"#### 💡 Tips for your age group ({a['age']})\n{tips}\n\n"
                 f"#### 🔥 Trending in 2026 (from the web)\n{trends}\n\n"
                 "Want a look for a specific occasion? Tap one below, or type something like *show me pastels*.")
@@ -194,11 +244,10 @@ class Stylist:
         main = K.OCCASION_OUTFITS[a["gender"]][occasion][wear]
         alt_wear = "indo" if wear != "indo" else ("traditional" if occasion in ("festive", "wedding") else "western")
         alt = K.OCCASION_OUTFITS[a["gender"]][occasion][alt_wear]
-        acc = K.ACCESSORIES[a["gender"]][a["vibe"]]
         text = (f"#### {K.OCCASIONS[occasion]} look, just for you\n"
-                f"1. {self._item_line(self._colour_for(0), *main)}\n"
-                f"2. Or try {K.WEAR[alt_wear].lower()}: {self._item_line(self._colour_for(1), *alt)}\n\n"
-                f"**Finish with:** {acc['Footwear']}, {acc['Jewellery']} and a {acc['Bag']}.\n\n"
+                f"1. {self._item_line(self._colour_for(0), *main)}\n{self._look_block(0, wear, occasion)}\n\n"
+                f"2. Or try {K.WEAR[alt_wear].lower()}: {self._item_line(self._colour_for(1), *alt)}\n"
+                f"{self._look_block(1, alt_wear, occasion)}\n\n"
                 "Pick another occasion, or tap **Start over**.")
         return {"text": text}
 

@@ -27,10 +27,31 @@ for g, age, wear, vibe, colour in itertools.product(K.GENDERS.values(), K.AGE_BA
     for answer in (g, age, wear, vibe, colour):
         r = b.reply(answer)
     assert "Your style persona" in r["text"] and len(r["palette"]) == 4, (g, age, wear, vibe, colour)
-    assert r["text"].count("Shop on Google") == 3
-if True:
+    assert r["text"].count("Shop on Google") == 3 and r["text"].count("Complete the look") == 3
+    assert "{" not in r["text"], "an accessory placeholder was not filled in"
     for occ in K.OCCASIONS.values():
         assert "look, just for you" in b.reply(occ)["text"]
+
+# Complete looks have the right accessories for each gender
+REQUIRED = {"Woman": ["Purse", "Earrings", "Pendant / necklace", "Sunglasses", "Footwear", "Watch / bangles"],
+            "Man": ["Watch", "Sunglasses", "Footwear", "Finishing touch"],
+            "Prefer not to say": ["Bag", "Jewellery", "Watch", "Sunglasses", "Footwear"]}
+for g, slots in REQUIRED.items():
+    b = Stylist()
+    for answer in (g, "25-34", "A mix of everything", "Classy", "Pastels"):
+        r = b.reply(answer)
+    for slot in slots:
+        assert r["text"].count(f"**{slot}:**") == 3, (g, slot)
+
+# Accessories follow the answers: metal from the colour, jewellery style from the wear type
+b = Stylist()
+for answer in ("Woman", "25-34", "Traditional", "Classy", "Black & monochrome"):
+    r = b.reply(answer)
+assert "silver" in r["text"] and "jhumkas" in r["text"]
+b = Stylist()
+for answer in ("Man", "25-34", "Indo-western", "Comfortable", "Earthy tones"):
+    b.reply(answer)
+assert "backpack" not in b.reply("Wedding")["text"]          # dressed up for the occasion
 
 # Follow-ups change the result, and Start over resets
 b = Stylist()

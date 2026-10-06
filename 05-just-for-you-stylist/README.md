@@ -3,7 +3,7 @@
 **Skills shown:** Customer persona design · Conversational UX · Recommendation logic · Trend research · Python · Streamlit
 
 > **Business problem.** Fashion shoppers face thousands of products and leave without buying when they can't picture what suits them.
-> **Just for you** asks 4 quick questions, builds the shopper's **style persona**, and recommends outfits, accessories and colours, with one-tap links to shop each item on Google.
+> **Just for you** asks 4 quick questions, builds the shopper's **style persona**, and recommends **complete looks**: outfit, footwear, purse, earrings, pendant, sunglasses and watch, with one-tap links to shop every item on Google.
 
 ![Start screen](images/start.png)
 
@@ -15,7 +15,7 @@ flowchart LR
     Q2 --> Q3[Style vibe?<br/>Comfortable · Classy · Fashionable · Statement]
     Q3 --> Q4[Colour preference?]
     Q4 --> P[Style persona<br/>e.g. 'The Timeless Fusion Lover']
-    P --> R[3 outfits · accessories · colour palette<br/>age-group tips · 2026 trends]
+    P --> R[3 complete looks: outfit + accessories<br/>colour palette · age-group tips · 2026 trends]
     R --> O[Follow-ups: office · casual · party<br/>festive · wedding · change colour]
 ```
 
@@ -32,6 +32,19 @@ Customers can **tap buttons** or **type freely**. For example, *"female, 28"* an
 | Vibe | Comfortable · Classy · Fashionable · Statement |
 | Colour | Neutrals · Pastels · Earthy · Jewel tones · Bright & bold · Monochrome · Surprise me (2026 trend colours) |
 | Occasions | Office · Casual weekend · Party · Festive / puja · Wedding |
+
+## 👜 Complete looks: accessories matched to every answer
+| Customer | Each outfit comes with |
+|---|---|
+| Woman | 👟 Footwear · 👜 Purse · 💎 Earrings · 📿 Pendant / necklace · 🕶️ Sunglasses · ⌚ Watch / bangles |
+| Man | 👟 Footwear · ⌚ Watch · 🕶️ Sunglasses · ✨ Finishing touch (belt, pocket square, stole, kada) |
+| Prefer not to say | 👟 Footwear · 👜 Bag · 💍 Jewellery · ⌚ Watch · 🕶️ Sunglasses |
+
+How each answer shapes the accessories:
+- **Wear type:** jhumkas, potlis and kangans with traditional; hoops, totes and watches with western; a blend for indo-western.
+- **Style vibe:** small studs and canvas totes for *comfortable*, up to chandbalis and minaudiere clutches for *statement*.
+- **Colour:** sets the metal tone (rose gold for pastels, silver for monochrome, antique gold for earthy) and the purse colour, a matching shade from the customer's palette.
+- **Occasion:** accessories are dressed up for weddings, festive events and parties, and toned down for the office.
 
 That's **2,016 combinations** of answers (3 × 6 × 4 × 4 × 7), each with its own persona, colour-matched outfits and accessories. All of them are checked by the tests.
 
@@ -56,10 +69,10 @@ On **share.streamlit.io** → **Create app** → **Deploy a public app from GitH
 ## 🗂 Files
 | File | What it does |
 |---|---|
-| `style_knowledge.py` | All styling content: outfits, accessories, palettes, age tips, occasion looks, 2026 trends with sources. **Edit this to refresh the bot.** |
+| `style_knowledge.py` | All styling content: outfits, complete-look accessories, metal tones, palettes, age tips, occasion looks, 2026 trends with sources. **Edit this to refresh the bot.** |
 | `stylist.py` | Conversation engine: asks the questions, understands typed answers, builds the persona and recommendations |
 | `app.py` | The web page: "Just for you" logo, chat, quick-reply buttons, colour swatches |
-| `test_stylist.py` | Checks typed-answer parsing, the full flow and all 2,016 combinations |
+| `test_stylist.py` | Checks typed-answer parsing, the full flow, all 2,016 combinations and the accessories in every complete look |
 
 ## 🚀 Ideas to extend it
 - Add photos for each outfit, and real product links from a store catalogue.

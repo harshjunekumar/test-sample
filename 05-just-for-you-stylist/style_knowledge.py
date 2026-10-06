@@ -239,38 +239,142 @@ OCCASION_OUTFITS = {
     },
 }
 
-# ---- Accessories: ACCESSORIES[gender][vibe] -----------------------------------
-ACCESSORIES = {
-    "woman": {
-        "comfortable": {"Footwear": "white sneakers or kolhapuri flats", "Bag": "canvas tote",
-                        "Jewellery": "small hoops or oxidised silver studs", "Extra": "cotton stole or bucket hat"},
-        "classy": {"Footwear": "pointed flats or block heels", "Bag": "structured leather tote",
-                   "Jewellery": "pearl studs and a fine gold chain", "Extra": "classic leather-strap watch"},
-        "fashionable": {"Footwear": "kitten heels or chunky loafers", "Bag": "woven shoulder bag",
-                        "Jewellery": "layered necklaces and stacked rings", "Extra": "statement sunglasses"},
-        "statement": {"Footwear": "metallic heels or embellished juttis", "Bag": "minaudiere clutch or potli",
-                      "Jewellery": "chunky beaded necklace or chandbalis", "Extra": "statement brooch"},
+# ---- Complete-look accessories ----------------------------------------------------
+# Options are separated by "|"; outfit 1 gets the first option, outfit 2 the second, and so on.
+# {metal} is filled from the colour palette (e.g. rose gold for pastels) and {accent} with a
+# palette colour, so accessories match the customer's colours.
+METAL = {"Neutrals & whites": "gold", "Pastels": "rose gold", "Earthy tones": "antique gold",
+         "Jewel tones": "gold", "Bright & bold": "gold", "Black & monochrome": "silver",
+         "Surprise me (2026 trend colours)": "silver"}
+
+# Women: LOOK_WOMAN[slot][wear][vibe]
+LOOK_WOMAN = {
+    "Footwear": {
+        "western": {"comfortable": "white sneakers|ballet flats|slip-on loafers",
+                    "classy": "pointed flats|block heels|slingback kitten heels",
+                    "fashionable": "kitten heels|chunky loafers|strappy flat sandals",
+                    "statement": "metallic heels|knee-high boots|embellished mules"},
+        "indo": {"comfortable": "kolhapuri flats|embroidered juttis|flat sandals",
+                 "classy": "embroidered juttis|block-heel sandals|pointed mules",
+                 "fashionable": "block heels|embellished kolhapuris|platform juttis",
+                 "statement": "embellished heels|mirror-work juttis|metallic block heels"},
+        "traditional": {"comfortable": "kolhapuris|cotton juttis|soft leather sandals",
+                        "classy": "silk juttis|gold-toned block heels|embroidered mojaris",
+                        "fashionable": "embellished juttis|platform kolhapuris|wedge juttis",
+                        "statement": "zari juttis|embellished heels|velvet mojaris"},
     },
-    "man": {
-        "comfortable": {"Footwear": "white sneakers or kolhapuris", "Bag": "canvas backpack",
-                        "Jewellery": "simple bracelet", "Extra": "cotton cap"},
-        "classy": {"Footwear": "leather loafers or mojaris", "Bag": "leather messenger bag",
-                   "Jewellery": "signet ring", "Extra": "minimal leather-strap watch"},
-        "fashionable": {"Footwear": "chunky sneakers", "Bag": "sling bag",
-                        "Jewellery": "silver chain", "Extra": "tinted sunglasses"},
-        "statement": {"Footwear": "embroidered mojaris or chelsea boots", "Bag": "textured leather pouch",
-                      "Jewellery": "layered chains and a bold ring", "Extra": "lapel brooch or pocket square"},
+    "Purse": {
+        "western": {"comfortable": "{accent} canvas tote|{accent} crossbody bag|{accent} sling bag",
+                    "classy": "structured {accent} leather tote|{accent} top-handle bag|{accent} envelope clutch",
+                    "fashionable": "woven {accent} shoulder bag|{accent} baguette bag|{accent} bucket bag",
+                    "statement": "{metal} minaudiere clutch|{accent} beaded clutch|sculptural {accent} handbag"},
+        "indo": {"comfortable": "{accent} printed tote|{accent} jute sling bag|{accent} fabric crossbody",
+                 "classy": "{accent} potli bag|{accent} embroidered clutch|structured {accent} tote",
+                 "fashionable": "{accent} mirror-work sling bag|{accent} box clutch|{accent} woven potli",
+                 "statement": "embellished {accent} potli|{metal} box clutch|{accent} sequinned clutch"},
+        "traditional": {"comfortable": "{accent} cotton potli|{accent} jute tote|{accent} block-print sling bag",
+                        "classy": "{accent} silk potli|{metal} brocade clutch|{accent} zari envelope clutch",
+                        "fashionable": "{accent} embroidered potli|{accent} beaded clutch|{accent} velvet potli",
+                        "statement": "{metal} embellished potli|{accent} velvet box clutch|{metal} zardozi clutch"},
     },
-    "neutral": {
-        "comfortable": {"Footwear": "sneakers or sliders", "Bag": "canvas tote", "Jewellery": "simple silver ring",
-                        "Extra": "bucket hat"},
-        "classy": {"Footwear": "leather loafers", "Bag": "structured crossbody", "Jewellery": "fine chain",
-                   "Extra": "minimal watch"},
-        "fashionable": {"Footwear": "chunky sneakers", "Bag": "sling bag", "Jewellery": "layered silver chains",
-                        "Extra": "statement sunglasses"},
-        "statement": {"Footwear": "platform boots", "Bag": "metallic pouch", "Jewellery": "chunky beaded necklace",
-                      "Extra": "brooch"},
+    "Earrings": {
+        "western": {"comfortable": "small {metal} hoops|{metal} studs|tiny {metal} huggies",
+                    "classy": "pearl studs|{metal} drop earrings|solitaire studs",
+                    "fashionable": "{metal} ear cuffs|chunky {metal} hoops|{metal} geometric earrings",
+                    "statement": "oversized {metal} hoops|chandelier earrings|sculptural {metal} earrings"},
+        "indo": {"comfortable": "small oxidised jhumkas|{metal} studs|mini {metal} chandbalis",
+                 "classy": "pearl drop earrings|{metal} jhumkas|kundan studs",
+                 "fashionable": "{metal} ear cuffs with chain|statement jhumkas|tassel earrings",
+                 "statement": "big {metal} chandbalis|layered jhumkas|mirror-work earrings"},
+        "traditional": {"comfortable": "small {metal} jhumkas|{metal} studs|oxidised silver jhumkas",
+                        "classy": "temple jhumkas|pearl chandbalis|kundan drop earrings",
+                        "fashionable": "statement jhumkas|polki earrings|{metal} chandbalis",
+                        "statement": "temple jhumkas with ear chains|polki chandbalis|layered kundan jhumkas"},
     },
+    "Pendant / necklace": {
+        "western": {"comfortable": "dainty {metal} chain|{metal} initial pendant|thin {metal} chain",
+                    "classy": "{metal} pendant on a fine chain|single pearl pendant|{metal} solitaire pendant",
+                    "fashionable": "layered {metal} necklaces|{metal} coin pendant|chunky {metal} chain",
+                    "statement": "chunky beaded necklace|bold {metal} collar necklace|layered pearl necklaces"},
+        "indo": {"comfortable": "oxidised silver pendant|{metal} thread pendant|minimal {metal} chain",
+                 "classy": "{metal} pendant with pearls|kundan pendant|fine {metal} chain",
+                 "fashionable": "layered {metal} necklaces|{metal} coin necklace|tassel pendant",
+                 "statement": "statement {metal} choker|chunky beaded necklace|layered kundan necklace"},
+        "traditional": {"comfortable": "small {metal} pendant|oxidised silver necklace|thin {metal} chain",
+                        "classy": "temple pendant|pearl mala|kundan pendant set",
+                        "fashionable": "polki choker|layered {metal} necklace|{metal} coin haar",
+                        "statement": "temple choker with long haar|polki necklace set|layered kundan haar"},
+    },
+    "Sunglasses": {"comfortable": "classic wayfarers|oversized round sunglasses|tortoiseshell wayfarers",
+                   "classy": "tortoiseshell cat-eye sunglasses|{metal} aviators|square tortoiseshell sunglasses",
+                   "fashionable": "slim oval sunglasses|tinted rectangular sunglasses|{metal} round sunglasses",
+                   "statement": "oversized shield sunglasses|{accent} cat-eye sunglasses|oversized square sunglasses"},
+    "Watch / bangles": {
+        "western": {"comfortable": "{accent} strap watch|slim {metal} bracelet|minimal watch",
+                    "classy": "classic {metal} watch|{metal} bangle|{metal} mesh-strap watch",
+                    "fashionable": "stacked {metal} bracelets|square-dial watch|{metal} chain bracelet",
+                    "statement": "chunky {metal} cuff|bold bangle stack|{metal} statement watch"},
+        "indo": {"comfortable": "thin {metal} bangles|oxidised kada|minimal watch",
+                 "classy": "{metal} kada|pearl bracelet|{metal} bangles",
+                 "fashionable": "stacked {metal} bangles|{metal} cuff|beaded bracelets",
+                 "statement": "chunky {metal} kada|mirror-work bangles|{metal} haathphool"},
+        "traditional": {"comfortable": "{accent} glass bangles|thin {metal} bangles|oxidised kada",
+                        "classy": "{metal} kangan|pearl bangles|{metal} bangles",
+                        "fashionable": "{accent} bangle stack|kundan bangles|{metal} kada",
+                        "statement": "kundan kangan set|{metal} haathphool|heavy {metal} bangle stack"},
+    },
+}
+
+# Men: LOOK_MAN[slot][wear][vibe], or LOOK_MAN[slot][vibe] for slots that don't depend on wear
+LOOK_MAN = {
+    "Footwear": {
+        "western": {"comfortable": "white sneakers|canvas slip-ons|suede sneakers",
+                    "classy": "leather loafers|suede derbies|brown brogues",
+                    "fashionable": "chunky sneakers|suede chelsea boots|minimal leather sneakers",
+                    "statement": "chelsea boots|patent loafers|{accent} suede loafers"},
+        "indo": {"comfortable": "kolhapuris|leather sandals|minimal sneakers",
+                 "classy": "leather mojaris|tan loafers|suede loafers",
+                 "fashionable": "minimal sneakers|embroidered loafers|tan mojaris",
+                 "statement": "embroidered mojaris|velvet loafers|zari juttis"},
+        "traditional": {"comfortable": "kolhapuris|leather juttis|leather sandals",
+                        "classy": "leather mojaris|embroidered juttis|tan juttis",
+                        "fashionable": "embroidered juttis|tan mojaris|printed juttis",
+                        "statement": "zari mojaris|velvet juttis|embroidered mojaris"},
+    },
+    "Watch": {"comfortable": "{accent} strap sports watch|canvas-strap watch|digital watch",
+              "classy": "classic leather-strap watch|{metal} dress watch|leather-strap chronograph",
+              "fashionable": "steel bracelet watch|square-dial watch|{accent} dial watch",
+              "statement": "chronograph watch|{metal} statement watch|skeleton watch"},
+    "Sunglasses": {"comfortable": "classic wayfarers|polarised sports sunglasses|round wayfarers",
+                   "classy": "tortoiseshell round sunglasses|{metal} aviators|square tortoiseshell sunglasses",
+                   "fashionable": "slim rectangular sunglasses|clear-frame sunglasses|{metal} round sunglasses",
+                   "statement": "bold square sunglasses|tinted aviators|{accent} tinted sunglasses"},
+    "Finishing touch": {
+        "western": {"comfortable": "canvas backpack|{accent} cap|woven bracelet",
+                    "classy": "brown leather belt|leather messenger bag|{metal} cufflinks",
+                    "fashionable": "sling bag|{metal} chain|{accent} beanie",
+                    "statement": "{accent} pocket square|bold {metal} ring|{metal} lapel pin"},
+        "indo": {"comfortable": "{accent} cotton stole|{metal} kada|leather bracelet",
+                 "classy": "{accent} silk pocket square|{metal} kada|{metal} brooch",
+                 "fashionable": "layered {metal} chain|{accent} printed stole|{metal} ring",
+                 "statement": "{metal} brooch|layered {metal} chains|{accent} embroidered stole"},
+        "traditional": {"comfortable": "{accent} cotton stole|wooden bead bracelet|{metal} kada",
+                        "classy": "{accent} pocket square|{metal} kada|{metal} button set",
+                        "fashionable": "{accent} printed stole|{metal} button set|{metal} brooch",
+                        "statement": "kalgi brooch|{accent} zari stole|{metal} mala"},
+    },
+}
+
+# Prefer not to say: gender-neutral accessories, LOOK_NEUTRAL[slot][vibe]
+LOOK_NEUTRAL = {
+    "Bag": {"comfortable": "{accent} canvas tote|{accent} sling bag|{accent} backpack",
+            "classy": "structured {accent} crossbody|{accent} leather tote|{accent} leather pouch",
+            "fashionable": "{accent} sling bag|{accent} bucket bag|{accent} mini messenger bag",
+            "statement": "{metal} pouch|{accent} beaded bag|{accent} sculptural bag"},
+    "Jewellery": {"comfortable": "simple {metal} ring|{metal} studs|beaded bracelet",
+                  "classy": "fine {metal} chain|{metal} signet ring|{metal} studs",
+                  "fashionable": "layered {metal} chains|{metal} ear cuff|stacked {metal} rings",
+                  "statement": "chunky beaded necklace|bold {metal} rings|{metal} brooch"},
 }
 
 # ---- Age-band tips -----------------------------------------------------------
