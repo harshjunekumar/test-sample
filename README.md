@@ -1,4 +1,8 @@
-# 📊 Business Analyst Portfolio
+# 📊 Juhi Bhalla | Business Analyst Portfolio
+
+**E-commerce & Retail Business Analyst** · 5+ years across Flipkart (category growth) and Enverus (B2B SaaS commercial intelligence) · Bengaluru, India
+🔗 [LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN-ID) · ✉️ juhibhalla.jblko@gmail.com
+
 
 Four end-to-end projects covering the full range of business analysis work: **data analysis**, **predictive insight with a business case**, **requirements engineering**, and **AI-powered self-serve insights**. Each project starts from a business question and ends with clear recommendations.
 

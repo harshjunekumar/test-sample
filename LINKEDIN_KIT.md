@@ -1,12 +1,12 @@
-# LinkedIn Kit
+# LinkedIn Kit: Juhi Bhalla
 
 Ready-to-use text for promoting this portfolio. Replace `<repo-link>` with your GitHub URL, and **tell readers the data is synthetic**. Being upfront about that builds credibility.
 
 ---
 
 ## 1. Profile headline (pick one)
-- `Business Analyst | SQL · Python · Requirements (BRD, User Stories) · Process Improvement | Turning data into decisions`
-- `Aspiring Business Analyst | Data Analysis, Process Mapping & Stakeholder Requirements | SQL · Python · Power BI`
+- `Business Analyst | E-commerce & Category Growth | Ex-Flipkart | SQL · Tableau · Power BI · Python | Conversion, Pricing & Promotions`
+- `E-commerce Business Analyst | Turning funnel & customer data into growth | Ex-Flipkart, Enverus | SQL · Python · AI-powered insights`
 
 ## 2. "Featured" section
 Add 3 links, one per project, using the chart from each project as the thumbnail:
@@ -96,7 +96,8 @@ Add 3 links, one per project, using the chart from each project as the thumbnail
 >
 > #AI #BusinessAnalysis #CustomerInsights #GenAI #Python
 
-## 5. Resume bullets
+## 5. Resume: add a "Projects" section
+Keep these separate from work experience, under a heading like **Projects (self-initiated)**.
 - Analysed 14K+ e-commerce transactions in SQL and Python. Found discount bands eroding margin from 40% to 13% and recommended a discount cap and channel budget shift.
 - Built RFM segmentation and cohort retention analysis, identifying a lapsed high-value segment holding 42% of lifetime revenue.
 - Built a churn model (logistic regression, AUC 0.81) and ROI business case. Showed targeted retention returns +89% versus –47% for a blanket campaign.
@@ -106,5 +107,6 @@ Add 3 links, one per project, using the chart from each project as the thumbnail
 ## 6. Tips
 - Pin the GitHub repo and add each project to **Featured** with a chart screenshot from its `outputs/` folder.
 - Post once a week. Lead with the insight, not the tools.
+- Before posting, run each project once yourself and read the code, so you can answer detailed questions about it.
 - In interviews, walk through one project as **Problem → Approach → Insight → Recommendation → Impact**.
 - Next step: rebuild Project 1's outputs as a **Power BI or Tableau dashboard** (the CSVs in `outputs/` are ready to import) and add a screenshot.

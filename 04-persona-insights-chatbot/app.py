@@ -40,6 +40,7 @@ with st.sidebar:
     st.divider()
     st.caption("Free rule-based bot: answers come straight from the customer data. "
                "The data is synthetic, built for a portfolio project.")
+    st.caption("Built by **Juhi Bhalla** · [LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN-ID)")
 
 st.title("🛒 Persona Insights Bot")
 st.caption("Ask about the customer personas of an e-commerce store.")
