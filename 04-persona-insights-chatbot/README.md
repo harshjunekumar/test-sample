@@ -5,6 +5,39 @@
 > **Business problem.** Product, marketing and category teams keep asking the analytics team the same kinds of questions: *"Who are our discount-driven customers?"*, *"Which persona should we target for the festive sale?"*, *"How do tech buyers differ from fashion shoppers?"*
 > This project builds a chatbot that answers those questions **from the actual customer data**, so teams can serve themselves.
 
+There are **two versions**:
+
+| | Free version (`free_bot.py` + `app.py`) | AI version (`chatbot.py`) |
+|---|---|---|
+| Cost | **Free**, no sign-up | Pay-per-use Claude API key |
+| How it understands questions | Keyword rules ("intents") | AI model (Claude) |
+| Handles unusual wording | Only phrasings it has rules for | Yes |
+| Web page | ✅ Streamlit chat app, free hosting | Terminal only |
+| Numbers come from | The data (same tools) | The data (same tools) |
+
+## 🆓 Free version: web chat app
+
+![Free persona bot](images/free_bot_screenshot.png)
+
+```bash
+pip install -r ../requirements.txt
+streamlit run app.py          # opens the chat page in your browser
+python free_bot.py            # or chat in the terminal
+python test_free_bot.py       # tests
+```
+
+**How it understands questions:** `free_bot.py` looks for persona words ("tech", "beauty", "deal") and intent words ("compare", "which… most", "returns", "churn", "where", "Diwali"). It picks the matching answer type, fetches the numbers with the same tools the AI version uses, and fills them into a written template with rule-based ideas. It also remembers the last persona, so *"where are they?"* works as a follow-up.
+
+### Put it online for free (Streamlit Community Cloud)
+1. Make your GitHub repo **public**, and make sure this branch is merged into `main`.
+2. Go to **share.streamlit.io** and sign in with GitHub.
+3. Click **Create app** → choose your repo, branch `main`, and main file path `04-persona-insights-chatbot/app.py` → **Deploy**.
+4. In a few minutes you get a public link like `https://your-app.streamlit.app`. Add it to your LinkedIn Featured section and the top of this README.
+
+Free apps go to sleep after a few days with no visitors. Whoever opens the link next sees a "wake up" button, and the app restarts in under a minute.
+
+## 🤖 AI version
+
 Example of what a session looks like (illustrative):
 
 ```text
@@ -18,7 +51,7 @@ Assistant: Target the Deal & Festive Shoppers first ...
 
 ---
 
-## 🧠 How it works
+## 🧠 How the AI version works
 
 ```mermaid
 flowchart LR
