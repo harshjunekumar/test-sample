@@ -15,16 +15,16 @@ OUT = "/home/user/test-sample/Juhi_Bhalla_Resume_CategoryManager.pdf"
 name = ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=15.5, textColor=BLACK, leading=18, spaceAfter=2)
 contact = ParagraphStyle("contact", fontName="Helvetica", fontSize=8.9, textColor=BLACK, leading=11.5, spaceAfter=1)
 tagline = ParagraphStyle("tag", fontName="Helvetica", fontSize=8.5, textColor=GREY, leading=11)
-sec = ParagraphStyle("sec", fontName="Helvetica-Bold", fontSize=10.1, textColor=BLACK, leading=11.2, spaceBefore=3.6, spaceAfter=1.6)
-summ = ParagraphStyle("summ", fontName="Helvetica", fontSize=8.65, textColor=BLACK, leading=11.0, alignment=TA_JUSTIFY)
-compln = ParagraphStyle("compln", fontName="Helvetica", fontSize=9.0, textColor=BLACK, leading=11.4, spaceBefore=2.6, spaceAfter=1)
-intro = ParagraphStyle("intro", fontName="Helvetica-Bold", fontSize=8.55, textColor=BLACK, leading=10.8, spaceAfter=1)
-bul = ParagraphStyle("bul", fontName="Helvetica", fontSize=8.55, textColor=BLACK, leading=10.8, leftIndent=10, bulletIndent=1, spaceAfter=1.2)
-edu = ParagraphStyle("edu", fontName="Helvetica", fontSize=8.65, textColor=BLACK, leading=11.8)
-skill = ParagraphStyle("skill", fontName="Helvetica", fontSize=8.55, textColor=BLACK, leading=11.9)
-subl = ParagraphStyle("subl", fontName="Helvetica-Bold", fontSize=8.5, textColor=GREY, leading=10.6, spaceBefore=2.4, spaceAfter=1)
+sec = ParagraphStyle("sec", fontName="Helvetica-Bold", fontSize=10.0, textColor=BLACK, leading=11.0, spaceBefore=3.1, spaceAfter=1.4)
+summ = ParagraphStyle("summ", fontName="Helvetica", fontSize=8.6, textColor=BLACK, leading=10.7, alignment=TA_JUSTIFY)
+compln = ParagraphStyle("compln", fontName="Helvetica", fontSize=9.0, textColor=BLACK, leading=11.1, spaceBefore=2.3, spaceAfter=1)
+intro = ParagraphStyle("intro", fontName="Helvetica-Bold", fontSize=8.5, textColor=BLACK, leading=10.6, spaceAfter=1)
+bul = ParagraphStyle("bul", fontName="Helvetica", fontSize=8.5, textColor=BLACK, leading=10.6, leftIndent=10, bulletIndent=1, spaceAfter=0.9)
+edu = ParagraphStyle("edu", fontName="Helvetica", fontSize=8.6, textColor=BLACK, leading=11.3)
+skill = ParagraphStyle("skill", fontName="Helvetica", fontSize=8.5, textColor=BLACK, leading=11.4)
+subl = ParagraphStyle("subl", fontName="Helvetica-Bold", fontSize=8.5, textColor=GREY, leading=10.4, spaceBefore=2.1, spaceAfter=1)
 
-doc = SimpleDocTemplate(OUT, pagesize=A4, topMargin=10*mm, bottomMargin=8*mm, leftMargin=14*mm,
+doc = SimpleDocTemplate(OUT, pagesize=A4, topMargin=9*mm, bottomMargin=7*mm, leftMargin=14*mm,
                         rightMargin=14*mm, title="Juhi Bhalla - Resume", author="Juhi Bhalla")
 E = []
 def rule(sb=3, sa=2): E.append(HRFlowable(width="100%", thickness=0.7, color=RULE, spaceBefore=sb, spaceAfter=sa))
@@ -36,8 +36,8 @@ E.append(Paragraph("JUHI BHALLA", name))
 E.append(Paragraph(
   "+91 88709 52224 &nbsp;|&nbsp; juhibhalla.jblko@gmail.com &nbsp;|&nbsp; "
   f"<link href='https://www.linkedin.com/in/juhi-bhalla' color='{LINKB}'><u>LinkedIn</u></link> &nbsp;|&nbsp; Bengaluru, India", contact))
-E.append(Paragraph("Category Manager | E-commerce &amp; Retail | Category Strategy, Assortment &amp; Selection | Pricing &amp; Promotions | "
-                   "Demand &amp; Inventory Planning | Vendor / Seller Management | Data Analytics", tagline))
+E.append(Paragraph("Category Manager | E-commerce &amp; Retail | Buylist / Buy-Plan &amp; Annual Operating Plan (AOP) | "
+                   "Category Strategy, Pricing &amp; Promotions | Demand &amp; Inventory Planning | Vendor / Seller Management", tagline))
 rule(sb=4, sa=1)
 
 # ---------- SUMMARY ----------
@@ -45,10 +45,11 @@ sect("PROFESSIONAL SUMMARY")
 E.append(Paragraph(
   "Category management professional with 5+ years growing e-commerce and retail categories at Flipkart and Enverus "
   "(B2B SaaS), pairing category strategy with deep analytics. I own category performance against <b>sales and margin</b> "
-  "targets - planning assortment, pricing and promotions, tracking performance and driving corrections, and analyzing "
-  "market trends and competitor activity to find growth. I develop and execute category strategies, partner with "
-  "sellers / vendors, and coordinate cross-functionally with marketing, sales and supply-chain teams. Data-driven "
-  "planning drove a 55% category revenue uplift during Big Billion Days.", summ))
+  "targets - building the category <b>Buylist / buy-plan and Annual Operating Plan (AOP) through market research analysis</b>, "
+  "planning pricing and promotions, tracking performance and driving corrections, and analyzing market trends and competitor "
+  "activity to find growth. I develop and execute category strategies, partner with sellers / vendors, and coordinate "
+  "cross-functionally with marketing, sales and supply-chain teams. Data-driven planning drove a 55% category revenue uplift "
+  "during Big Billion Days.", summ))
 rule()
 
 # ---------- EXPERIENCE ----------
@@ -60,8 +61,8 @@ E.append(Paragraph("Owned the growth and commercial performance of a large e-com
                    "sellers / vendors and marketing, sales and supply-chain teams.", intro))
 b("Owned category <b>sales and margin levers</b>; through cohort and SKU trend analysis (YoY &amp; MoM), drove <b>product-exchange "
   "bump-ups</b> on high-value SKUs that grew category <b>revenue 19% YoY</b>.")
-b("Set <b>category and assortment strategy</b> and partnered with <b>sellers / vendors</b> on selection and terms (market research "
-  "+ selection analysis); introduced the <b>Windows segment</b>, expanding coverage and lifting <b>Flipkart market-penetration share ~1%</b>.")
+b("Built the category <b>Buylist / buy-plan</b> as part of the <b>Annual Operating Plan (AOP)</b>, using <b>market research analysis</b> "
+  "to define range and partner with <b>sellers / vendors</b> on terms; introduced the <b>Windows segment</b>, lifting <b>Flipkart market-penetration share ~1%</b>.")
 b("Led <b>consumer understanding</b> - cohort analysis, funnel metrics and user personas - and launched <b>targeted loyalty-coupon "
   "campaigns</b> that improved <b>conversion 20%</b> and strengthened repeat purchase.")
 b("Planned <b>promotions and offer spend</b>; analyzed payment and regional consumer behavior to roll out <b>South-specific bank "
@@ -99,10 +100,11 @@ rule(sb=4)
 # ---------- SKILLS ----------
 sect("SKILLS")
 E.append(Paragraph(
-  "Category Management | Category Strategy &amp; Execution | Assortment &amp; Selection Planning | Pricing &amp; Promotions | "
+  "Category Management | Buylist / Buy-Plan | Annual Operating Plan (AOP) | Market Research Analysis | "
+  "Category Strategy &amp; Execution | Assortment &amp; Range Planning | Pricing &amp; Promotions | "
   "Sales &amp; Margin / Category P&amp;L | Vendor / Seller Performance &amp; Negotiation | Demand &amp; Inventory Planning | "
-  "Market &amp; Competitive Intelligence | Consumer Insights | Cohort &amp; Conversion Analysis | Promotional / Deal Analysis | "
-  "Growth Opportunity Identification | Cross-functional (Marketing, Sales, Supply Chain, Product) | Stakeholder Management | "
+  "Market &amp; Competitive Intelligence | Consumer Insights | Cohort &amp; Conversion Analysis | "
+  "Cross-functional (Marketing, Sales, Supply Chain, Product) | Stakeholder Management | "
   "Product Thinking | SQL | Tableau | Power BI | Advanced Excel | Generative AI / LLM Apps", skill))
 rule(sb=4)
 
