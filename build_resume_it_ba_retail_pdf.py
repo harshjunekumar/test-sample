@@ -79,12 +79,8 @@ b("Published quantitative research across <b>3 cycles</b> and built financial / 
   "competitive and price intelligence for leadership decisions.")
 rule(sb=4)
 
-sect("PROJECTS &amp; CERTIFICATIONS")
-E.append(Paragraph("<b>AI Personal Stylist</b> - Conversational Fashion Recommender (Streamlit, Python, Generative AI) &nbsp;|&nbsp; "
-                   f"<link href='{DEMO}' color='{LINKB}'><u>Live Demo</u></link> &nbsp;|&nbsp; <font color='#6b6b6b'>2026 (Work in Progress)</font>", compln))
-b("Defined the problem, user flow and recommendation logic for a retail styling chatbot: <b>4 questions</b> produce a style persona "
-  "and <b>3 complete looks</b> linked to Google Shopping; <b>&ldquo;complete the look&rdquo;</b> designed as a basket-size / AOV lever.")
-E.append(Paragraph("Certifications", subl))
+sect("CERTIFICATIONS")
+
 b("<b>Agile Project Management</b> - Google &nbsp;&bull;&nbsp; <b>Mastering Advanced SQL Queries</b> - Coursera &nbsp;&bull;&nbsp; "
   "<b>From Excel to Power BI</b> - Knowledge Accelerators")
 b("<b>Customer Value, Acquisition, and Retention</b> - University of Maryland &nbsp;&bull;&nbsp; <b>Introduction to Generative AI</b> - "
