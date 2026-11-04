@@ -29,3 +29,9 @@ python3 build.py 5 12     # only pages 5 and 12 (PDFs still include every page)
 
 Each page lives in `pages/pNN_*.py` and is drawn with the small toolkit in `lib.py`
 (every shape is white-filled with a black outline, layered back-to-front).
+
+## Selling on Amazon (KDP)
+
+`kdp/` holds the published edition **Color Me Happy!** by Happy Crayon Press: a 64-page KDP
+interior PDF, a full-wrap color cover PDF and a front-cover image in `kdp/output/`. See
+[`kdp/KDP-LISTING.md`](kdp/KDP-LISTING.md) for the upload steps, description, keywords and categories.
