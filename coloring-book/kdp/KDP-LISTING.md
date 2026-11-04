@@ -29,22 +29,32 @@ The interior has a title page, a copyright page, a "This book belongs to" page a
 ### Description (paste into KDP's description box)
 
 ```
-<b>Grab your crayons, it's time for some happy coloring!</b>
+<b>Turn quiet time into happy time!</b>
 
-<b>Color Me Happy!</b> has 30 cheerful coloring pages of cute animals and fun adventures, drawn with thick, bold lines and big, simple shapes that are easy for young children to color.
+Give your little artist 30 big, cheerful pictures they'll be excited to color. <b>Color Me Happy!</b> is filled with smiling animals, magical friends and exciting adventures. Every picture is drawn with <b>extra-thick lines and big, simple shapes</b>, so young children can color with confidence and feel proud of every page they finish.
+
+<b>Made for little hands:</b>
+<ul>
+<li><b>30 full-page pictures</b>, one per page, each inside a rounded border</li>
+<li><b>Thick, bold outlines and large spaces</b>, easy for small hands to color inside the lines</li>
+<li><b>Simple, uncluttered backgrounds</b>, so kids can focus on their favorite characters</li>
+<li><b>Single-sided pages:</b> every picture has a blank back, so markers won't bleed onto the next picture, and finished pictures can be removed and hung on the fridge</li>
+<li><b>Big 8.5 × 11 inch pages</b>, with lots of room for crayons, colored pencils and markers</li>
+<li>A <b>"This book belongs to"</b> page to make it their very own</li>
+</ul>
 
 <b>What's inside:</b>
 <ul>
-<li><b>30 coloring pages</b>, one picture per page</li>
-<li><b>Single-sided pages:</b> every picture has a blank back, so markers won't bleed onto the next picture</li>
-<li><b>Thick outlines, large spaces and simple backgrounds</b>, made for little hands</li>
-<li><b>Big 8.5 × 11 inch pages</b>, each picture inside a rounded border</li>
-<li>A <b>"This book belongs to"</b> page to personalize</li>
+<li><b>Cute animal friends:</b> a puppy with a ball, a kitten chasing a butterfly, a baby elephant, a friendly lion, a bunny with a carrot, a swinging monkey, a teddy bear picnic, a cow, pig and chick on the farm, a panda, a giraffe, a whale, a penguin family, a baby turtle and a wise little owl</li>
+<li><b>Dinosaurs:</b> a hungry dinosaur munching leaves and a happy dinosaur family with a baby hatching from its egg</li>
+<li><b>Magical make-believe:</b> a unicorn with a rainbow, a dragon blowing hearts, a mermaid under the sea, a fairy in her garden, and a castle with a bunny and a little dragon</li>
+<li><b>Big adventures:</b> a rocket in space, an astronaut on the moon, a train in the mountains, a school bus full of kids, and children flying a kite in the park</li>
+<li><b>Sunny smiles:</b> a smiling sun with cloud friends, a butterfly garden, a house with flowers, and ice cream and cupcakes</li>
 </ul>
 
-<b>The 30 pictures:</b> a puppy with a ball, a kitten chasing a butterfly, a baby elephant spraying water, a lion in the jungle, a dinosaur eating leaves, a bunny with a carrot, a monkey swinging from a tree, a teddy bear picnic, a unicorn with a rainbow, a dragon blowing hearts, farm animals (cow, pig and chick), a rocket in space, a smiling sun with cloud friends, a mermaid under the sea, a train in the mountains, a panda eating bamboo, a giraffe eating leaves, an astronaut on the moon, a whale in the ocean, a penguin family, a butterfly garden, a dinosaur family, a house with flowers, ice cream and cupcakes, a school bus, a fairy in a garden, a baby turtle at the beach, an owl on a branch, children flying a kite in the park, and a castle with a bunny and a little dragon.
+Made for <b>kids ages 3 to 8</b>. A fun way to practice coloring, an easy screen-free activity for home, travel or quiet time, and a sweet gift for birthdays, holidays and Easter baskets.
 
-Made for <b>kids ages 3 to 8</b>. Works with crayons, colored pencils and markers. A fun way to practice coloring, a great gift for birthdays and holidays, and an easy quiet-time or travel activity.
+<b>Add Color Me Happy! to your cart and let the coloring fun begin!</b>
 ```
 
 ### 7 keyword boxes (one per box)
