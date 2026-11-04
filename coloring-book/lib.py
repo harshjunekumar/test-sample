@@ -232,3 +232,167 @@ def page(items, framed=True):
     body = clip_to_frame(items) + "\n" + frame() if framed else "\n".join(items)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="8.5in" height="11in">\n'
             f'<rect x="0" y="0" width="{W}" height="{H}" fill="{WHITE}"/>\n{body}\n</svg>\n')
+
+
+# ---------------------------------------------------------------- helpers added for pages 02-11
+def tube(d, w, sw=SW):
+    """Outlined thick tube along an open path (arms, tails, trunks, branches)."""
+    a = 'fill="none" stroke-linecap="round" stroke-linejoin="round"'
+    return (f'<path d="{d}" {a} stroke="{BLACK}" stroke-width="{_fmt(w + 2 * sw)}"/>\n'
+            f'<path d="{d}" {a} stroke="{WHITE}" stroke-width="{_fmt(w)}"/>')
+
+
+def drop(cx, cy, s=20, rot=0, sw=SW2):
+    """Water drop / teardrop, point up."""
+    d = (f"M0 {-s} C{s * 0.55} {-s * 0.2} {s * 0.7} {s * 0.3} 0 {s * 0.65} "
+         f"C{-s * 0.7} {s * 0.3} {-s * 0.55} {-s * 0.2} 0 {-s} Z")
+    return place([path(d, sw=sw)], cx, cy, rot=rot)
+
+
+def butterfly(cx, cy, s=1.0, rot=0):
+    """Cute butterfly centred on its body, about 220 x 180 units at s=1."""
+    half = [
+        path("M0 -8 C-30 -95 -125 -100 -110 -25 C-102 12 -45 10 0 0 Z"),
+        path("M0 2 C-45 10 -95 35 -75 75 C-58 102 -15 70 0 12 Z"),
+        circle(-62, -40, 17, sw=SW2), circle(-48, 45, 11, sw=SW2),
+    ]
+    return place([
+        place(half), place(half, flip=True),
+        line("M-3 -48 Q-12 -82 -32 -92 M3 -48 Q12 -82 32 -92", SW2),
+        circle(-34, -93, 7, sw=SW2), circle(34, -93, 7, sw=SW2),
+        ellipse(0, 10, 11, 45), circle(0, -45, 15),
+    ], cx, cy, s, rot)
+
+
+def scallop(cx, cy, r, n=14, bump=0.32, sw=SW):
+    """Scalloped round shape (lion mane, fluffy edges) as one clean outline."""
+    pts = [(cx + r * math.cos(2 * math.pi * i / n), cy + r * math.sin(2 * math.pi * i / n)) for i in range(n)]
+    chord = 2 * r * math.sin(math.pi / n)
+    rb = chord / 2 * 1.08
+    d = f"M{pts[0][0]:.1f} {pts[0][1]:.1f}"
+    for i in range(1, n + 1):
+        x, y = pts[i % n]
+        d += f" A{rb:.1f} {rb:.1f} 0 0 1 {x:.1f} {y:.1f}"
+    return path(d + " Z", sw=sw)
+
+
+def big_leaf(x, y, size=150, angle=0, sw=SW):
+    """Large jungle leaf with central vein + side veins, base at (x,y)."""
+    s = size
+    d = f"M0 0 C{s * 0.25} {-s * 0.42} {s * 0.75} {-s * 0.42} {s} 0 C{s * 0.75} {s * 0.42} {s * 0.25} {s * 0.42} 0 0 Z"
+    veins = f"M{s * 0.08} 0 L{s * 0.85} 0"
+    for t in (0.3, 0.5, 0.7):
+        veins += f" M{s * t} 0 L{s * (t + 0.12)} {-s * 0.17} M{s * t} 0 L{s * (t + 0.12)} {s * 0.17}"
+    return place([path(d, sw=sw), line(veins, SW2 * 0.8)], x, y, rot=angle)
+
+
+# ---------------------------------------------------------------- helpers added for pages 12-21
+def ringed_planet(cx, cy, r=80, rot=-15):
+    """Planet with a ring that passes behind and in front of it."""
+    ro, ri = r * 1.75, r * 1.35
+    hro, hri = r * 0.45, r * 0.3
+    front_fill = (f"M{-ro} 0 A{ro} {hro} 0 0 0 {ro} 0 L{ri} 0 A{ri} {hri} 0 0 1 {-ri} 0 Z")
+    return place([
+        ellipse(0, 0, ro, hro), ellipse(0, 0, ri, hri),
+        circle(0, 0, r),
+        line(f"M{-r * 0.8} {-r * 0.45} Q0 {-r * 0.6} {r * 0.8} {-r * 0.45}", SW2),
+        path(front_fill, sw=0),
+        line(f"M{-ro} 0 A{ro} {hro} 0 0 0 {ro} 0", SW),
+        line(f"M{-ri} 0 A{ri} {hri} 0 0 0 {ri} 0", SW),
+    ], cx, cy, rot=rot)
+
+
+def fish_char(cx, cy, s=1.0, flip=False):
+    """Cute round fish facing left (flip=True faces right)."""
+    return place([
+        path("M38 0 L82 -34 Q70 0 82 34 Z"),
+        path("M-5 -30 Q10 -58 35 -40 L20 -25 Z", sw=SW2),
+        ellipse(0, 0, 52, 36),
+        line("M10 -22 Q22 0 10 22", SW2),
+        eye(-24, -6, 8), smile(-36, 12, 8, sw=SW2 * 0.8),
+    ], cx, cy, s, flip=flip)
+
+
+def blob_shape(cx, cy, rx, ry, n=7, wobble=0.18, seed=1, sw=SW2, fill=WHITE):
+    """Irregular rounded blob (giraffe spots, continents, rocks)."""
+    import random
+    rnd = random.Random(seed)
+    pts = []
+    for i in range(n):
+        a = 2 * math.pi * i / n
+        k = 1 + rnd.uniform(-wobble, wobble)
+        pts.append((cx + rx * k * math.cos(a), cy + ry * k * math.sin(a)))
+    d = ""
+    for i in range(n):
+        p0, p1, p2, p3 = pts[i - 1], pts[i], pts[(i + 1) % n], pts[(i + 2) % n]
+        c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
+        c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
+        if i == 0:
+            d += f"M{p1[0]:.1f} {p1[1]:.1f} "
+        d += f"C{c1[0]:.1f} {c1[1]:.1f} {c2[0]:.1f} {c2[1]:.1f} {p2[0]:.1f} {p2[1]:.1f} "
+    return path(d + "Z", fill=fill, sw=sw)
+
+
+def water_drop(cx, cy, s=20, sw=SW2, rot=0):
+    d = f"M0 {-s} C{s * 0.3} {-s * 0.4} {s * 0.7} 0 {s * 0.7} {s * 0.35} A{s * 0.7} {s * 0.7} 0 0 1 {-s * 0.7} {s * 0.35} C{-s * 0.7} 0 {-s * 0.3} {-s * 0.4} 0 {-s} Z"
+    return place([path(d, sw=sw)], cx, cy, rot=rot)
+
+
+def bubble_ring(cx, cy, r=14):
+    return "\n".join([circle(cx, cy, r, sw=SW2),
+                      line(f"M{cx - r * 0.55} {cy - r * 0.1} Q{cx - r * 0.5} {cy - r * 0.5} {cx - r * 0.1} {cy - r * 0.55}", SW2 * 0.7)])
+
+
+def bfly(cx, cy, s=1.0, rot=0, face=True):
+    """Cute butterfly: 4 wings with spots, round body, smiling head, curly antennae."""
+    items = [
+        line("M-8 -78 Q-20 -115 -38 -122", SW2), line("M8 -78 Q20 -115 38 -122", SW2),
+        circle(-40, -124, 7, sw=SW2), circle(40, -124, 7, sw=SW2),
+        path("M-6 -30 C-40 -110 -150 -120 -140 -40 C-135 0 -60 10 -6 0 Z"),
+        path("M6 -30 C40 -110 150 -120 140 -40 C135 0 60 10 6 0 Z"),
+        path("M-6 0 C-60 5 -120 40 -95 85 C-70 120 -20 80 -6 30 Z"),
+        path("M6 0 C60 5 120 40 95 85 C70 120 20 80 6 30 Z"),
+        ellipse(-78, -50, 28, 22, sw=SW2), ellipse(78, -50, 28, 22, sw=SW2),
+        circle(-62, 52, 15, sw=SW2), circle(62, 52, 15, sw=SW2),
+        ellipse(0, 10, 16, 62),
+        circle(0, -62, 26),
+    ]
+    if face:
+        items += [eye(-9, -65, 5), eye(9, -65, 5), smile(0, -52, 7, sw=SW2 * 0.7)]
+    return place(items, cx, cy, s, rot=rot)
+
+
+def tulip(x, ground_y, h=120, r=34):
+    head = (f"M{x - r} {ground_y - h} C{x - r} {ground_y - h - r * 1.6} {x - r * 0.5} {ground_y - h - r * 1.2} "
+            f"{x - r * 0.45} {ground_y - h - r * 1.7} L{x} {ground_y - h - r * 1.1} L{x + r * 0.45} {ground_y - h - r * 1.7} "
+            f"C{x + r * 0.5} {ground_y - h - r * 1.2} {x + r} {ground_y - h - r * 1.6} {x + r} {ground_y - h} "
+            f"C{x + r} {ground_y - h + r * 0.9} {x - r} {ground_y - h + r * 0.9} {x - r} {ground_y - h} Z")
+    return "\n".join([
+        line(f"M{x} {ground_y} L{x} {ground_y - h}", SW),
+        place([path("M0 0 C30 -20 50 -50 48 -80 C20 -60 5 -30 0 0 Z", sw=SW2)], x, ground_y - 10),
+        path(head),
+    ])
+
+
+def puff_cluster(circles, sw=SW):
+    """Union of overlapping circles drawn as ONE outline (tree crowns, bushes, smoke, fluffy clouds).
+    circles: list of (cx, cy, r)."""
+    out = [circle(cx, cy, r, sw=sw) for cx, cy, r in circles]
+    out += [circle(cx, cy, r - sw / 2 + 0.3, sw=0) for cx, cy, r in circles]
+    return "\n".join(out)
+
+
+def heart2(cx, cy, s=30, sw=SW, rot=0):
+    """Classic smooth heart, about 2s wide, centred on (cx, cy)."""
+    d = (f"M0 {0.5 * s} C{-0.95 * s} {-0.05 * s} {-0.65 * s} {-0.95 * s} 0 {-0.45 * s} "
+         f"C{0.65 * s} {-0.95 * s} {0.95 * s} {-0.05 * s} 0 {0.5 * s} Z")
+    return place([path(d, sw=sw)], cx, cy, rot=rot)
+
+
+def rainbow_bands(cx, cy, radii):
+    """Rainbow made of separate arched bands (ends sit on cy; hide them behind clouds)."""
+    out = []
+    for r1, r2 in zip(radii, radii[1:]):
+        out.append(path(f"M{cx - r1} {cy} A{r1} {r1} 0 0 1 {cx + r1} {cy} L{cx + r2} {cy} "
+                        f"A{r2} {r2} 0 0 0 {cx - r2} {cy} Z"))
+    return out
