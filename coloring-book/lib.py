@@ -115,11 +115,10 @@ def nose(cx, cy, r=8):
 
 # ---------------------------------------------------------------- props / scenery
 def heart(cx, cy, s=30, sw=SW, rot=0):
-    d = (f"M0 {0.35 * s} C{-0.1 * s} {0.25 * s} {-1.0 * s} {-0.25 * s} {-0.55 * s} {-0.7 * s} "
-         f"C{-0.25 * s} {-1.0 * s} 0 {-0.75 * s} 0 {-0.5 * s} "
-         f"C0 {-0.75 * s} {0.25 * s} {-1.0 * s} {0.55 * s} {-0.7 * s} "
-         f"C{1.0 * s} {-0.25 * s} {0.1 * s} {0.25 * s} 0 {0.35 * s} Z")
-    return place([path(d, sw=sw)], cx, cy + 0.15 * s, rot=rot)
+    """Smooth classic heart, about 2s wide, centred on (cx, cy)."""
+    d = (f"M0 {0.5 * s} C{-0.95 * s} {-0.05 * s} {-0.65 * s} {-0.95 * s} 0 {-0.45 * s} "
+         f"C{0.65 * s} {-0.95 * s} {0.95 * s} {-0.05 * s} 0 {0.5 * s} Z")
+    return place([path(d, sw=sw)], cx, cy, rot=rot)
 
 
 def star(cx, cy, r=30, points=5, inner=0.5, rot=0, sw=SW):

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 1100" width="8.5in" height="11in">
+<rect x="0" y="0" width="850" height="1100" fill="#FFFFFF"/>
+<clipPath id="frameclip"><rect x="70" y="75" width="710" height="950" rx="36"/></clipPath>
+<g clip-path="url(#frameclip)">
+<g transform="translate(10 -10) scale(0.95)">
+<path d="M175 150 A80 80 0 1 0 245 290 A62 62 0 1 1 175 150 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<path d="M705 126 L714.99 146.25 L737.34 149.49 L721.17 165.25 L724.98 187.51 L705 177 L685.02 187.51 L688.83 165.25 L672.66 149.49 L695.01 146.25 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M719.99 336.52 L723.92 351.97 L738.87 357.49 L725.39 366 L724.76 381.93 L712.51 371.74 L697.16 376.06 L703.07 361.25 L694.22 348 L710.12 349.04 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M330 130 L335.88 141.91 L349.02 143.82 L339.51 153.09 L341.76 166.18 L330 160 L318.24 166.18 L320.49 153.09 L310.98 143.82 L324.12 141.91 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M125 446 L132.05 460.29 L147.83 462.58 L136.41 473.71 L139.11 489.42 L125 482 L110.89 489.42 L113.59 473.71 L102.17 462.58 L117.95 460.29 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<g transform="translate(0 130)">
+<path d="M60 760 Q300 730 560 765 Q640 775 700 745 L712 772 Q650 805 560 800 Q300 790 60 815 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M560 780 Q620 820 680 830 L676 852 Q610 845 545 800 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<g transform="translate(690 760) rotate(-20) scale(1.2)">
+<path d="M0 0 Q30 -30 60 0 Q30 30 0 0 Z" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="translate(680 840) rotate(15) scale(1.2)">
+<path d="M0 0 Q30 -30 60 0 Q30 30 0 0 Z" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="translate(130 795) rotate(120) scale(1.3)">
+<path d="M0 0 Q30 -30 60 0 Q30 30 0 0 Z" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="translate(230 790) rotate(70) scale(1.3)">
+<path d="M0 0 Q30 -30 60 0 Q30 30 0 0 Z" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<g transform="translate(425 908) scale(1.27)">
+<path d="M-140 -390 L-150 -480 L-70 -420 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M140 -390 L150 -480 L70 -420 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="0" cy="-230" rx="170" ry="215" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-160 -270 Q-230 -170 -170 -50 Q-120 -90 -125 -200 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M160 -270 Q230 -170 170 -50 Q120 -90 125 -200 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="0" cy="-130" rx="100" ry="110" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-59 -175 Q-45 -159 -31 -175" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-14 -175 Q0 -159 14 -175" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M31 -175 Q45 -159 59 -175" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-79 -125 Q-65 -109 -51 -125" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-36 -125 Q-22 -109 -8 -125" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M8 -125 Q22 -109 36 -125" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M51 -125 Q65 -109 79 -125" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-59 -75 Q-45 -59 -31 -75" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-14 -75 Q0 -59 14 -75" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M31 -75 Q45 -59 59 -75" fill="none" stroke="#000000" stroke-width="4.95" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M0 -390 Q-60 -420 -110 -380 Q-160 -330 -125 -265 Q-90 -220 0 -245 Q90 -220 125 -265 Q160 -330 110 -380 Q60 -420 0 -390 Z" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="-62" cy="-322" r="52" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="62" cy="-322" r="52" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="-58" cy="-318" rx="26" ry="29.9" fill="#000000" stroke="none"/>
+<circle cx="-66.32" cy="-327.88" r="9.36" fill="#FFFFFF" stroke="none"/>
+<ellipse cx="58" cy="-318" rx="26" ry="29.9" fill="#000000" stroke="none"/>
+<circle cx="49.68" cy="-327.88" r="9.36" fill="#FFFFFF" stroke="none"/>
+<path d="M-20 -278 L20 -278 L0 -240 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="-100" cy="-262" rx="14" ry="9.1" fill="#FFFFFF" stroke="#000000" stroke-width="4.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="100" cy="-262" rx="14" ry="9.1" fill="#FFFFFF" stroke="#000000" stroke-width="4.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-70 -15 Q-75 12 -50 12 Q-40 20 -30 12 Q-10 14 -15 -15 Z" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M70 -15 Q75 12 50 12 Q40 20 30 12 Q10 14 15 -15 Z" fill="#FFFFFF" stroke="#000000" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<rect x="70" y="75" width="710" height="950" rx="36" fill="none" stroke="#000000" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
