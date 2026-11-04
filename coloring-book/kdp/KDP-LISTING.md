@@ -29,25 +29,22 @@ The interior has a title page, a copyright page, a "This book belongs to" page a
 ### Description (paste into KDP's description box)
 
 ```
-<b>Grab your crayons — a world of happy adventures is waiting!</b>
+<b>Grab your crayons, it's time for some happy coloring!</b>
 
-Puppies and kittens, dinosaurs and dragons, rockets, mermaids, unicorns and castles: <b>Color Me Happy!</b> is packed with 30 cheerful pictures made just for little hands.
+<b>Color Me Happy!</b> has 30 cheerful coloring pages of cute animals and fun adventures, drawn with thick, bold lines and big, simple shapes that are easy for young children to color.
 
-<b>Why kids (and grown-ups) love it:</b>
+<b>What's inside:</b>
 <ul>
-<li><b>30 original coloring pages</b> of cute animals and fun adventures</li>
-<li><b>Thick, bold lines and big, simple shapes</b>, easy for small hands to color inside the lines</li>
-<li><b>Friendly, smiling characters</b> with minimal backgrounds, never overwhelming</li>
-<li><b>One picture per page with a blank back</b>, so markers won't bleed onto the next picture</li>
-<li><b>Large 8.5 × 11 inch pages</b>, ideal for crayons, colored pencils and markers</li>
-<li>Includes a <b>"This book belongs to"</b> page</li>
+<li><b>30 coloring pages</b>, one picture per page</li>
+<li><b>Single-sided pages:</b> every picture has a blank back, so markers won't bleed onto the next picture</li>
+<li><b>Thick outlines, large spaces and simple backgrounds</b>, made for little hands</li>
+<li><b>Big 8.5 × 11 inch pages</b>, each picture inside a rounded border</li>
+<li>A <b>"This book belongs to"</b> page to personalize</li>
 </ul>
 
-Inside you'll find a playful puppy, a baby elephant, a friendly lion, a dinosaur family, a little astronaut on the moon, a happy school bus, a fairy garden, ice cream and cupcakes, a magical castle and many more!
+<b>The 30 pictures:</b> a puppy with a ball, a kitten chasing a butterfly, a baby elephant spraying water, a lion in the jungle, a dinosaur eating leaves, a bunny with a carrot, a monkey swinging from a tree, a teddy bear picnic, a unicorn with a rainbow, a dragon blowing hearts, farm animals (cow, pig and chick), a rocket in space, a smiling sun with cloud friends, a mermaid under the sea, a train in the mountains, a panda eating bamboo, a giraffe eating leaves, an astronaut on the moon, a whale in the ocean, a penguin family, a butterfly garden, a dinosaur family, a house with flowers, ice cream and cupcakes, a school bus, a fairy in a garden, a baby turtle at the beach, an owl on a branch, children flying a kite in the park, and a castle with a bunny and a little dragon.
 
-Perfect for <b>toddlers, preschoolers and kids ages 3 to 8</b>. A great gift for birthdays, holidays, road trips, quiet time and classroom fun. Builds creativity, color recognition and fine motor skills.
-
-<b>Scroll up and click "Buy Now" to start the coloring fun today!</b>
+Made for <b>kids ages 3 to 8</b>. Works with crayons, colored pencils and markers. A fun way to practice coloring, a great gift for birthdays and holidays, and an easy quiet-time or travel activity.
 ```
 
 ### 7 keyword boxes (one per box)
