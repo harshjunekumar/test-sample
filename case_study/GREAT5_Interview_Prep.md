@@ -6,11 +6,11 @@ Interviewers ask for *real examples* of each – this case gives you five ready-
 
 | Principle | What PepsiCo means | Evidence in this case | Where |
 |---|---|---|---|
-| **Growth** | Curious, learns from new situations | Turned EDA patterns into 4 testable hypotheses; openly lists data limits and what I'd learn next (panel data, price elasticity) | EDA 3 (slide 6), Appendix (14) |
-| **Relationships** | Builds trust across boundaries | Acadia plan co-built with the retailer's category & digital teams; every action has an owner across Brand, E-com, RGM, Customer team | Slides 12–13 |
-| **Execution** | Energy; simplifies complexity; quality results | 1m rows → 3 messages; every action has £, lever, KPI, owner, timing; workbook fully traceable (formulas) | Slides 2, 13; workbook |
-| **Agility** | Adapts to change, manages ambiguity | Messy, sanitised data → six documented decisions; no buyer counts → stated proxies (CSN basket penetration, share) | EDA 1 (slide 4), slide 3 |
-| **Thinking** | External insight, long-term holistic view | Caught a misleading −10% naive comparison (seasonality); shopper/basket view, not just sales; long-term adjacency option (Crackers) | EDA 2 (slide 5), slides 7–8, 10 |
+| **Growth** | Curious, learns from new situations | Turned EDA patterns into 4 testable hypotheses; openly lists data limits and what I'd learn next (panel data, price elasticity) | Slides 5 and 11 (next steps) |
+| **Relationships** | Builds trust across boundaries | Acadia plan co-built with the retailer's category & digital teams; every action has an owner across Brand, E-com, RGM, Customer team | Slides 10–11 |
+| **Execution** | Energy; simplifies complexity; quality results | 1m rows → 3 messages; every action has £, lever, KPI, owner, timing; workbook fully traceable (formulas) | Slides 2, 7, 11; workbook |
+| **Agility** | Adapts to change, manages ambiguity | Messy, sanitised data → six documented decisions; no buyer counts → stated proxies (CSN basket penetration, share) | Slides 2–3 |
+| **Thinking** | External insight, long-term holistic view | Caught a misleading −10% naive comparison (seasonality); shopper/basket view, not just sales; long-term adjacency option (Crackers) | Slides 2, 4, 8 |
 
 ## STAR stories to rehearse
 
