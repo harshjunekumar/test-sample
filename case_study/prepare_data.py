@@ -7,7 +7,7 @@ Steps
 1. Keep weeks 1-47 of both years (like-for-like: 2025 has data only to week 47).
 2. Period: 2025 -> TY, 2024 -> YA.
 3. Channel: E-COMMERCE + PURE PLAY = Online; LARGE + SMALL FORMAT = In-store
-   ('UNALLOCATED', ~GBP 35, is dropped).
+   ('UNALLOCATED', ~GBP 5.5k over two years, is dropped).
 4. Sum value and units by Period x Customer x Store format x Channel x Supplier x Brand
    x Segment x Sub segment x Pack format x Sub pack format (1.01m rows -> ~8.5k rows).
 
