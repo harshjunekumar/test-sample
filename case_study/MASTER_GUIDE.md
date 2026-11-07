@@ -29,6 +29,7 @@ Savoury      Crisps      Potato Crisps      CoastalVale     "Salt & Vinegar 6-pa
 I analysed at **sub-segment** level (e.g. Potato Crisps, Nuts & Seeds, Crackers) because the segment names in the data are messy.
 
 **Pack formats (how the product is sold):**
+
 | Pack | What it is | Typical occasion |
 |---|---|---|
 | Single / Grab / Standard | One small bag | Impulse, lunch, on-the-go |
@@ -38,6 +39,7 @@ I analysed at **sub-segment** level (e.g. Potato Crisps, Nuts & Seeds, Crackers)
 **Retailers (customers):** the shops PepsiCo sells through – Escora Retail, Saintbury Stores, Morees Markets, Asdaria Supermarkets, Acadia Grocers.
 
 **Store formats / channels:**
+
 | Format in data | Meaning | My channel |
 |---|---|---|
 | LARGE FORMAT | Big supermarket | In-store |
@@ -87,6 +89,7 @@ Every recommendation grows either **penetration** (more people buy) or **AWOP** 
 **Who you are:** channel analyst, PepsiCo UK e-commerce.
 
 **What they want:**
+
 1. **Top focus categories/brands** for all retailers → *where to play* (Q1)
 2. **Pack & sub-segment gaps vs competitors** → *whitespace* (Q2)
 3. **Basket differences by channel** → *how online is different* (Q3)
@@ -118,6 +121,7 @@ Every recommendation grows either **penetration** (more people buy) or **AWOP** 
 The file came as `.xlsb` (binary Excel). Saved as `.xlsx` (Excel: *File → Save As → Excel Workbook*). Checked row counts and totals matched.
 
 ### Step 2 – Check the data quality (EDA)
+
 | Check | Found | Did |
 |---|---|---|
 | Missing values | Flavour 7,385; Number of packs 3,186 | Kept – not needed |
@@ -131,6 +135,7 @@ The file came as `.xlsb` (binary Excel). Saved as `.xlsx` (Excel: *File → Save
 
 ### Step 3 – Choose the comparison period (key decision)
 2025 data stops at **week 47**. Weeks 48–52 are Christmas (week 51 ≈ £33m vs ~£23m normal).
+
 - Wrong: 2025 (47 weeks) vs 2024 (52 weeks) = **−10.3%** (fake decline)
 - Right: **2025 wk 1–47 (TY) vs 2024 wk 1–47 (YA) = +1.2%**
 
@@ -150,6 +155,7 @@ Example – PepsiCo sales in Potato Crisps this year:
 Then: Growth `=TY/YA-1` · Share `=PepsiCo/Market` · Share change `=(ShareTY-ShareYA)*100` · Contribution `=(TY-YA)/(TotalTY-TotalYA)`.
 
 ### Step 7 – The analyses (what each tab answers)
+
 | Workbook tab | Question | Headline result |
 |---|---|---|
 | 1_Market | How is the market and PepsiCo doing, by channel and retailer? | Market +1.2%; online +5.8% = 82% of growth; PepsiCo −0.9 pts |
@@ -164,6 +170,7 @@ Then: Growth `=TY/YA-1` · Share `=PepsiCo/Market` · Share change `=(ShareTY-Sh
 
 ### Step 8 – Size the gaps (worked example)
 Potato Crisps Sharing: market £162.9m; PepsiCo share 20.1%; PepsiCo's share of all Potato Crisps 46.4%.
+
 - Fair share index = 20.1 ÷ 46.4 × 100 = **43** (< 80 → gap)
 - Headroom = (46.4% − 20.1%) × £162.9m = 26.3% × £162.9m = **£42.9m**
 - Say: *"This is headroom if PepsiCo performed in sharing as it does in crisps overall – not a forecast."*
@@ -225,6 +232,7 @@ Example: Potato Crisps Sharing = 0.5×5 + 0.3×3 + 0.2×5 = **4.4 → High**.
 ## Part 8 – Interview questions with model answers
 
 **About the method**
+
 1. *Why weeks 1–47?* – 2025 ends at week 47; including Christmas weeks only in 2024 shows a fake −10% decline. Like-for-like gives +1.2%.
 2. *How did you measure penetration without buyer data?* – I couldn't directly. I used value share and growth as proxies, plus CSN basket penetration and demographics. I'd validate with a shopper panel (e.g. Kantar).
 3. *What's AWOP?* – Average spend per buyer over a period = frequency × spend per trip.
@@ -234,6 +242,7 @@ Example: Potato Crisps Sharing = 0.5×5 + 0.3×3 + 0.2×5 = **4.4 → High**.
 7. *Why fair share vs PepsiCo's own sub-segment share?* – It compares PepsiCo to itself, so it isolates *pack* gaps, not categories PepsiCo doesn't play in.
 
 **About the findings**
+
 8. *Biggest single insight?* – PepsiCo is under-represented where growth is: sharing packs, nuts, adjacencies and the fastest-growing online retailer.
 9. *Why is PepsiCo weak in sharing?* – Two hypotheses: range (fewer sharing SKUs) and price (18% premium). Next step: test price-pack architecture.
 10. *Why online for AWOP?* – Online is the planned weekly shop: bigger baskets (62% > £60), families, and nuts/snacks in 49% of baskets with 1.5x spend.
@@ -241,6 +250,7 @@ Example: Potato Crisps Sharing = 0.5×5 + 0.3×3 + 0.2×5 = **4.4 → High**.
 12. *Why not recommend entering Crackers first?* – PepsiCo has no brand there; high cost and risk. Start where existing brands can win quickly; build the crackers case in parallel.
 
 **Challenges (stay calm, agree then add)**
+
 13. *"Isn't the data sanitised – can we trust it?"* – Yes, so I focus on relative gaps and direction, which are robust.
 14. *"Your scores are subjective."* – They are judgement inputs; the workbook lets you change weights and see the ranking update.
 15. *"Couldn't the cross-buy just be coincidence?"* – Possibly; without a base rate I can't compute affinity. A pilot with a control group answers that.
@@ -251,6 +261,7 @@ Example: Potato Crisps Sharing = 0.5×5 + 0.3×3 + 0.2×5 = **4.4 → High**.
 ---
 
 ## Part 9 – GREAT5 in one line each
+
 - **Growth** – turned data patterns into hypotheses; clear on limits and next learning.
 - **Relationships** – Acadia plan built *with* the retailer; owners across teams.
 - **Execution** – 1m rows → 11 slides; every action has £, owner, KPI, timing.
@@ -278,6 +289,7 @@ Example: Potato Crisps Sharing = 0.5×5 + 0.3×3 + 0.2×5 = **4.4 → High**.
 ---
 
 ## Part 11 – Final rehearsal checklist
+
 - [ ] Name and date on slide 1
 - [ ] Can explain penetration, AWOP, share pts, index, fair share in one sentence each
 - [ ] Can show any slide's number in the workbook (source tab is on every slide)
